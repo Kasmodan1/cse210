@@ -35,5 +35,17 @@ class Program
             grade = "F";
         }
 
+        Console.WriteLine($"Your grade for the class is: {grade}");
+
+        if (gpercent >= 70)
+        {
+            Console.WriteLine("Congradulations you passed the class");
+        }
+        else 
+        {
+            Console.WriteLine("I'm sorry you failed. Please try again soon.");
+        }
+
+
     }
 }
