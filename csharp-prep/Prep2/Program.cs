@@ -45,7 +45,5 @@ class Program
         {
             Console.WriteLine("I'm sorry you failed. Please try again soon.");
         }
-
-
     }
 }
