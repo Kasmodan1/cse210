@@ -8,27 +8,29 @@ class Program
         string response = Console.ReadLine();
         int gpercent = int.Parse(response);
 
+       string grade = "";
+
         if (gpercent >= 90)
         {
             grade = "A";
         }
 
-        else if (gpercent >= 80);
+        else if (gpercent >= 80)
         {
             grade = "B";
         }
         
-        else if (gpercent >= 70);
+        else if (gpercent >= 70)
         {
             grade = "C";
         }
 
-        else if (gpercent >= 60);
+        else if (gpercent >= 60)
         {
             grade = "D";
         }
 
-        else if (gpercent < 60);
+        else if (gpercent < 60)
         {
             grade = "F";
         }
