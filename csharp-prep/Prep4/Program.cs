@@ -25,9 +25,15 @@ class Program
             Console.WriteLine(n);
         }
         
-        int sum = numbersList.Sum();
-        Console.WriteLine($"Sum :" [sum]);
-            
-            
+        if (numbersList.Count > 0)
+        {
+            int sum = numbersList.Sum();
+            Console.WriteLine($"Sum : {sum}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers entered");
+        }
+
     }
 }
