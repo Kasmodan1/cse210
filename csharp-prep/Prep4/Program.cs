@@ -25,5 +25,9 @@ class Program
             Console.WriteLine(n);
         }
         
+        int sum = numbersList.Sum();
+        Console.WriteLine($"Sum :" [sum]);
+            
+            
     }
 }
