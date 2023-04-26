@@ -20,15 +20,20 @@ class Program
             }
         } while (number != 0);
 
-        foreach (int n in numbersList) 
-        {
-            Console.WriteLine(n);
-        }
+        //foreach (int n in numbersList) 
+        //{
+        //    Console.WriteLine(n);
+        //}
         
+        int sum=0;
+        double average =0;
+
         if (numbersList.Count > 0)
         {
-            int sum = numbersList.Sum();
+            sum = numbersList.Sum();
+            average = numbersList.Average();
             Console.WriteLine($"Sum : {sum}");
+            Console.WriteLine($"Average : {average}");
         }
         else
         {
