@@ -27,13 +27,16 @@ class Program
         
         int sum=0;
         double average =0;
+        int max =0;
 
         if (numbersList.Count > 0)
         {
             sum = numbersList.Sum();
             average = numbersList.Average();
+            max= numbersList.Max();
             Console.WriteLine($"The sum is : {sum}");
             Console.WriteLine($"The average is : {average}");
+            Console.WriteLine($"The largest number is : {max}");
         }
         else
         {
