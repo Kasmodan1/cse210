@@ -32,13 +32,12 @@ class Program
         {
             sum = numbersList.Sum();
             average = numbersList.Average();
-            Console.WriteLine($"Sum : {sum}");
-            Console.WriteLine($"Average : {average}");
+            Console.WriteLine($"The sum is : {sum}");
+            Console.WriteLine($"The average is : {average}");
         }
         else
         {
             Console.WriteLine("No numbers entered");
         }
-
     }
 }
