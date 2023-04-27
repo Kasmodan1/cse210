@@ -4,15 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        DisplayWelcome(); //Calling display function to go first
+        DisplayWelcome(); //Calling display function to go first.
 
-        string name = PromptUserName();
+        string name = PromptUserName(); //Should ask for name.
 
-        int number = PromptUserNumber();
+        int number = PromptUserNumber(); // should ask for a number.
 
-        int square = SquareNumber(number);
+        int square = SquareNumber(number); //should square the number.
 
-        DisplayResults(name, square);
+        DisplayResults(name, square);  // displays name and the sq result.
 
     }
     static void DisplayWelcome()
