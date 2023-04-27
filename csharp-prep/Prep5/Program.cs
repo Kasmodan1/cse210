@@ -25,7 +25,6 @@ class Program
         int number = int.Parse(Console.ReadLine());
 
         return number;
-
     }
 
     static int SquareNumber(int number)
@@ -37,7 +36,7 @@ class Program
 
     static void DisplayResults(string name, int square)
     {
-        Console.WriteLine($"{name], the square of your number is {square}");
+        Console.WriteLine($"{name}, the square of your number is {square}");
     }
 
 }
