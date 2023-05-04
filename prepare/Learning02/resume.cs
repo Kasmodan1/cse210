@@ -14,9 +14,9 @@ using System;
 
     public void Display()
     {
-      Console.Write($"Name:{_name} {_jobs}");
+      Console.Write($"Name:{_name}");
 
-      Console.Write($"Name:Jobs");
+      Console.Write($"Jobs:");
       
       foreach (Job item in _jobs)
       {
