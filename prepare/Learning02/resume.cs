@@ -14,9 +14,14 @@ using System;
 
     public void Display()
     {
-      Console.Write($"");
-    }
-    
+      Console.Write($"Name:{_name} {_jobs}");
 
+      Console.Write($"Name:Jobs");
+      
+      foreach (Job item in _jobs)
+      {
+        item.Display();
+      }
+    }
   }
 
