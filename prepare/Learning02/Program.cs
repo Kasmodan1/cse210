@@ -10,10 +10,11 @@ class Program
         job1._startYear = 2010;
         job1._endYear = 2014;
         
-        job2._jobTitle = "";
-        job2._company = "";
-        job2._startYear = "";
-        job2._endYear = "";
+        Job job2 = new Job();
+        job2._jobTitle = "Network Tech II";
+        job2._company = "TRSD";
+        job2._startYear = 2016;
+        job2._endYear = 2023;
     
     }
 }
