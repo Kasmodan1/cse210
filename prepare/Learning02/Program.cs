@@ -4,10 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        job1._jobTitle = "Software Engineer";
-        job1._company = "Microsoft";
-        job1._startYear = "";
-        job1._endYear = "";
+        Job job1 = new Job();
+        job1._jobTitle = "Jr. Software Engineer";
+        job1._company = "PCSI Inc";
+        job1._startYear = 2010;
+        job1._endYear = 2014;
         
         job2._jobTitle = "";
         job2._company = "";
