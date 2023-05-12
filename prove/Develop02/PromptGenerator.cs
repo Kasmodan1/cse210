@@ -2,7 +2,7 @@ using System;
 
 public class Prompt
 {
-    static void promptList(string[] args)
+    static void PromptList(string[] args)
     {
       List<string> prompts = new List<string> //should display one question to the user.
       {

@@ -2,7 +2,7 @@ using System;
 
 public class Entry
 {
-  public int EnteredSelection()
+  public int MenuSelection()
   {
     // These are the list of options.
     string[] entrys = { "1. Write a entry.", "2. Display current entrys.", "3. Load saved entrys.", "4. Save entry.", "5. Quit program." };
@@ -13,7 +13,7 @@ public class Entry
         //go though each and display it adding 1 to display until it reaches the length of array.
         Console.WriteLine(entrys[display]);
       }
-    Console.WriteLine(":");
+    Console.WriteLine("Which option would you like? :");
     // gather what was entered.
     string input = Console.ReadLine();
     //convert string to int.
