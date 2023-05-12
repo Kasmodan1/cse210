@@ -28,8 +28,19 @@ public class Prompt
         "Did you do anything to help someone else today? If so, what did you do?"
       };
 
+      // Selects one of the prompts
+      Random rand = new Random();
+      int index = rand.Next(prompts.Count);
+      string prompt = prompts[index];
+
+      // Should display the prompt
+      Console.WriteLine(prompt);
+
+      // Record what was typed
+      string response = Console.ReadLine();
+
+      //  testing the Print the response to the console
+      Console.WriteLine($"You said: {response}");
     
-
-
     }
 }

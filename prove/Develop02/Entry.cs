@@ -2,8 +2,21 @@ using System;
 
 public class Entry
 {
-    static void Main(string[] args)
+    public void enteredSelection()
     {
-        Console.WriteLine("Hello Develop02 World!");
+      // These are the list of options
+      string[] entrys = {"1. Write a entry.", "2. Display current entrys.", "3. Load saved entrys.", "4. Save entry.", "5. Quit program." };
+
+      //show the options
+      Console.Write("Please select from the following options:");
+
+      for (int display = 0; display < entrys.Length; display++)
+        {
+          Console.WriteLine(entrys[display]);
+        }
+
+      Console.Write(":");
+      string input = Console.ReadLine();
+
     }
 }
