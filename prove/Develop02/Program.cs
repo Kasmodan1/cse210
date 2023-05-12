@@ -18,6 +18,8 @@ class Program
             {
                 //this will call the Prompt for a question.
                 Console.WriteLine("you selected opition 1.");
+                Prompt prompt1 = new Prompt();
+                prompt1.PromptList();
             }
             else if (selected == 2)
             {
