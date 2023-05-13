@@ -14,7 +14,7 @@ class Program
         int selected = 0;
         
         // created while loop to go though menu until 5 is chosen.
-        while (selected !=5)
+        
         {
             selected = entry1.MenuSelection();
 
