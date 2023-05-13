@@ -19,23 +19,39 @@ class Program
                 //this will call the Prompt for a question.
                 Console.WriteLine("you selected opition 1.");
 
-                // send it to get a question
+                // This is creating a new instance of Prompt
                 Prompt prompt1 = new Prompt();
-                string response = prompt1.PromptList();
 
-                //recive the response back and send it to journal for display etc...
-                Journal journal1 = new Journal(response);
+                //capturing the returns from PromptGenerator
+                (string promptText, string response) = prompt1.PromptList();
+
+                //Gathers date,prompt,and response
+                JournalEntry entry = new JournalEntry(DateTime.Now, promptText, response);
+
+                // This is creating a new instance of Journal
+                Journal journal1 = new Journal();
+
+                // useing this funtion to go though each entry
+                journal1.AddJournalEntries(entry);
 
             }
             else if (selected == 2)
             {
-                //this will display what was enterd.
+                //this will display the entries.
                 Console.WriteLine("you selected opition 2.");  
+
+                Journal journal1 = new Journal();  
+
+                string entriesText = journal1.DisplayJournalEntries();
+                
+                Console.WriteLine(entriesText);
+            
             }
             else if (selected == 3)
             {
                 //this will save the journal entrys to a file.
                 Console.WriteLine("you selected opition 3.");  
+                //Journal.SaveJournalEntires();
             }
             else if (selected == 4)
             {
