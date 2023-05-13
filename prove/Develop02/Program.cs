@@ -4,11 +4,13 @@ class Program
 {
     static void Main(string[] args)
     { 
-        //create a new Entry
+        //create a new instance of the Entry class
         Entry entry1 = new Entry(); 
 
+        // create a new instance of the Journal class
         Journal journal1 = new Journal();
 
+        //set selection of the menu to 0 outside of the loop.
         int selected = 0;
         
         // created while loop to go though menu until 5 is chosen.
@@ -39,8 +41,7 @@ class Program
                 //this will display the entries.
                 Console.WriteLine("you selected opition 2.");  
 
-                Journal journal1 = new Journal();  
-
+                //use this instace of the Journal class to display entries - Dont make a new one -
                 string entriesText = journal1.DisplayJournalEntries();
 
                 Console.WriteLine(entriesText);
