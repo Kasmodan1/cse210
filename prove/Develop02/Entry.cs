@@ -23,5 +23,7 @@ public class Entry
     
     //send back the int to the main program.
     return numberChoice;
+
   }
+  
 }

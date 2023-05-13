@@ -12,11 +12,11 @@ public class JournalEntry
         Date = date;
         Prompt = prompt;
         Response = response;
-
     }
 
     public override string ToString()
     {
         return $"Date: {Date.ToShortDateString()} - Prompt: {Prompt} - Response: {Response}";
     }
+    
 }

@@ -46,6 +46,7 @@ class Program
                 journal1.AddJournalEntries(entry);
 
             }
+
             else if (selected == 2)
             {
                 //this will display the entries.
@@ -86,7 +87,9 @@ class Program
                 Console.WriteLine("you selected opition 5.");  
                 Console.WriteLine("Quiting program."); 
             }
+
         }
 
     }
+    
 }
