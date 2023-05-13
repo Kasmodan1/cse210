@@ -53,19 +53,19 @@ class Program
                 Console.WriteLine("you selected opition 3.");  
                 //Journal.SaveJournalEntires();
             }
+
             else if (selected == 4)
             {
                 //this will load a journal file.
                 Console.WriteLine("you selected opition 4.");  
             }
-            else if (selected != 5)
+
+            else if (selected == 5)
             {
                 //this will quite the program.
+                Console.WriteLine("you selected opition 5.");  
+                Console.WriteLine("Quiting program."); 
             }
-
-            Console.WriteLine("you selected opition 5.");  
-            Console.WriteLine("Quiting program."); 
-
         }
 
     }
