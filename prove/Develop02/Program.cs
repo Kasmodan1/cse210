@@ -45,8 +45,8 @@ class Program
                 string entriesText = journal1.DisplayJournalEntries();
 
                 Console.WriteLine(entriesText);
-            
             }
+        
             else if (selected == 3)
             {
                 //this will save the journal entrys to a file.
@@ -64,8 +64,6 @@ class Program
                 Console.WriteLine("you selected opition 5.");  
                 Console.WriteLine("Quiting program."); 
             }
-            
-            
 
         }
 
