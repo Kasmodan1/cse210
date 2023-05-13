@@ -18,8 +18,14 @@ class Program
             {
                 //this will call the Prompt for a question.
                 Console.WriteLine("you selected opition 1.");
+
+                // send it to get a question
                 Prompt prompt1 = new Prompt();
-                prompt1.PromptList();
+                string response = prompt1.PromptList();
+
+                //recive the response back and send it to journal for display etc...
+                Journal journal1 = new Journal(response);
+
             }
             else if (selected == 2)
             {

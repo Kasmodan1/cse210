@@ -2,7 +2,7 @@ using System;
 
 public class Prompt
 {
-    public void PromptList()
+    public string PromptList()
     {
         List<string> prompts = new List<string> //should display one question to the user.
         {
@@ -39,8 +39,10 @@ public class Prompt
         // Record what was typed
         string response = Console.ReadLine();
 
+        return response;
+
         // testing the Print the response to the console
-        Console.WriteLine($"You said: {response}");
+        //Console.WriteLine($"You said: {response}");
     
     }
 }

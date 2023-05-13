@@ -2,8 +2,26 @@ using System;
 
 public class Journal
 {
-    static void journal(string[] args)
+   public string _entry;
+
+    public Journal(string entry)
     {
-        Console.WriteLine("Hello Develop02 World!");
+         _entry = entry;
     }
+
+    public void JournalDisplay()
+    {
+        Console.WriteLine("Journal entrys recorded: " + _entry);
+    }
+
+    public void JournalSave()
+    {
+
+    }
+
+    public void JournalLoad()
+    {
+
+    }
+
 }
