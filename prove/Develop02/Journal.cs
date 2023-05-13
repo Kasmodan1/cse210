@@ -50,8 +50,10 @@ public class Journal
             string prompt = parts[1];
             string response = parts[2];
 
-
+            JournalEntry entry = new JournalEntry(date, prompt, response);
+            AddJournalEntries(entry);
         }
+
     }
 
 }

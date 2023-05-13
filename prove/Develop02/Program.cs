@@ -51,7 +51,8 @@ class Program
             {
                 //this will load a journal file.
                 Console.WriteLine("you selected opition 3.");  
-                
+
+                journal1.LoadJournalEntries();
          
             }
 
