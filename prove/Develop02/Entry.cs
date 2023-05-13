@@ -5,7 +5,7 @@ public class Entry
   public int MenuSelection()
   {
     // These are the list of options.
-    string[] entrys = { "1. Write a entry.", "2. Display current entrys.", "3. Load saved entrys.", "4. Save entry.", "5. Quit program." };
+    string[] entrys = { "1. Write a entry.", "2. Display current entrys.", "3. Load saved entries.", "4. Save entries.", "5. Quit program." };
     //show the options.
     Console.WriteLine("Please select from the following options:");
         for (int display = 0; display < entrys.Length; display++)

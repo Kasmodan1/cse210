@@ -49,9 +49,17 @@ class Program
         
             else if (selected == 3)
             {
-                //this will save the journal entrys to a file.
+                //this will load a journal file.
                 Console.WriteLine("you selected opition 3.");  
                 
+         
+            }
+
+            else if (selected == 4)
+            {
+                //this will save the journal entrys to a file.
+                Console.WriteLine("you selected opition 4.");  
+
                 //having it go though each entry and pipe it to save function.
                 foreach (var entry in journal1.entries)
                 {
@@ -59,12 +67,6 @@ class Program
                 }
 
                 Console.WriteLine("Entries have saved to a file.");
-            }
-
-            else if (selected == 4)
-            {
-                //this will load a journal file.
-                Console.WriteLine("you selected opition 4.");  
             }
 
             else if (selected == 5)
