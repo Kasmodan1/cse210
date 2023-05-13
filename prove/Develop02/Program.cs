@@ -7,6 +7,8 @@ class Program
         //create a new Entry
         Entry entry1 = new Entry(); 
 
+        Journal journal1 = new Journal();
+
         int selected = 0;
         
         // created while loop to go though menu until 5 is chosen.
@@ -28,9 +30,6 @@ class Program
                 //Gathers date,prompt,and response
                 JournalEntry entry = new JournalEntry(DateTime.Now, promptText, response);
 
-                // This is creating a new instance of Journal
-                Journal journal1 = new Journal();
-
                 // useing this funtion to go though each entry
                 journal1.AddJournalEntries(entry);
 
@@ -43,7 +42,7 @@ class Program
                 Journal journal1 = new Journal();  
 
                 string entriesText = journal1.DisplayJournalEntries();
-                
+
                 Console.WriteLine(entriesText);
             
             }
