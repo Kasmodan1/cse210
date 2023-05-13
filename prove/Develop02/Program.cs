@@ -61,9 +61,10 @@ class Program
             else if (selected != 5)
             {
                 //this will quite the program.
-                Console.WriteLine("you selected opition 5.");  
-                Console.WriteLine("Quiting program."); 
             }
+
+            Console.WriteLine("you selected opition 5.");  
+            Console.WriteLine("Quiting program."); 
 
         }
 
