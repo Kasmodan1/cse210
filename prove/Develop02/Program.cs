@@ -51,7 +51,14 @@ class Program
             {
                 //this will save the journal entrys to a file.
                 Console.WriteLine("you selected opition 3.");  
-                //Journal.SaveJournalEntires();
+                
+                //having it go though each entry and pipe it to save function.
+                foreach (var entry in journal1.entries)
+                {
+                    journal1.SaveJournalEntires(entry.Date, entry.Prompt, entry.Response);
+                }
+
+                Console.WriteLine("Entries have saved to a file.");
             }
 
             else if (selected == 4)
