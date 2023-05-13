@@ -1,14 +1,14 @@
 using System;
 
-// I've enjoyed writing This program out, ive always liked arrays and 
-// how usefull they are when I coded in Ruby back in the day. 
-// Though I have to admit I probly spent way to much time tring to use the best way instead of quick and dirty. 
+// I've enjoyed writing This program out, I've always liked arrays and 
+// how useful they are when I coded in Ruby back in the day. 
+// Though I have to admit I probably spent way too much time trying to use the best way instead of quick and dirty. 
 // I did have to use Google and MDN a lot to read how to accomplish the idea I wanted to do my head. 
 // Looking up all the errors I was getting and figuring them out was fun but challening. 
 // I'm not sure If I should have created all of the Class that I did make.
 // Maybe I should have combined them more.
 
-// Some improvements that I did along the way 1. added more prompts. 2. made sure the save file enties does not get overwriten but amended. 3. tryed to use more advanced features instead of chunky blocks like arrays(lists).
+// Some improvements that I did along the way 1. added more prompts. 2. made sure the saved file entries do not get overwritten but amended. 3. Try to use more advanced features instead of chunky blocks like arrays(lists).
 
 class Program
 {
@@ -91,5 +91,5 @@ class Program
         }
 
     }
-    
+
 }
