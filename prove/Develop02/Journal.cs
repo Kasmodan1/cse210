@@ -18,7 +18,7 @@ public class JournalEntry
 
     public override string ToString()
     {
-        return $"Date: {Date.ToShortDateString()} - Prompt {Prompt} - Response {Response}";
+        return $"Date: {Date.ToShortDateString()} - Prompt: {Prompt} - Response: {Response}";
     }
 }
 public class Journal
