@@ -1,0 +1,68 @@
+@startuml
+class "Main" as main
+class "JournalEntry" as JournalEntry
+class "Entry" as Entry
+class "PromptGenerator" as PromptGenerator
+class "Journal" as Journal
+
+main <|-- "JournalEntry"
+
+main <|-- "Entry"
+
+main <|-- "PromptGenerator"
+
+main <|-- "Journal"
+
+
+class main {
+  ... Create Instances...
+  + Entry()
+  + Journal()
+  ==
+  ..Menu ..
+  + While Loop (1-5)
+}
+
+class Entry {
++ MenuSelection(:int)
+- for loop index items
+==
+Return (numberchoice)
+}
+
+class PromptGenerator {
+  + PromptList(prompt: string, response: string)
+  + prompt <list> : string
+  - Random index selected
+  ==
+  Retun (prompt, resonse)
+}
+
+class JournalEntry {
+  ..Getters..
+  + DateTime Date
+  + Prompt : string
+  + Response : string
+  ..Setters..
+  + DateTime Date
+  + Prompt : string
+  + Response : string
+  ==
+  + JournalEntry(DateTime : date, prompt : string, response : string)
+  + ToString() Returns (date, prompt, response)
+}
+
+class Journal {
+  + List<JournalEntry> entries
+  + Journal()
+  ==
+  + AddJournalEntries()
+  + DisplayJournalEnties()
+  + DsbrJournalEntires(DateTime : date, prompt :string, response:string)
+  + LoadJournalEntries()
+  ==
+  Returns output on Display
+
+}
+
+@enduml
