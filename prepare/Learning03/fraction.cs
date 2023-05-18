@@ -9,51 +9,55 @@ public class Fraction
     {
       _numerator = 1;
       _denominator =1;
-      Console.WriteLine($"{_numerator}/{_denominator}");
+      //Console.WriteLine($"{_numerator}/{_denominator}");
     }
 
     public Fraction(int wholeNumber)
     {
       _numerator = wholeNumber;
       _denominator = 1;
-      Console.WriteLine($"{_numerator}/{_denominator}");
+      //Console.WriteLine($"{_numerator}/{_denominator}");
     }
 
     public Fraction(int numerator, int denominator)
     {
       _numerator = numerator;
       _denominator = denominator;
-      Console.WriteLine($"{_numerator}/{_denominator}");
+      //Console.WriteLine($"{_numerator}/{_denominator}");
     }
 
-    private void GetTop()
+    public int GetTop()
     {
-
+      return _numerator;
     }
 
-    private void SetTop(int numerator)
+    public int SetTop(int numerator)
     {
-
+      _numerator = value;
     }
 
-    private void GetBottom()
+    public int GetBottom()
     {
-
+      return _denominator;
     }
 
-    private void SetBottom(int denominator)
+    public int SetBottom(int denominator)
     {
-
+      _denominator = value;
     }
 
-    private void GetFractionString()
+    public string GetFractionString()
     {
       //return string
+      string value = $"{_numerator}/{_denominator}";
+      return value;
+
     }
 
-    private void GetDecimalValue()
+    public double GetDecimalValue()
     {
       //return double
+      return (double)_numerator / (double)_denominator;
     }
   
 
