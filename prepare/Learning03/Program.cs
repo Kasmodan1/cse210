@@ -6,12 +6,23 @@ class Program
     {
         //create an instance for 1/1
         Fraction fraction1 = new Fraction();
+        Console.WriteLine(fraction1.GetFractionString());
+        Console.WriteLine(fraction1.GetDecimalValue());
 
-        //create an instance for 6/1
-        Fraction fraction2 = new Fraction(6);
+        //create an instace for a wholenumber
+        Fraction fraction2 = new Fraction(5);
+        Console.WriteLine(fraction2.GetFractionString());
+        Console.WriteLine(fraction2.GetDecimalValue());
 
-        //create ain instance for 6/7
-        Fraction fraction3 = new Fraction(6,7);
-        
+        //create ain instance for 3/4
+        Fraction fraction3 = new Fraction(3,4);
+        Console.WriteLine(fraction3.GetFractionString());
+        Console.WriteLine(fraction3.GetDecimalValue());
+
+        //create ain instance for 1/3
+        Fraction fraction4 = new Fraction(1,3);
+        Console.WriteLine(fraction4.GetFractionString());
+        Console.WriteLine(fraction4.GetDecimalValue());
+
     }
 }

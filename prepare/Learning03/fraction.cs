@@ -59,9 +59,5 @@ public class Fraction
       //return double
       return (double)_numerator / (double)_denominator;
     }
-  
-
-
-
 
 }
