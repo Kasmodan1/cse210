@@ -31,9 +31,9 @@ public class Fraction
       return _numerator;
     }
 
-    public int SetTop(int numerator)
+    public void SetTop(int numerator)
     {
-      _numerator = value;
+      _numerator = numerator;
     }
 
     public int GetBottom()
@@ -41,9 +41,9 @@ public class Fraction
       return _denominator;
     }
 
-    public int SetBottom(int denominator)
+    public void SetBottom(int denominator)
     {
-      _denominator = value;
+      _denominator = denominator;
     }
 
     public string GetFractionString()
