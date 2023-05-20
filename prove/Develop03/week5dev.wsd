@@ -1,0 +1,54 @@
+@startuml
+class "Main" as main
+class "Scripture" as Scripture
+class "Reference" as Reference
+class "Word" as Word
+
+
+main <|-- "Scripture"
+
+main <|-- "Reference"
+
+main <|-- "Word"
+
+class main {
+  + 
+  ==
+  -- Menu --
+  + While Loop()
+  + Clear()
+
+}
+
+class Scripture {
++ List<Words>
+- Scripture(:string Reference, :int value)
++ DisplayScripture(List <Words>, boolean)
+- GetScriptue()
+- HideWord(:string Word)
+===
+Return DisplayScripture
+
+}
+
+class Word {
++ Word()
+- boolean(:t showword, f:dontshow)
+===
+Return (Word, boolean)
+
+}
+
+class Reference {
+- _book
+- _chater
+- _verse
+---
+-Referece()
+-StoreList()
+- Random.Scripture()
++ List<:string>
+===
+Return Reference, Scripture(int: value)
+
+}
