@@ -14,7 +14,16 @@ class Reference
 
     public override string ToString()
     {
-        return $"{book} {chapter}:{startVerse}-{endVerse}";
+        if (startVerse == endVerse)
+        {
+            return $"{book} {chapter}:{startVerse}";
+        }
+        
+        else
+        {
+            return $"{book} {chapter}:{startVerse}-{endVerse}";
+        }
+
     }
     
 }
