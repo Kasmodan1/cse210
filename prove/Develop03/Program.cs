@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 //Your program must do the following:
@@ -26,38 +28,39 @@ class Program
 {
     static void Main(string[] args)
     {
-        string userinput = string.Empty;
+        // this will create the scripture object.
+        Scripture scripture = new Scripture("1 Nephi 3:7", "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
+        
+        // clear the screen
+        Console.Clear();
+
+        //display the whole scripture
+        scripture.Display();
 
 
         // created while loop to go though scriptue until completly blank.
-        while (userinput.ToLower() != "quit") 
+        while (true) 
         {
-
-            // displays full scripture: example ******************
-            Scripture scripture1 = new Scripture(); 
-            
             Console.WriteLine("Press enter to continue or type 'quit to finish:");
-            userinput = Console.ReadLine();
+            string userinput = Console.ReadLine();
 
-            if (userinput.ToLower() == "quit")
+            if (userinput == "quit" || nowordsleft)
+            {
+               break;
+            }
+            
+            // Hide a few random words in the scripture
+            Console.Clear();
+            scripture.HideRandomWords();
+            scripture.Display();
+
+             // Check if all words are hidden
+            if (scripture.AllWordsHidden)
             {
                 break;
             }
-            else if ()
-            {
-                // This will start by displaying "AAA" and waiting for the user to press the enter key
-                Console.WriteLine("AAA");
-                Console.ReadLine();
 
-                // This will clear the console
-                Console.Clear();
-
-                // This will show "BBB" in the console where "AAA" used to be
-                Console.WriteLine("BBB");
-            }
-
-        Console.WriteLine("Exiting the program...");
-    
+            Console.WriteLine("Exiting the program...");
         }
        
    

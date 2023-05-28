@@ -1,10 +1,11 @@
-using System;
-
-public class Word
+class Word
 {
-    public Word()
+    public string Text { get; }
+    public int Index { get; }
+
+    public Word(string text, int index)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        Text = text;
+        Index = index;
     }
 }
-

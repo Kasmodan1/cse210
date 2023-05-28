@@ -1,27 +1,32 @@
 using System;
 
-class Reference
+class ReferenceIdentification
 {
-    private string book;
-    private int chapter;
-    private int startVerse;
-    private int endVerse;
+    // 
+    private string _book;
+    private int _chapter;
+    private int _startVerse;
+    private int _endVerse;
 
-    public Reference()
+    public ReferenceIdentification(string referenceIid)
     {
+        string[] 
+        
+        
         Console.WriteLine("Hello Develop03 World!");
     }
 
+    // custome ToString for this class use.
     public override string ToString()
     {
-        if (startVerse == endVerse)
+        if (_startVerse == _endVerse)
         {
-            return $"{book} {chapter}:{startVerse}";
+            return $"{_book} {_chapter}:{_startVerse}";
         }
         
         else
         {
-            return $"{book} {chapter}:{startVerse}-{endVerse}";
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
         }
 
     }
