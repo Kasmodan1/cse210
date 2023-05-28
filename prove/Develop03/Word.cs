@@ -15,4 +15,11 @@ class Word
     {
         IsHidden = true;
     }
+    public void Display()
+    {
+        if (IsHidden)
+            Console.Write("____ ");
+        else
+            Console.Write(Text + " ");
+    }
 }

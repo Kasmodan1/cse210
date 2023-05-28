@@ -21,11 +21,7 @@ class Scripture
         // go though each word in the words list
         foreach (var word in words)
         {
-            //check if the word is hidden else display it
-            if (word.IsHidden)
-                Console.Write("____ ");
-            else
-                Console.Write(word.Text + " ");
+            word.Display();
         }
     }
 
