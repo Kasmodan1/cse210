@@ -42,8 +42,5 @@ class Scripture
         {
             nonHiddenWords[i].Hide();
         }
-        
-        
-        
     }
 }
