@@ -27,9 +27,23 @@ class Scripture
 
     public void HideRandomWords()
     {
-        foreach (var word in words.Where(word => !word.IsHidden))
+         Random random = new Random();
+
+        //get some randome numbers of words to hide.
+        int wordsToHide = random.Next(1, 4);
+
+        //get the list of non hidden words
+        var nonHiddenWords = words.Where(word => !word.IsHidden).ToList();
+
+        nonHiddenWords = nonHiddenWords.OrderBy(word => random.Next()).ToList();
+        
+        // Hide the first few words random list
+        for (int i = 0; i < wordsToHide && i <nonHiddenWords.Count; i++)
         {
-            word.Hide();
+            nonHiddenWords[i].Hide();
         }
+        
+        
+        
     }
 }
