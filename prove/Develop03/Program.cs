@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-//modifyed reference so it would account for books that have a numbere before the name.
+//modified reference so it would account for books that have a number before the name.
 // made random select from 1 to 4 when hidding. used the list shuffling method.
-// Added Scripture Lib Class, made it random and also fixed it so it would only display the non hidden when randomly selecting.
+// Added Scripture Lib Class, made it random and also fixed it so it would only display the nonhidden when randomly selecting.
+
 
 class Program
 {
