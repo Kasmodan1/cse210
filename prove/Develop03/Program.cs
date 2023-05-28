@@ -43,7 +43,7 @@ class Program
         // created while loop to go though scriptue until completly blank.
         while (!scripture.AllWordsHidden) 
         {
-            Console.WriteLine("Press enter to continue or type 'quit to finish:");
+            Console.Write("Press enter to continue or type 'quit to finish:");
             string userinput = Console.ReadLine();
 
             if (userinput == "quit")
@@ -58,7 +58,7 @@ class Program
 
         }
        
-        Console.WriteLine("Exiting the program...");
+        Console.Write("Exiting the program...");
         
         // Proverbs 3:5-6 Trust in the Lord with all thine heart and lean not unto thine own understanding; in all they ways acknowledge him, and he shall direct thy paths.
 
