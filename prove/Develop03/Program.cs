@@ -29,7 +29,7 @@ class Program
     static void Main(string[] args)
     {
         // this will create the scripture object.
-        Scripture scripture = new Scripture("1 Nephi 3:7", "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
+        Scripture scripture = new Scripture(new Reference("1 Nephi 3:7")"And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
         
         // clear the screen
         Console.Clear();
@@ -44,11 +44,11 @@ class Program
             Console.WriteLine("Press enter to continue or type 'quit to finish:");
             string userinput = Console.ReadLine();
 
-            if (userinput == "quit" || nowordsleft)
+            if (userinput == "quit")
             {
                break;
             }
-            
+
             // Hide a few random words in the scripture
             Console.Clear();
             scripture.HideRandomWords();

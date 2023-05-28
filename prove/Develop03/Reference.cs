@@ -1,32 +1,48 @@
 using System;
 
-class ReferenceIdentification
+class Reference
 {
     // 
-    private string _book;
-    private int _chapter;
-    private int _startVerse;
-    private int _endVerse;
+    private string book;
+    private int chapter;
+    private int startVerse;
+    private int endVerse;
 
-    public ReferenceIdentification(string referenceIid)
+    public Reference(string referenceId)
     {
-        string[] 
-        
-        
-        Console.WriteLine("Hello Develop03 World!");
+        ParseReferenceId(referenceId);
     }
 
-    // custome ToString for this class use.
-    public override string ToString()
+    private void ParseReferenceId(string referenceId)
     {
-        if (_startVerse == _endVerse)
+        string[] parts = referenceId.Split(' ');
+
+        //referenceId format is "<Book> <Chapter>:<StartVerse>-<EndVerse>"
+        book = parts[0];
+        string[] chapterVerseParts = parts[1].Split(':');
+        chapter = int.Parse(chapterVerseParts[0]);
+
+        string[] verseParts = chapterVerseParts[1].Split('-');
+        startVerse = int.Parse(verseParts[0]);
+
+        //only if there is a end verse do we parse it.
+        endVerse = verseParts.Length > 1 ? int.Parse(verseParts[1]) : startVerse;
+
+    }
+
+
+
+    // custome ToString for this class use.
+    public string GetReferceText()
+    {
+        if (startVerse == endVerse)
         {
-            return $"{_book} {_chapter}:{_startVerse}";
+            return $"{book} {chapter}:{startVerse}";
         }
         
         else
         {
-            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+            return $"{book} {chapter}:{startVerse}-{endVerse}";
         }
 
     }
