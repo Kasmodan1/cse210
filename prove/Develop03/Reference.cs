@@ -15,8 +15,22 @@ class Reference
 
     private void ParseReferenceId(string referenceId)
     {
-        string[] parts = referenceId.Split(' ');
+        string[] parts;
 
+        if (char.IsDigit(referenceId[0]))
+        {
+            parts = referenceId.Split(' ',2);
+        }
+        else
+        {
+            int firstSpaceIndex = referenceId.IndexOf(' ');
+            parts = new string[]
+            {
+                referenceId.Substring(0, firstSpaceIndex),
+                referenceId.Substring(firstSpaceIndex + 1)
+            };
+
+        }
         //referenceId format is "<Book> <Chapter>:<StartVerse>-<EndVerse>"
         book = parts[0];
         string[] chapterVerseParts = parts[1].Split(':');
