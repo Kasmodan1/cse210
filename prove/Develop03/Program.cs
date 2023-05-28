@@ -29,7 +29,7 @@ class Program
     static void Main(string[] args)
     {
         // this will create the scripture object.
-        Scripture scripture = new Scripture(new Reference("1 Nephi 3:7")"And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
+        Scripture scripture = new Scripture(new Reference("1 Nephi 3:7"), "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.");
         
         // clear the screen
         Console.Clear();
@@ -39,7 +39,7 @@ class Program
 
 
         // created while loop to go though scriptue until completly blank.
-        while (true) 
+        while (!scripture.AllWordsHidden) 
         {
             Console.WriteLine("Press enter to continue or type 'quit to finish:");
             string userinput = Console.ReadLine();
@@ -54,16 +54,10 @@ class Program
             scripture.HideRandomWords();
             scripture.Display();
 
-             // Check if all words are hidden
-            if (scripture.AllWordsHidden)
-            {
-                break;
-            }
-
-            Console.WriteLine("Exiting the program...");
         }
        
-   
+        Console.WriteLine("Exiting the program...");
+        
         // Proverbs 3:5-6 Trust in the Lord with all thine heart and lean not unto thine own understanding; in all they ways acknowledge him, and he shall direct thy paths.
 
         //Press enter to continue or type 'quit to finish:

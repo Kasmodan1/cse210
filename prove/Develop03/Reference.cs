@@ -33,7 +33,7 @@ class Reference
 
 
     // custome ToString for this class use.
-    public string GetReferceText()
+    public string GetReferenceText()
     {
         if (startVerse == endVerse)
         {
@@ -46,5 +46,4 @@ class Reference
         }
 
     }
-    
 }
