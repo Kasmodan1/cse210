@@ -33,10 +33,6 @@ class Reference
             string[] verseParts = chapterVerseParts[1].Split('-');
             startVerse = int.Parse(verseParts[0]);
 
-            // Remove the chapter and verse part, keeping only the book name
-            //string[] bookParts = chapterVerseParts[0].Split(' ');
-            //book = bookParts[1];
-
             // Only if there is an end verse do we parse it.
             if (verseParts.Length > 1)
             {
