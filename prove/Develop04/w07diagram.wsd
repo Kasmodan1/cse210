@@ -5,11 +5,11 @@ class "Reflection" as Reflection
 class "Listing" as Listing
 
 
-Activity -- "Breathing"
+Activity <|-- "Breathing"
 
-Activity -- "Reflection"
+Activity <|-- "Reflection"
 
-Activity -- "Listing"
+Activity <|-- "Listing"
 
 class Activity {
   == variables ==
