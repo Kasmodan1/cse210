@@ -52,3 +52,5 @@ class Reference {
 Return Reference, Scripture(int: value)
 
 }
+
+@enduml
