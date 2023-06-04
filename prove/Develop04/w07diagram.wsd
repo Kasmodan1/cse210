@@ -1,0 +1,68 @@
+@startuml
+class "Activity" as Activity
+class "Breathing" as Breathing
+class "Reflection" as Reflection
+class "Listing" as Listing
+
+
+Activity -- "Breathing"
+
+Activity -- "Reflection"
+
+Activity -- "Listing"
+
+class Activity {
+  == variables ==
+  # starttime
+  # endtime
+  # duration
+  ==
+  -- Menu --
+  - While Loop(true)
+  -- Fuctions --
+  # Display(params string[] strings)
+  # Duration(seconds)
+  # Countdown(time)
+  - Clear(time)
+  # Pause(time)
+
+}
+
+class Breathing { 
+- use duration
+- use starttime
+- use endtime
+==
+- StandardBmsg(display)
+- DiscriptionBmsg(display)
+- BreathingDuration(duration)
+- breathActivity(args)
+- Bclosingmsg(display)
+}
+
+class Reflection {
+- List<prompt>
+- List<message>
+- use duration
+- use starttime
+- use endtime
+--
+- StandardRmsg(display)
+- DiscriptionRmsg(display)
+- DisplayRandom(prompt)
+- Reflection(args)
+- Rclosingmsg(display)
+}
+
+class Listing {
+- List<prompt>
+- use duration
+- use starttime
+- use endtime
+==
+- StandardLmsg(display)
+- DiscriptionLmsg(display)
+- DisplayRandom(prompt)
+- Listing(args)
+- Lclosingmsg(display)
+}
