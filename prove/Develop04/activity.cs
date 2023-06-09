@@ -9,7 +9,7 @@ class Activity
     // -- Functions --
     // This function displays the activity message.
     
-    protected void DisplayMsg(params string[] strings)
+    public void DisplayMsg(params string[] strings)
     {
         foreach (string message in strings)
         {
@@ -17,7 +17,7 @@ class Activity
         }
     }
 
-    protected TimeSpan ActivityDuration(int seconds)
+    public TimeSpan ActivityDuration(int seconds)
     {
         DateTime _startTime = DateTime.Now;
 
@@ -30,17 +30,21 @@ class Activity
     }
 
     // Reset the activity start and end times to nothing
-    protected void ActivityResetTime (int time)
+    public void ActivityResetTime (bool resetTime)
     {
-        //set the time and DateTime back to start values.
-        _startTime = DateTime.MinValue;
-        _endTime = DateTime.MinValue;
-        _duration = TimeSpan.Zero;
+        if (resetTime)
+        {
+            //set the time and DateTime back to start values.
+            _startTime = DateTime.MinValue;
+            _endTime = DateTime.MinValue;
+            _duration = TimeSpan.Zero;
+   
+        } 
 
     }
     
     // Pause the activity for a requested duration of time.
-    protected void ActivityPauseTime (int seconds)
+    public void ActivityPauseTime (int seconds)
     {
         DateTime pauseEndTime = DateTime.Now.AddSeconds(seconds);
 
@@ -48,26 +52,23 @@ class Activity
         {
             if (seconds < 10)
             {
-                Console.WriteLine($"Pausing for {seconds} seconds...");
+                Console.Write($"\rPausing for {seconds} seconds...");
                 Thread.Sleep(1000); // Pause for 1 second
                 seconds--;
-                Console.Write("\b \b");
             }
-            
+
             else if (seconds >= 10)
             {
-                Console.WriteLine($"Pausing for {seconds} seconds...");
+                Console.WriteLine($"\rPausing for {seconds} seconds...");
                 Thread.Sleep(1000); // Pause for 1 second
                 seconds--;
-                Console.Write("\b  \b");
             }
 
             else if (seconds >= 100)
             {
-                Console.WriteLine($"Pausing for {seconds} seconds...");
+                Console.WriteLine($"\rPausing for {seconds} seconds...");
                 Thread.Sleep(1000); // Pause for 1 second
                 seconds--;
-                Console.Write("\b   \b"); 
             }
 
         }

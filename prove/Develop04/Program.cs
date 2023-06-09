@@ -4,9 +4,34 @@ class Program
 {
     static void Main(string[] args)
     {
+        
+          // Create an instance of the Activity class
+        Activity activity = new Activity();
+
+        // Test the DisplayMsg method
+        activity.DisplayMsg("Welcome to the activity!");
+
+        // Test the ActivityDuration method
+        TimeSpan duration = activity.ActivityDuration(30);
+        Console.WriteLine($"Activity duration: {duration}");
+
+        // Test the ActivityPauseTime method
+        activity.ActivityPauseTime(5); // Pause for 5 seconds
+
+                // Test the ActivityPauseTime method
+        activity.ActivityPauseTime(10); // Pause for 10 seconds
+
+                // Test the ActivityPauseTime method
+        activity.ActivityPauseTime(100); // Pause for 100 seconds
+
+        // Test the ActivityResetTime method
+        activity.ActivityResetTime(true);
+
+        Console.WriteLine("Testing complete.");
+
+
         bool exit = false;
 
-    
         while (!exit)
         {
         Console.WriteLine("Menu Options:");
