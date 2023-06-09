@@ -2,9 +2,9 @@ using System;
 
 class Activity
 {
-    private int _startTime;
-    private int _endTime;
-    private int _duration;
+    protected DateTime _startTime;
+    protected DateTime _endTime;
+    protected TimeSpan _duration;
 
  
     

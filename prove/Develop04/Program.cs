@@ -7,7 +7,7 @@ class Program
         bool exit = false;
 
     
-        while (!exit);
+        while (!exit)
         {
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Start breathing activity");
