@@ -27,17 +27,29 @@ class Activity
 
         TimeSpan duration = _endTime - _startTime;
         
+        // Will return how long the activity will run in (seconds).
         return duration;
     }
 
-
-    public int ActivityClearTime ()
+    // Reset the activity start and end times to nothing
+    protected void ActivityResetTime (int time)
     {
 
     }
     
-    public int ActivityPauseTime ()
+    // Pause the activity for a requested duration of time
+    protected void ActivityPauseTime (int time)
     {
+        int seconds = (time / 1000);
+
+        DateTime pauseEndTime = DateTime.Now.AddMilliseconds(time);
+
+        while (DateTime.Now < pauseEndTime)
+        {
+            Console.WriteLine($"Pausing for {seconds} seconds...");
+            Thread.Sleep(1000); // Pause for 1 second
+            seconds--;
+        }
 
     }
 
