@@ -6,26 +6,28 @@ class Activity
     protected DateTime _endTime;
     protected TimeSpan _duration;
 
- 
+    // -- Functions --
+    // This function displays the activity message.
     
-
- // -- Functions --
- 
-    // This function displays the starting message and activity message.
-
-    // Welcome to the Breathing Activity.
-
-    // The description of this activity should be something like: "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing."
-    
-    public string DisplayMsg(params string[] strings)
+    protected void DisplayMsg(params string[] strings)
     {
-
+        foreach (string message in strings)
+        {
+            Console.WriteLine(message);
+        }
     }
 
 
-    public int ActivityDuration ()
+
+    protected TimeSpan ActivityDuration(int seconds)
     {
-        Console.WriteLine("");
+        DateTime _startTime = DateTime.Now;
+
+        DateTime _endTime = _startTime.AddSeconds(seconds);
+
+        TimeSpan duration = _endTime - _startTime;
+        
+        return duration;
     }
 
 
