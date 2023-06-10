@@ -18,11 +18,17 @@ class Program
         // Test the ActivityPauseTime method
         activity.ActivityPauseTime(5); // Pause for 5 seconds
 
+        Console.WriteLine("Testing complete.");
+
                 // Test the ActivityPauseTime method
         activity.ActivityPauseTime(10); // Pause for 10 seconds
 
+        Console.WriteLine("Testing complete.");
+
                 // Test the ActivityPauseTime method
         activity.ActivityPauseTime(100); // Pause for 100 seconds
+
+        Console.WriteLine("Testing complete.");
 
         // Test the ActivityResetTime method
         activity.ActivityResetTime(true);

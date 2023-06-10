@@ -2,9 +2,9 @@ using System;
 
 class Activity
 {
-    protected DateTime _startTime;
-    protected DateTime _endTime;
-    protected TimeSpan _duration;
+    private DateTime _startTime;
+    private DateTime _endTime;
+    private TimeSpan _duration;
 
     // -- Functions --
     // This function displays the activity message.
@@ -50,26 +50,9 @@ class Activity
 
         while (DateTime.Now < pauseEndTime)
         {
-            if (seconds < 10)
-            {
-                Console.Write($"\rPausing for {seconds} seconds...");
-                Thread.Sleep(1000); // Pause for 1 second
-                seconds--;
-            }
-
-            else if (seconds >= 10)
-            {
-                Console.WriteLine($"\rPausing for {seconds} seconds...");
-                Thread.Sleep(1000); // Pause for 1 second
-                seconds--;
-            }
-
-            else if (seconds >= 100)
-            {
-                Console.WriteLine($"\rPausing for {seconds} seconds...");
-                Thread.Sleep(1000); // Pause for 1 second
-                seconds--;
-            }
+            Console.Write($"\rPausing for {seconds} seconds...");
+            Thread.Sleep(1000); // Pause for 1 second
+            seconds--;
 
         }
 
