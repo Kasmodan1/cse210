@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 class Program
 {
@@ -18,15 +19,19 @@ class Program
         // Test the ActivityPauseTime method
         activity.ActivityPauseTime(5); // Pause for 5 seconds
 
-        Console.WriteLine("Testing complete.");
-
                 // Test the ActivityPauseTime method
         activity.ActivityPauseTime(10); // Pause for 10 seconds
 
         Console.WriteLine("Testing complete.");
 
-                // Test the ActivityPauseTime method
-        activity.ActivityPauseTime(100); // Pause for 100 seconds
+        // Example 1: Use the default message with countdown
+        activity.ActivityPauseTime(5);
+
+        // Example 2: Use a custom message without countdown
+        activity.ActivityPauseTime(5, "Please wait...");
+
+        // Example 3: Use a custom message with countdown
+        activity.ActivityPauseTime(5, "Custom message: {0} seconds remaining...");
 
         Console.WriteLine("Testing complete.");
 
@@ -52,7 +57,6 @@ class Program
             switch (menuChoice)
             {
                 case "1":
-                    Console.WriteLine("Welcome to the Breathing Activity.");
                     //start the breathing activity
                     break;
 

@@ -52,7 +52,7 @@ class Activity
         while (DateTime.Now < pauseEndTime)
         {
             string message = customMessage ?? $"Pausing for {seconds} seconds...";
-            Console.Write($"\r{message}");
+            Console.Write($"\r{message}", seconds);
             Thread.Sleep(1000); // Pause for 1 second
             seconds--;
 
