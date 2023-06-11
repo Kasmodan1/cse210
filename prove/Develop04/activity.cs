@@ -1,10 +1,11 @@
 using System;
+using System.Threading;
 
 class Activity
 {
-    private DateTime _startTime;
-    private DateTime _endTime;
-    private TimeSpan _duration;
+    protected DateTime _startTime;
+    protected DateTime _endTime;
+    protected TimeSpan _duration;
 
     // -- Functions --
     // This function displays the activity message.
@@ -44,18 +45,20 @@ class Activity
     }
     
     // Pause the activity for a requested duration of time.
-    public void ActivityPauseTime (int seconds)
+    public void ActivityPauseTime (int seconds, string customMessage = null)
     {
         DateTime pauseEndTime = DateTime.Now.AddSeconds(seconds);
 
         while (DateTime.Now < pauseEndTime)
         {
-            Console.Write($"\rPausing for {seconds} seconds...");
+            string message = customMessage ?? $"Pausing for {seconds} seconds...";
+            Console.Write($"\r{message}");
             Thread.Sleep(1000); // Pause for 1 second
             seconds--;
 
         }
-
+        //This awesome nugget moves the cusser back and then it overwrites the line with spaces.
+        Console.Write("\r" + new string(' ', Console.WindowWidth - 1) + "\r");
     }
 
 }
