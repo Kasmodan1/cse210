@@ -12,8 +12,10 @@ class Reflection : Activity
     public Reflection()
     {
         _reflectionPrompts = new List<string>();
+        _reflectionQuestions = new List<string>();
         _random = new Random();
         InitializePrompts();
+        InitializeQuestions();
     }
 
     private void InitializePrompts()
@@ -22,21 +24,35 @@ class Reflection : Activity
         _reflectionPrompts.Add("Think of a time when you did something really difficult.");
         _reflectionPrompts.Add("Think of a time when you helped someone in need.");
         _reflectionPrompts.Add("Think of a time when you did something truly selfless.");
-
     }
-    private string GetReflectionPrompt()
+
+    private void InitializeQuestions()
+    {
+        _reflectionQuestions.Add("Why was this experience meaningful to you?");
+        _reflectionQuestions.Add("Have you ever done anything like this before?");
+        _reflectionQuestions.Add(" did you get started?");
+        _reflectionQuestions.Add(" did you feel when it was complete?");
+        _reflectionQuestions.Add("What made this time different than other times when you were not as successful?");
+        _reflectionQuestions.Add("What is your favorite thing about this experience?");
+        _reflectionQuestions.Add("What could you learn from this experience that applies to other situations?");
+        _reflectionQuestions.Add("What did you learn about yourself through this experience?");
+        _reflectionQuestions.Add(" can you keep this experience in mind in the future?");
+    }
+
+    private string GetReflectionItem(List<string> itemList)
     {
 
-        int count = _reflectionPrompts.Count;
+        int count = itemList.Count;
 
         if (count == 0)
         {
             return null;
         }
         int randomIndex = _random.Next(count);
-        string  selectedPrompt = _reflectionPrompts[randomIndex];
-        return selectedPrompt;
+        string  selectedItem = itemList[randomIndex];
+        return selectedItem;
     }
+
     public void StartReflectionActivity()
     {
  
@@ -70,7 +86,7 @@ class Reflection : Activity
 
         base.DisplayMsg("Consider the following prompt:");
 
-        string selectedPrompt = GetReflectionPrompt();
+        string selectedPrompt = GetReflectionItem(_reflectionPrompts);
 
         if (selectedPrompt != null)
         {
