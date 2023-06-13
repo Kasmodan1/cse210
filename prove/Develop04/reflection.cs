@@ -9,7 +9,7 @@ class Reflection : Activity
     private List<string> _reflectionQuestions;
     private Random _random;
 
-    private Reflection()
+    public Reflection()
     {
         _reflectionPrompts = new List<string>();
         _random = new Random();

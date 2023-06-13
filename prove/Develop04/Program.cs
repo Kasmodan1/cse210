@@ -64,8 +64,10 @@ class Program
                     break;
 
                 case "2":
-                    Console.WriteLine("Welcome to the Reflection Activity.");
-                    //start the reflection activity.
+                    Reflection reflection = new Reflection();
+                    
+                    reflection.StartReflectionActivity();
+                    
                     break;
 
                 case "3":
