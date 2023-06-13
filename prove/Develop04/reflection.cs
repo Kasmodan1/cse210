@@ -14,11 +14,11 @@ class Reflection : Activity
         _reflectionPrompts = new List<string>();
         _reflectionQuestions = new List<string>();
         _random = new Random();
-        InitializePrompts();
-        InitializeQuestions();
+        InitializeReflectionPrompts();
+        InitializeReflectionQuestions();
     }
 
-    private void InitializePrompts()
+    private void InitializeReflectionPrompts()
     {
         _reflectionPrompts.Add("Think of a time when you stood up for someone else.");
         _reflectionPrompts.Add("Think of a time when you did something really difficult.");
@@ -26,7 +26,7 @@ class Reflection : Activity
         _reflectionPrompts.Add("Think of a time when you did something truly selfless.");
     }
 
-    private void InitializeQuestions()
+    private void InitializeReflectionQuestions()
     {
         _reflectionQuestions.Add("Why was this experience meaningful to you?");
         _reflectionQuestions.Add("Have you ever done anything like this before?");
@@ -43,7 +43,6 @@ class Reflection : Activity
     {
 
         int count = itemList.Count;
-
         if (count == 0)
         {
             return null;
@@ -67,8 +66,7 @@ class Reflection : Activity
 
         catch (FormatException)
         {
-            Console.WriteLine("Invalid input. Please enter a valid integer value.");
-
+            base.DisplayMsg("Invalid input. Please enter a valid integer value.");
             return;
         }
 
