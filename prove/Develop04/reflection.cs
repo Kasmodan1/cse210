@@ -72,9 +72,6 @@ class Reflection : Activity
             return;
         }
 
-        // use this tuple for duration
-        var (startTime, endTime, duration) = base.ActivityDuration(seconds);
-
         //clear terminal
         Console.Clear();
 
@@ -86,13 +83,65 @@ class Reflection : Activity
 
         base.DisplayMsg("Consider the following prompt:");
 
-        string selectedPrompt = GetReflectionItem(_reflectionPrompts);
+        bool continueReflection = true;
 
-        if (selectedPrompt != null)
+        while(continueReflection)
         {
-            Console.WriteLine(selectedPrompt);
+
+            string selectedPrompt = GetReflectionItem(_reflectionPrompts);
+
+            if (selectedPrompt != null)
+            {
+                Console.WriteLine(selectedPrompt);
+            }
+
+            Console.WriteLine("When you have something in mind, press enter to continue.");
+
+            ConsoleKeyInfo keyInfo;
+
+            do
+            {
+                keyInfo = Console.ReadKey(intercept: true);
+            } while (keyInfo.Key != ConsoleKey.Enter);
+
+            continueReflection = false;
         }
 
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience");
+    
+        base.ActivityCountTime(5, "You may begin in: {0}");
+
+        Console.Clear();
+
+        // use this tuple for duration
+        var (startTime, endTime, duration) = base.ActivityDuration(seconds);
+
+        while(startTime < endTime)
+        {    
+            if (startTime + duration <= endTime)
+            {
+
+                string selectedQuestions = GetReflectionItem(_reflectionQuestions);
+
+                if (selectedQuestions != null)
+                {
+                    Console.WriteLine(selectedQuestions);
+                }
+
+                base.ActivityCountTime(5, " {0}");
+            }
+            startTime = DateTime.Now;
+
+        }
+
+        base.DisplayMsg("Well done!!");
+
+        base.ActivityResetTime(true);
+
+        base.DisplayMsg($"You have completed another {seconds} seconds of Reflection Activity."); 
+
+        base.ActivityPause(5);
+        
 
     }
 
