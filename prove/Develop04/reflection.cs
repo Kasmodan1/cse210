@@ -83,9 +83,9 @@ class Reflection : Activity
 
         base.DisplayMsg("Consider the following prompt:", " ");
 
-        bool continueReflection = true;
+        bool isPromptCompleted = false;
 
-        while(continueReflection)
+        while(isPromptCompleted)
         {
 
             string selectedPrompt = GetReflectionItem(_reflectionPrompts);
@@ -104,7 +104,7 @@ class Reflection : Activity
                 keyInfo = Console.ReadKey(intercept: true);
             } while (keyInfo.Key != ConsoleKey.Enter);
 
-            continueReflection = false;
+            isPromptCompleted = true;
         }
 
         base.DisplayMsg("Now ponder on each of the following questions as they relate to this experience", " ");
