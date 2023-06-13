@@ -30,13 +30,13 @@ class Reflection : Activity
     {
         _reflectionQuestions.Add("Why was this experience meaningful to you?");
         _reflectionQuestions.Add("Have you ever done anything like this before?");
-        _reflectionQuestions.Add(" did you get started?");
-        _reflectionQuestions.Add(" did you feel when it was complete?");
+        _reflectionQuestions.Add("How did you get started?");
+        _reflectionQuestions.Add("How did you feel when it was complete?");
         _reflectionQuestions.Add("What made this time different than other times when you were not as successful?");
         _reflectionQuestions.Add("What is your favorite thing about this experience?");
         _reflectionQuestions.Add("What could you learn from this experience that applies to other situations?");
         _reflectionQuestions.Add("What did you learn about yourself through this experience?");
-        _reflectionQuestions.Add(" can you keep this experience in mind in the future?");
+        _reflectionQuestions.Add("How can you keep this experience in mind in the future?");
     }
 
     private string GetReflectionItem(List<string> itemList)
@@ -81,7 +81,7 @@ class Reflection : Activity
 
         Console.Clear();
 
-        base.DisplayMsg("Consider the following prompt:");
+        base.DisplayMsg("Consider the following prompt:", " ");
 
         bool continueReflection = true;
 
@@ -92,10 +92,10 @@ class Reflection : Activity
 
             if (selectedPrompt != null)
             {
-                Console.WriteLine(selectedPrompt);
+                base.DisplayMsg(selectedPrompt, " ");
             }
 
-            Console.WriteLine("When you have something in mind, press enter to continue.");
+            base.DisplayMsg("When you have something in mind, press enter to continue.", " ");
 
             ConsoleKeyInfo keyInfo;
 
@@ -107,28 +107,30 @@ class Reflection : Activity
             continueReflection = false;
         }
 
-        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience");
-    
+        base.DisplayMsg("Now ponder on each of the following questions as they relate to this experience", " ");
+        
         base.ActivityCountTime(5, "You may begin in: {0}");
 
         Console.Clear();
+
+        base.ActivityResetTime(true);
 
         // use this tuple for duration
         var (startTime, endTime, duration) = base.ActivityDuration(seconds);
 
         while(startTime < endTime)
         {    
-            if (startTime + duration <= endTime)
+            if (startTime <= endTime)
             {
 
                 string selectedQuestions = GetReflectionItem(_reflectionQuestions);
 
                 if (selectedQuestions != null)
                 {
-                    Console.WriteLine(selectedQuestions);
+                    base.DisplayMsg(selectedQuestions);
                 }
 
-                base.ActivityCountTime(5, " {0}");
+                base.ActivityCountTime(10, " {0}");
             }
             startTime = DateTime.Now;
 
