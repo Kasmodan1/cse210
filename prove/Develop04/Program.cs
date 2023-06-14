@@ -58,21 +58,17 @@ class Program
             {
                 case "1":
                     Breathing  breathing = new Breathing();
-
                     breathing.StartBreathingActivity();
-
                     break;
 
                 case "2":
                     Reflection reflection = new Reflection();
-                    
                     reflection.StartReflectionActivity();
-                    
                     break;
 
                 case "3":
-                    Console.WriteLine("Welcome to the Listing Activity.");
-                    //start the listing activity
+                    Listing listing = new Listing();
+                    listing.StartListingActivity();
                     break;
                 
                 case "4":

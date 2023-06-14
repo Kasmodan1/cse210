@@ -99,6 +99,4 @@ class Activity
         Console.Write("\r" + new string(' ', Console.WindowWidth - 1) + "\r");
     }
 
-    
-
 }
