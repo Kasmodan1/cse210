@@ -46,15 +46,6 @@ class Breathing : Activity
 
         while(startTime < endTime)
         {
-        
-            //Console.Write("\r" + new string(' ', Console.WindowWidth - 1) + "\r");
-
-            //DateTime pauseStart = base._pauseStart;
-            //DateTime pauseEnd = base._pauseEnd;
-
-            //TimeSpan pauseDuration = pauseEnd - pauseStart;
-            //TimeSpan totalPauseDuration = pauseDuration;
-
             if (startTime + duration <= endTime)
             {
                 base.ActivityCountTime(2, "Now breath in...{0}");
