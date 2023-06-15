@@ -21,19 +21,6 @@ class Activity
         }
     }
 
-    //public TimeSpan ActivityDuration(int seconds)
-    //{
-    //    DateTime _startTime = DateTime.Now;
-//
-    //    DateTime _endTime = _startTime.AddSeconds(seconds);
-//
-    //    TimeSpan duration = _endTime - _startTime;
-    //    
-    //    // Will return how long the activity will run in (seconds).
-    //    return duration;
-    //
-    //}
-
     public (DateTime startTime, DateTime endTime, TimeSpan duration) ActivityDuration(int seconds)
 {
     this._startTime = DateTime.Now;
