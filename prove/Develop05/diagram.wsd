@@ -1,0 +1,58 @@
+@startuml diagram
+class "Goal" as Goal
+class "SimpleGoal" as SimpleGoal
+class "EternalGoal" as EternalGoal
+class "ChecklistGoal" as ChecklistGoal
+
+
+Goal <|-- "SimpleGoal"
+
+Goal <|-- "EternalGoal"
+
+Goal <|-- "ChecklistGoal"
+
+Goal ..> Program
+
+class Goal {
+  # _score: int
+  # _completed: boolean
+  # _name: string
+  # _points: int
+  # _goals: List<Goals>
+  # GetName: (string)
+  # Goal: (name: string)
+  # IsGoalComplet() :boolean
+  # GetPoints() :int
+  # SetCompleted(completed: boolean): void
+  # CalculatePoints() :int
+  # RecordEvent() :void
+  # GetScore() : int
+  # ListGoals() :void
+}
+
+class SimpleGoal {
+  - SimpleGoal(name: String, points: int)
+  - CalculatePoints(): int
+}
+
+class EternalGoal {
+  - EternalGoal(name: String, points: int)
+  - CalculatePoints(): int
+}
+
+class ChecklistGoal {
+  - _targetCount: int
+  - _currentCount: int
+  - ChecklistGoal(name: String, points: int, targetCount: int)
+  - GetCurrentCount(): int
+  - IsGoalComplet(): boolean
+  - RecordEvent(): void
+  - CalculatePoints(): int
+}
+
+class Program {
+  +saveGoal(goal: Goal): void
+  +loadGoal(): Goal
+}
+
+@enduml0
