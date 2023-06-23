@@ -3,19 +3,14 @@ using System.Collections.Generic;
 
 class Goal
 {   
-    protected int _points;
-    protected Boolean _completed;
-    protected string _name;
-    protected List<string> _goals;
 
-  
+    protected bool _completed;
+    protected string _name;
     
-    protected Goal(string name)
+    public Goal(string name)
     {
         _name = name;
         _completed = false;
-        _points = 0;
-        _goals = new List<string>();
     }
 
     protected string GetName()
@@ -23,37 +18,24 @@ class Goal
         return _name;
     }
 
-
     protected bool IsGoalComplete()
     {
         return _completed;
     }
 
-    public int GetPoints()
+    public virtual int CalculatePoints()
     {
-        return _points;
-    }
-
-    protected void SetCompleted(bool completed)
-    {
-        _completed = completed;
-    }
-    protected virtual int CalculatePoints()
-    {
+        // Base implementation for calculating points
         return 0;
     }
-    protected void RecordEvent()
+
+    public virtual void RecordEvent()
     {
-        // logic to record an event for the goal
-    }
-    protected int GetTotalScore()
-    {
-        // implement logic for getting total score.
-        return 0;
-    }
-    protected void ListGoals()
-    {
-        // put logic to list goals
+        // Base implementation for recording an event
     }
 
+    public virtual void ListGoalDetails()
+    {
+        // Base implementation for listing goal details
+    }
 }
