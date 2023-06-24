@@ -6,16 +6,58 @@ class Goal
 
     protected bool _completed;
     protected string _name;
+    protected string _type;
+    protected string _description;
+    protected string _data;
+
     
-    public Goal(string name)
+    public Goal(string goalname, string goaltype, string goaldescription, string goaldata)
     {
-        _name = name;
+        _name = goalname;
         _completed = false;
+        _type = goaltype;
+        _description = goaldescription;
+        _data = goaldata;
     }
 
-    public string GetName()
+    public string GetGoalName()
     {
         return _name;
+    }
+
+    protected void SetGoalName(string goalname)
+    {
+        _name = goalname;
+    }
+
+    public string GetGoalType()
+    {
+        return _type;
+    }
+
+    protected void SetGoalType(string goaltype)
+    {
+        _type = goaltype;
+    }
+
+    public string GetGoalDescription()
+    {
+        return _description;
+    }
+
+    protected void SetGoalDescription(string goaldescription)
+    {
+        _description = goaldescription;
+    }
+
+    public string GetGoalData()
+    {
+        return _data;
+    }
+
+    protected void SetGoalData(string goaldata)
+    {
+        _data = goaldata;
     }
 
     protected bool IsGoalComplete()
