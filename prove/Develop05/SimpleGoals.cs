@@ -12,6 +12,10 @@ class SimpleGoal : Goal
     public override int CalculatePoints()
     {
         // Calculate points for a simple goal
-        return _points;
+        if (_completed)
+        {
+            return _points;
+        }
+        return 0;
     }
 }

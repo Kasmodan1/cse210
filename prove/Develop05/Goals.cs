@@ -13,7 +13,7 @@ class Goal
         _completed = false;
     }
 
-    protected string GetName()
+    public string GetName()
     {
         return _name;
     }
@@ -31,11 +31,14 @@ class Goal
 
     public virtual void RecordEvent()
     {
+        _completed = true;
         // Base implementation for recording an event
     }
 
     public virtual void ListGoalDetails()
     {
+        Console.WriteLine($"Goal: {_name}");
+        Console.WriteLine($"Completed: {_completed}");
         // Base implementation for listing goal details
     }
 }
