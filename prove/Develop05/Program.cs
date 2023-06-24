@@ -3,7 +3,7 @@ using System.Threading;
 
 class Program
 {
-    private static int points = Goal.GetPoints();
+    //private static int points = Goal.GetPoints();
 
     static void Main(string[] args)
     {
@@ -13,7 +13,7 @@ class Program
     while (!exit)
     {
         
-        Console.WriteLine($"You have {points} points");
+        //Console.WriteLine($"You have {points} points");
 
         Console.WriteLine(" ");
         Console.WriteLine("Menu Options:");
