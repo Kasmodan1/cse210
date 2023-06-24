@@ -69,9 +69,29 @@ class Goal
         return _goalpoints;
     }
 
-    protected void SetGoalData(int goalPoints)
+    protected void SetGoalPoints(int goalPoints)
     {
         _goalpoints= goalPoints;
+    }
+
+    public DateTime GetGoalStartDate()
+    {
+        return _goalstartdate;
+    }
+
+    protected void SetGoalStartDate(DateTime goalStartDate)
+    {
+        _goalstartdate = goalStartDate;
+    }
+
+    public DateTime GetGoalEndDate()
+    {
+        return _goalenddate;
+    }
+
+    protected void SetGoalEndDate(DateTime goalEndDate)
+    {
+        _goalenddate = goalEndDate;
     }
 
     protected bool IsGoalComplete()
