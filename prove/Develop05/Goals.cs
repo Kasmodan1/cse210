@@ -6,18 +6,32 @@ class Goal
 
     protected bool _completed;
     protected string _name;
-    protected string _type;
+    protected int _type;
     protected string _description;
-    protected string _data;
+    protected List<Goal> goalsList;
+    protected int _goalpoints;
+    protected DateTime _goalstartdate;
+    protected DateTime _goalenddate;
+   
 
     
-    public Goal(string goalname, string goaltype, string goaldescription, string goaldata)
+    public Goal(DateTime goalStartDate, DateTime goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
     {
-        _name = goalname;
+        _goalstartdate = goalStartDate;
+        _goalenddate = goalEndDate;
         _completed = false;
-        _type = goaltype;
-        _description = goaldescription;
-        _data = goaldata;
+        _type = goalType;
+        _name = goalName;
+        _description = goalDescription;
+        _goalpoints = goalPoints;
+        goalsList = new List<Goal>();
+    
+    }
+
+    public static void Addgoals(Goal goal, List<Goal> goalsList)
+    {
+        goalsList.Add(goal);
+        Console.WriteLine("Goal added successfully!");
     }
 
     public string GetGoalName()
@@ -30,12 +44,12 @@ class Goal
         _name = goalname;
     }
 
-    public string GetGoalType()
+    public int GetGoalType()
     {
         return _type;
     }
 
-    protected void SetGoalType(string goaltype)
+    protected void SetGoalType(int goaltype)
     {
         _type = goaltype;
     }
@@ -50,14 +64,14 @@ class Goal
         _description = goaldescription;
     }
 
-    public string GetGoalData()
+    public int GetGoalPoints()
     {
-        return _data;
+        return _goalpoints;
     }
 
-    protected void SetGoalData(string goaldata)
+    protected void SetGoalData(int goalPoints)
     {
-        _data = goaldata;
+        _goalpoints= goalPoints;
     }
 
     protected bool IsGoalComplete()

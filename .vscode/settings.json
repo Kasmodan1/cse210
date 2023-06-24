@@ -1,10 +1,16 @@
 {
   "cSpell.words": [
+    "Addgoals",
     "datetime",
     "endtime",
     "goaldata",
+    "goaldateend",
+    "goaldatestart",
     "goaldescription",
+    "goalenddate",
     "goalname",
+    "goalpoints",
+    "goalstartdate",
     "goaltype",
     "Lside",
     "starttime",
