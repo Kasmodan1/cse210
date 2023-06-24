@@ -28,7 +28,7 @@ class Goal
     
     }
 
-    public static void Addgoals(Goal goal, List<Goal> goalsList)
+    public void Addgoals(Goal goal)
     {
         goalsList.Add(goal);
         Console.WriteLine("Goal added successfully!");
