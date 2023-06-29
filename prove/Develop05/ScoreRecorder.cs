@@ -1,5 +1,6 @@
 using System;
 
+
 class ScoreRecorder
 {
     private int _score;
@@ -18,7 +19,7 @@ class ScoreRecorder
 
     public void RecordEventForGoal(string goalName)
     {
-        Goal goal = _goals.Find(g => g.GetName() == goalName);
+        Goal goal = _goals.Find(g => g.GetGoalName() == goalName);
         if (goal != null)
         {
             goal.RecordEvent();

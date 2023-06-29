@@ -7,7 +7,8 @@ class ChecklistGoal : Goal
     private int _pointsPerEvent;
     private int _bonusPoints;
 
-    public ChecklistGoal(string name, int targetCount, int pointsPerEvent, int bonusPoints) : base(name)
+    public ChecklistGoal(int goalType, string goalName, string goalDescription, int goalPoints, int targetCount, int pointsPerEvent, int bonusPoints)
+    : base(goalType, goalName, goalDescription, goalPoints)
     {
         _targetCount = targetCount;
         _currentCount = 0;
@@ -40,6 +41,7 @@ class ChecklistGoal : Goal
     {
         // List goal details for a checklist goal
         Console.WriteLine($"Checklist Goal: {_name}");
-        Console.WriteLine($"Completed: {_currentCount}/{_targetCount}");
+        Console.WriteLine($"Completed: {_completed}");
+        Console.WriteLine($"Current Count: {_currentCount}/{_targetCount}");
     }
 }

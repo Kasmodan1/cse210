@@ -2,18 +2,19 @@ using System;
 
 class EternalGoal : Goal
 {
-    private int _points;
+    private int _eternalGoalPoints;
     private int _eventCount;
 
-    public EternalGoal(string name, int points) : base(name)
+    public EternalGoal(int goalType, string goalName, string goalDescription, int goalPoints)
+    : base(goalType, goalName, goalDescription, goalPoints)
     {
-        _points = points;
+        _eternalGoalPoints = goalPoints;
         _eventCount = 0;
     }
 
     public override int CalculatePoints()
     {
-        return _points * _eventCount;
+        return _eternalGoalPoints * _eventCount;
     }
 
     public override void RecordEvent()
