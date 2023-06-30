@@ -10,6 +10,7 @@ class Goal
     protected string _description;
     protected static List<Goal> goalsList;
     protected int _goalpoints;
+    protected static int _totalScore;
     protected DateTime _goalstartdate;
     protected DateTime? _goalenddate;
    
@@ -73,6 +74,16 @@ class Goal
         _goalpoints= goalPoints;
     }
 
+    public static int GetTotalScore()
+    {
+        return _totalScore;
+    }
+
+    protected void SetTotalScore(int totalScore)
+    {
+        _totalScore = totalScore;
+    }
+
     public DateTime GetGoalStartDate()
     {
         return _goalstartdate;
@@ -93,9 +104,17 @@ class Goal
         _goalenddate = goalEndDate;
     }
 
-    protected bool IsGoalComplete()
+    protected string IsGoalComplete()
     {
-        return _completed;
+        if (_completed)
+        {
+            return "[X]";
+        }
+        else
+        {
+            return "[ ]";
+        }
+
     }
     
     public static List<Goal> ReturnGoals()

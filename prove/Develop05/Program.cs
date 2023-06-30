@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 class Program
 {
-    static ScoreRecorder scoreRecorder = new ScoreRecorder();
-
     static void Main(string[] args)
     {
  
@@ -14,8 +12,11 @@ class Program
     while (!exit)
     {
         
-        Console.WriteLine($"You have {scoreRecorder.GetScore()} Total Points");
+        Console.WriteLine($"You have {Goal.GetTotalScore()} Total Points");
+        Rank.CheckRank();
+        Rank.DisplayProgress();
 
+        Console.WriteLine(" ");
         Console.WriteLine(" ");
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Create New Goal");
@@ -180,7 +181,8 @@ class Program
                 {
                     Goal selectedGoal = goals[goalIndex];
                     selectedGoal.RecordEvent();
-                    Console.WriteLine("Event recorded for the goal!");
+                    selectedGoal.CalculatePoints();
+    
                 }
                 else
                 {
