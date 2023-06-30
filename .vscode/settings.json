@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
     "Addgoals",
+    "bonuspoints",
+    "currentcount",
     "datetime",
     "endtime",
     "goaldata",
@@ -14,6 +16,7 @@
     "goaltype",
     "Lside",
     "starttime",
+    "targetcount",
     "Wside"
   ]
 }

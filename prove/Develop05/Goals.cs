@@ -13,6 +13,9 @@ class Goal
     protected static int _totalScore;
     protected DateTime _goalstartdate;
     protected DateTime? _goalenddate;
+    protected int _bonuspoints;
+    protected int _targetcount;
+    protected int _currentcount;
    
 
     
@@ -27,6 +30,19 @@ class Goal
         _goalpoints = goalPoints;
         goalsList = new List<Goal>();
     
+    }
+
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount)
+    {
+        _goalstartdate = goalStartDate;
+        _goalenddate = goalEndDate;
+        _type = goalType;
+        _name = goalName;
+        _description = goalDescription;
+        _goalpoints = goalPoints;
+        _bonuspoints = bonusPoints;
+        _targetcount = targetCount;
+        _currentcount = currentCount;
     }
 
     public void Addgoals(Goal goal)
