@@ -136,9 +136,11 @@ class Program
 
                         Console.Write("What is the bonus for accomplishing it that many times?: ");
                         int bonusPoints = int.Parse(Console.ReadLine());
+
+                        int currentCount = 0;
     
                         // Create the goal based on the user's input
-                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints, targetCount, bonusPoints);
+                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount);
     
 
                         goal.Addgoals(goal); // Add the new goal to the goal class list
@@ -155,16 +157,30 @@ class Program
                     break;
 
                 case "3":
-                    //Save goals.
-                    //foreach (var goal in Goal.ReturnGoals())
-                    //{
-                    //    FileHandler.SaveGoal(goal.GetGoalStartDate(), goal.GetGoalEndDate, goal.//GetGoalType(), goal.GetGoalName(), goal.GetGoalDescription(), goal.GetGoalPoints//(), goal.bonusPoints(), goal.targetCount, goal.currentCount);
-                    //}
+                    // Save goals.
+                    List<Goal> goals = Goal.ReturnGoals();
+                    foreach (var goal in goals)
+                    {
+                        DateTime goalStartDate = goal.GetGoalStartDate();
+                        DateTime? goalEndDate = goal.GetGoalEndDate();
+                        int goalType = goal.GetGoalType();
+                        string goalName = goal.GetGoalName();
+                        string goalDescription = goal.GetGoalDescription();
+                        int goalPoints = goal.GetGoalPoints();
+                        int bonusPoints = goal.GetBonusPoints();
+                        int targetCount = goal.GetTargetCount();
+                        int currentCount = goal.GetCurrentCount();
+
+                        FileHandler.SaveGoal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount);
+                    }
                     break;
+
 
                 case "4":
                     //Load goals
-                    FileHandler.LoadGoal();
+                    Console.WriteLine("What is the name of the file to load?: ");
+                    string filename = Console.ReadLine();
+                    FileHandler.LoadGoal(filename);
                     break;
 
                 case "5":

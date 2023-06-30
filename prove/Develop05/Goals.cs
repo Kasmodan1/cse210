@@ -120,6 +120,19 @@ class Goal
         _goalenddate = goalEndDate;
     }
 
+    public int GetBonusPoints()
+    {
+        return _bonuspoints;
+    }
+    public int GetTargetCount()
+    {
+        return _targetcount;
+    }
+    public int GetCurrentCount()
+    {
+        return _currentcount;
+    }
+
     protected string IsGoalComplete()
     {
         if (_completed)
