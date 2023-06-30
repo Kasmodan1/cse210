@@ -159,19 +159,19 @@ class Program
                 case "3":
                     // Save goals.
                     List<Goal> goals = Goal.ReturnGoals();
-                    foreach (var goal in goals)
+                    foreach (var Goal in goals)
                     {
-                        DateTime goalStartDate = goal.GetGoalStartDate();
-                        DateTime? goalEndDate = goal.GetGoalEndDate();
-                        int goalType = goal.GetGoalType();
-                        string goalName = goal.GetGoalName();
-                        string goalDescription = goal.GetGoalDescription();
-                        int goalPoints = goal.GetGoalPoints();
-                        int bonusPoints = goal.GetBonusPoints();
-                        int targetCount = goal.GetTargetCount();
-                        int currentCount = goal.GetCurrentCount();
+                        DateTime goalStartDate = Goal.GetGoalStartDate();
+                        DateTime? goalEndDate = Goal.GetGoalEndDate();
+                        int goaltype = Goal.GetGoalType();
+                        string goalName = Goal.GetGoalName();
+                        string goalDescription = Goal.GetGoalDescription();
+                        int goalPoints = Goal.GetGoalPoints();
+                        int bonusPoints = Goal.GetBonusPoints();
+                        int targetCount = Goal.GetTargetCount();
+                        int currentCount = Goal.GetCurrentCount();
 
-                        FileHandler.SaveGoal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount);
+                        FileHandler.SaveGoal(goalStartDate, goalEndDate, goaltype, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount);
                     }
                     break;
 
@@ -186,18 +186,18 @@ class Program
                 case "5":
                 // Display the list of goals
                 Console.WriteLine("Select a goal to record an event for:");
-                List<Goal> goals = Goal.ReturnGoals();
-                for (int i = 0; i < goals.Count; i++)
+                List<Goal> goalList = Goal.ReturnGoals();
+                for (int i = 0; i < goalList.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. {goals[i].GetGoalName()}");
+                    Console.WriteLine($"{i + 1}. {goalList[i].GetGoalName()}");
                 }
 
                 Console.Write("Enter the number of the goal: ");
                 int goalIndex = int.Parse(Console.ReadLine()) - 1;
 
-                if (goalIndex >= 0 && goalIndex < goals.Count)
+                if (goalIndex >= 0 && goalIndex < goalList.Count)
                 {
-                    Goal selectedGoal = goals[goalIndex];
+                    Goal selectedGoal = goalList[goalIndex];
                     selectedGoal.RecordEvent();
                     selectedGoal.CalculatePoints();
     
