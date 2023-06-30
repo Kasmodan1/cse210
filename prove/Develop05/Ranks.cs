@@ -12,6 +12,7 @@ class Rank
 
     private static readonly Rank[] Ranks = new Rank[]
     {
+        new Rank("Beginner", 0),
         new Rank("Rookie", 5000),
         new Rank("Amateur", 10000),
         new Rank("Novice", 20000),
@@ -64,15 +65,21 @@ class Rank
         Rank currentRank = null;
         Rank nextRank = null;
 
-        foreach (Rank rank in Ranks)
+        for (int i = 0; i < Ranks.Length; i++)
         {
-            if (totalScore >= rank.PointsRequired)
+            if (totalScore >= Ranks[i].PointsRequired)
             {
-                currentRank = rank;
+                currentRank = Ranks[i];
+
+                if (i == Ranks.Length - 1)
+                {
+                    Console.WriteLine($"Congratulations! You have reached the highest rank of {currentRank.Name}");
+                    return;
+                }
             }
             else
             {
-                nextRank = rank;
+                nextRank = Ranks[i];
                 break;
             }
         }

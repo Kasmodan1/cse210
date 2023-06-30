@@ -6,29 +6,31 @@ class Program
 {
     static void Main(string[] args)
     {
+
+
  
-    bool exit = false;
+        bool exit = false;
 
-    while (!exit)
-    {
+        while (!exit)
+        {
         
-        Console.WriteLine($"You have {Goal.GetTotalScore()} Total Points");
-        Rank.CheckRank();
-        Rank.DisplayProgress();
-
-        Console.WriteLine(" ");
-        Console.WriteLine(" ");
-        Console.WriteLine("Menu Options:");
-        Console.WriteLine("1. Create New Goal");
-        Console.WriteLine("2. List Goals");
-        Console.WriteLine("3. Save Goals");
-        Console.WriteLine("4. Load Goals");
-        Console.WriteLine("5. Record Event");
-        Console.WriteLine("6. Quit");
-        Console.Write("Select a number choice from the menu: ");
-
-        string menuChoice = Console.ReadLine();
-        Console.Clear();
+            Console.WriteLine(" ");
+            Rank.CheckRank();
+            Rank.DisplayProgress();
+            Console.WriteLine($"You have {Goal.GetTotalScore()} Total Points");
+    
+            Console.WriteLine(" ");
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("1. Create New Goal");
+            Console.WriteLine("2. List Goals");
+            Console.WriteLine("3. Save Goals");
+            Console.WriteLine("4. Load Goals");
+            Console.WriteLine("5. Record Event");
+            Console.WriteLine("6. Quit");
+            Console.Write("Select a number choice from the menu: ");
+    
+            string menuChoice = Console.ReadLine();
+            Console.Clear();
             switch (menuChoice)
             {
                 case "1":
