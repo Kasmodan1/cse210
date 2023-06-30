@@ -8,14 +8,14 @@ class Goal
     protected string _name;
     protected int _type;
     protected string _description;
-    protected List<Goal> goalsList;
+    protected static List<Goal> goalsList;
     protected int _goalpoints;
     protected DateTime _goalstartdate;
-    protected DateTime _goalenddate;
+    protected DateTime? _goalenddate;
    
 
     
-    public Goal(DateTime goalStartDate, DateTime goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
     {
         _goalstartdate = goalStartDate;
         _goalenddate = goalEndDate;
@@ -31,7 +31,6 @@ class Goal
     public void Addgoals(Goal goal)
     {
         goalsList.Add(goal);
-        Console.WriteLine("Goal added successfully!");
     }
 
     public string GetGoalName()
@@ -84,12 +83,12 @@ class Goal
         _goalstartdate = goalStartDate;
     }
 
-    public DateTime GetGoalEndDate()
+    public DateTime? GetGoalEndDate()
     {
         return _goalenddate;
     }
 
-    protected void SetGoalEndDate(DateTime goalEndDate)
+    protected void SetGoalEndDate(DateTime? goalEndDate)
     {
         _goalenddate = goalEndDate;
     }
@@ -98,6 +97,21 @@ class Goal
     {
         return _completed;
     }
+    
+    public static List<Goal> ReturnGoals()
+    {
+       return goalsList;
+    
+    }
+    public static void ListGoals()
+    {
+        foreach (Goal goal in goalsList)
+        {
+            goal.ListGoalDetails();
+            Console.WriteLine();
+        }
+    }
+
 
     public virtual int CalculatePoints()
     {

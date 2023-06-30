@@ -13,10 +13,12 @@ class FileHandler
     //        outputFile.WriteLine($"{date}|{goalType}|{goalName}|{goalDescription}|{goalData}");
     //    }
     //}
-    public static void SaveGoal(DateTime goaStartDate, DateTime goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
+    public static void SaveGoal(DateTime goaStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints,int targetCount, int currentCount)
     {
-        string filename = "Goals.txt";
-        string line = $"{goaStartDate}|{goalEndDate}|{goalType}|{goalName}|{goalDescription}|{goalPoints}";
+        Console.Write("What is the filename for the goal file?:");
+        
+        string filename = Console.ReadLine();
+        string line = $"{goaStartDate},{goalEndDate},{goalType},{goalName},{goalDescription},{goalPoints},{bonusPoints},{targetCount},{currentCount}";
 
         try
         {
@@ -69,20 +71,40 @@ class FileHandler
 
             foreach (string line in lines)
             {
-                string[] parts = line.Split("|");
+                string[] parts = line.Split(",");
 
-                DateTime goalStartDate = DateTime.Parse(parts[0]);
-                DateTime goalEndDate = DateTime.Parse(parts[1]);
-                int goalType = int.Parse(parts[2]);
-                string goalName = parts[3];
-                string goalDescription = parts[4];
-                int goalPoints = int.Parse(parts[5]);
-
-                // Assuming Addgoals() is defined and accessible in the Program class
-                Goal goalInstance = new Goal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints);
-
-                goalInstance.Addgoals(goalInstance);
-            
+                //if () // if this line has only 0-5 parts do this:
+                //{
+                //    DateTime goalStartDate = DateTime.Parse(parts[0]);
+                //    DateTime? goalEndDate = DateTime.Parse(parts[1]);
+                //    int goalType = int.Parse(parts[2]);
+                //    string goalName = parts[3];
+                //    string goalDescription = parts[4];
+                //    int goalPoints = int.Parse(parts[5]);
+//
+                //    // Assuming Addgoals() is defined and accessible in the Program class
+                //    Goal goalInstance = new Goal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints);
+//
+                //    goalInstance.Addgoals(goalInstance);
+                //}
+//
+                //else if ()  //if this line has 0-7 parts in that line do this
+                //{
+                //    DateTime goalStartDate = DateTime.Parse(parts[0]);
+                //    DateTime? goalEndDate = DateTime.Parse(parts[1]);
+                //    int goalType = int.Parse(parts[2]);
+                //    string goalName = parts[3];
+                //    string goalDescription = parts[4];
+                //    int goalPoints = int.Parse(parts[5]);
+                //    int targetCount = int.Parse(parts[6]);
+                //    int bonusPoints = int.Parse(parts[7]);
+//
+                //    // Assuming Addgoals() is defined and accessible in the Program class
+                //    Goal goalInstance = new Goal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, targetCount, bonusPoints);
+//
+                //    goalInstance.Addgoals(goalInstance);
+                //}
+            //
             }
 
             Console.WriteLine("Goals loaded successfully!");
