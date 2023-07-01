@@ -185,6 +185,11 @@ class Goal
     {
         return _completed;
     }
+
+    protected void SetCompleted(bool completed)
+    {
+        _completed = completed;
+    }
     
     public static List<Goal> ReturnGoals()
     {

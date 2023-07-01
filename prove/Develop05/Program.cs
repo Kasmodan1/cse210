@@ -118,9 +118,19 @@ class Program
                     {
                          //fetch the current date and display it as the start date.
                         DateTime goalStartDate = DateTime.Today;
-                        Console.WriteLine($"This new goal will begin today  {goalStartDate}");
-    
-                        DateTime? goalEndDate = null; // give a null this goal has no end date.
+                        string formattedStartDate = goalStartDate.ToString("MM/dd/yy");
+                        Console.WriteLine($"This new goal will begin today {formattedStartDate}");
+
+                        Console.Write("Do you want to add a end date for this goal? (yes/no): ");
+                        string input = Console.ReadLine();
+
+                        DateTime? goalEndDate = null;
+
+                        if (input.ToLower() == "yes")
+                        {
+                            Console.WriteLine($"Type end date for this goal? example MM/dd/yy");
+                            goalEndDate = DateTime.ParseExact(Console.ReadLine(), "MM/dd/yy", null);
+                        }
     
                         // ask for goal name
                         Console.Write("what is the name of your goal?: ");
@@ -143,7 +153,7 @@ class Program
                         int currentCount = 0;
     
                         // Create the goal based on the user's input
-                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount);
+                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount);
     
 
                         goal.Addgoals(goal); // Add the new goal to the goal class list
