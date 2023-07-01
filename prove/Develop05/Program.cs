@@ -166,6 +166,7 @@ class Program
                     {
                         DateTime goalStartDate = Goal.GetGoalStartDate();
                         DateTime? goalEndDate = Goal.GetGoalEndDate();
+                        bool goalCompleted = Goal.IsCompleted();
                         int goaltype = Goal.GetGoalType();
                         string goalName = Goal.GetGoalName();
                         string goalDescription = Goal.GetGoalDescription();
@@ -173,8 +174,9 @@ class Program
                         int bonusPoints = Goal.GetBonusPoints();
                         int targetCount = Goal.GetTargetCount();
                         int currentCount = Goal.GetCurrentCount();
+                        int totalScore = Goal.GetTotalScore();
 
-                        FileHandler.SaveGoal(goalStartDate, goalEndDate, goaltype, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount);
+                        FileHandler.SaveGoal(goalStartDate, goalEndDate, goalCompleted, goaltype, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore);
                     }
                     break;
 
@@ -188,19 +190,19 @@ class Program
 
                 case "5":
                     // record an event for a goal
-                    Console.WriteLine("Select a goal to record an event for:");
                     List<Goal> goalList = Goal.ReturnGoals();
-                    for (int i = 0; i < goalList.Count; i++)
+                    List<Goal> activeGoals = goalList.Where(goal => !goal.IsCompleted()).ToList();
+                    for (int i = 0; i < activeGoals.Count; i++)
                     {
-                        Console.WriteLine($"{i + 1}. {goalList[i].GetGoalName()}");
+                        Console.WriteLine($"{i + 1}. {activeGoals[i].GetGoalName()}");
                     }
     
                     Console.Write("Enter the number of the goal: ");
                     int goalIndex = int.Parse(Console.ReadLine()) - 1;
     
-                    if (goalIndex >= 0 && goalIndex < goalList.Count)
+                    if (goalIndex >= 0 && goalIndex < activeGoals.Count)
                     {
-                        Goal selectedGoal = goalList[goalIndex];
+                        Goal selectedGoal = activeGoals[goalIndex];
                         selectedGoal.RecordEvent();
                         selectedGoal.CalculatePoints();
         

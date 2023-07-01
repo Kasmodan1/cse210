@@ -45,10 +45,11 @@ class EternalGoal : Goal
         string status = IsGoalComplete(); // Determine the status of the goal
 
         Console.Write($"{status} ");
+        Console.Write($"Start Date:{GetGoalStartDate().ToString("MM/dd/yy")} ");
         Console.Write($"{GetGoalName()} ");
         Console.Write($"({GetGoalDescription()}) ");
         Console.Write($"Points: {GetGoalPoints()} ");
-        Console.Write($"Eternal Count: {GetCurrentCount}"); // Display the eternal count
+        Console.Write($"Eternal Count: {GetCurrentCount()}"); // Display the eternal count
     }
     
 }

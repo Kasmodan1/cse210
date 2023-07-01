@@ -56,6 +56,23 @@ class Goal
         _currentcount = goalCurrentCount;
     }
 
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate,bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int totalScore)
+    {
+        _goalstartdate = goalStartDate;
+        _goalenddate = goalEndDate;
+        _completed = goalCompleted;
+        _type = goalType;
+        _name = goalName;
+        _description = goalDescription;
+        _goalpoints = goalPoints;
+        _bonuspoints = bonusPoints;
+        _targetcount = targetCount;
+        _currentcount = currentCount;
+        _totalScore = totalScore;
+    }
+
+
+
     public void Addgoals(Goal goal)
     {
         goalsList.Add(goal);
@@ -162,6 +179,11 @@ class Goal
             return "[ ]";
         }
 
+    }
+
+    public bool IsCompleted()
+    {
+        return _completed;
     }
     
     public static List<Goal> ReturnGoals()

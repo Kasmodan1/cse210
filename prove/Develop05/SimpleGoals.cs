@@ -46,6 +46,8 @@ class SimpleGoal : Goal
         string status = IsGoalComplete(); // Determine the status of the goal
 
         Console.Write($"{status} ");
+        Console.Write($"Start Date:{GetGoalStartDate().ToString("MM/dd/yy")} ");
+        Console.Write($"End Date:{GetGoalEndDate()?.ToString("MM/dd/yy") ?? "N/A"} ");
         Console.Write($"{GetGoalName()} ");
         Console.Write($"({GetGoalDescription()}) ");
         Console.Write($"Points: {GetGoalPoints()} ");
