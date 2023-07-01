@@ -88,7 +88,8 @@ class Program
                     {
                         //fetch the current date and display it as the start date.
                         DateTime goalStartDate = DateTime.Today;
-                        Console.WriteLine($"This new goal will begin today {goalStartDate}");
+                        string formattedStartDate = goalStartDate.ToString("MM/dd/yy");
+                        Console.WriteLine($"This new goal will begin today {formattedStartDate}");
     
                         DateTime? goalEndDate = null; // give a null this goal has no end date.
     
@@ -101,11 +102,13 @@ class Program
                         string goalDescription = Console.ReadLine();
     
                         // ask how many points is it worth once completed
-                        Console.Write("What is the amount of points associated with     this goal?: ");
+                        Console.Write("What is the amount of points associated with this goal?: ");
                         int goalPoints = int.Parse(Console.ReadLine());
+
+                        int goalCurrentCount = 0;
     
                         // Create the goal based on the user's input
-                        Goal goal = new EternalGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints);
+                        Goal goal = new EternalGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints, goalCurrentCount);
     
                         goal.Addgoals(goal); // Add the new goal to the goal class list
                         Console.WriteLine("Goal added successfully!");
@@ -184,29 +187,29 @@ class Program
                     break;
 
                 case "5":
-                // Display the list of goals
-                Console.WriteLine("Select a goal to record an event for:");
-                List<Goal> goalList = Goal.ReturnGoals();
-                for (int i = 0; i < goalList.Count; i++)
-                {
-                    Console.WriteLine($"{i + 1}. {goalList[i].GetGoalName()}");
-                }
-
-                Console.Write("Enter the number of the goal: ");
-                int goalIndex = int.Parse(Console.ReadLine()) - 1;
-
-                if (goalIndex >= 0 && goalIndex < goalList.Count)
-                {
-                    Goal selectedGoal = goalList[goalIndex];
-                    selectedGoal.RecordEvent();
-                    selectedGoal.CalculatePoints();
+                    // record an event for a goal
+                    Console.WriteLine("Select a goal to record an event for:");
+                    List<Goal> goalList = Goal.ReturnGoals();
+                    for (int i = 0; i < goalList.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {goalList[i].GetGoalName()}");
+                    }
     
-                }
-                else
-                {
-                    Console.WriteLine("Invalid goal selection!");
-                }
-                break;
+                    Console.Write("Enter the number of the goal: ");
+                    int goalIndex = int.Parse(Console.ReadLine()) - 1;
+    
+                    if (goalIndex >= 0 && goalIndex < goalList.Count)
+                    {
+                        Goal selectedGoal = goalList[goalIndex];
+                        selectedGoal.RecordEvent();
+                        selectedGoal.CalculatePoints();
+        
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid goal selection!");
+                    }
+                    break;
 
                 case "6":
 

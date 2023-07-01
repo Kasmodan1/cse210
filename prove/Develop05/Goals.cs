@@ -8,7 +8,7 @@ class Goal
     protected string _name;
     protected int _type;
     protected string _description;
-    protected static List<Goal> goalsList;
+    protected static List<Goal> goalsList = new List<Goal>();
     protected int _goalpoints;
     protected static int _totalScore;
     protected DateTime _goalstartdate;
@@ -28,7 +28,6 @@ class Goal
         _name = goalName;
         _description = goalDescription;
         _goalpoints = goalPoints;
-        goalsList = new List<Goal>();
     
     }
 
@@ -36,6 +35,7 @@ class Goal
     {
         _goalstartdate = goalStartDate;
         _goalenddate = goalEndDate;
+        _completed = false;
         _type = goalType;
         _name = goalName;
         _description = goalDescription;
@@ -43,6 +43,17 @@ class Goal
         _bonuspoints = bonusPoints;
         _targetcount = targetCount;
         _currentcount = currentCount;
+    }
+
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int goalCurrentCount)
+    {
+        _goalstartdate = goalStartDate;
+        _goalenddate = goalEndDate;
+        _type = goalType;
+        _name = goalName;
+        _description = goalDescription;
+        _goalpoints = goalPoints;
+        _currentcount = goalCurrentCount;
     }
 
     public void Addgoals(Goal goal)
@@ -124,13 +135,20 @@ class Goal
     {
         return _bonuspoints;
     }
+
     public int GetTargetCount()
     {
         return _targetcount;
     }
+
     public int GetCurrentCount()
     {
         return _currentcount;
+    }
+
+    protected void SetCurrentCount(int currentCount)
+    {
+        _currentcount = currentCount;
     }
 
     protected string IsGoalComplete()
@@ -151,6 +169,7 @@ class Goal
        return goalsList;
     
     }
+
     public static void ListGoals()
     {
         foreach (Goal goal in goalsList)
@@ -159,7 +178,6 @@ class Goal
             Console.WriteLine();
         }
     }
-
 
     public virtual int CalculatePoints()
     {
