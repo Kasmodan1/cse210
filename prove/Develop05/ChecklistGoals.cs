@@ -8,10 +8,10 @@ class ChecklistGoal : Goal
     private int _bonusPoints;
 
     public ChecklistGoal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int currentCount, int targetCount)
-    : base(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount )
+    : base(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount)
     {
         _targetCount = targetCount;
-        _currentCount = 0;
+        _currentCount = currentCount;
         _pointsPerEvent = goalPoints;
         _bonusPoints = bonusPoints;
     }
@@ -22,26 +22,49 @@ class ChecklistGoal : Goal
         _currentCount++;
         if (_currentCount >= _targetCount)
         {
-            _completed = true;
+            SetCompleted(true);
         }
     }
 
     public override int CalculatePoints()
     {
-        // Calculate points for a checklist goal
-        int points = _pointsPerEvent * _currentCount;
         if (_completed)
-        {
-            points += _bonusPoints;
+        {   
+
+            if (this.GetType() == typeof(ChecklistGoal))
+            {
+                // Find the ChecklistGoal in the goalsList and return the checklist points
+                foreach (Goal goal in Goal.ReturnGoals())
+                {
+                    if (goal.GetType() == typeof(ChecklistGoal) && goal.GetGoalName() == this.  GetGoalName())
+                    {
+                        if (_currentCount <= _targetCount)
+                        {
+                            int checklistGoalPoints = ((ChecklistGoal)goal)._pointsPerEvent;
+                            if (IsCompleted() == true)
+                            {
+                                checklistGoalPoints += _bonusPoints;
+                            }
+                            SetTotalScore(GetTotalScore() + checklistGoalPoints); // Update the totalScore  by adding the checklist goal points
+                            return checklistGoalPoints;
+                        }
+                    }
+                }
+            }
         }
-        return points;
+        return 0;
     }
 
     public override void ListGoalDetails()
     {
-        // List goal details for a checklist goal
-        Console.WriteLine($"Checklist Goal: {_name}");
-        Console.WriteLine($"Completed: {_completed}");
-        Console.WriteLine($"Current Count: {_currentCount}/{_targetCount}");
+        string status = IsGoalComplete(); // Determine the status of the goal
+
+        Console.Write($"{status} ");
+        Console.Write($"Start Date:{GetGoalStartDate().ToString("MM/dd/yy")} ");
+        Console.Write($"End Date:{GetGoalEndDate()?.ToString("MM/dd/yy") ?? "N/A"} ");
+        Console.Write($"{GetGoalName()} ");
+        Console.Write($"({GetGoalDescription()}) ");
+        Console.Write($"Points: {GetGoalPoints()} ");
+        Console.Write($"Completed: {GetCurrentCount()}/{GetTargetCount()} times ");
     }
 }
