@@ -42,6 +42,29 @@ class ChecklistGoal : Goal
                         if (_currentCount <= _targetCount)
                         {
                             int checklistGoalPoints = ((ChecklistGoal)goal)._pointsPerEvent;
+
+                            SetTotalScore(GetTotalScore() + checklistGoalPoints); // Update the totalScore  by adding the checklist goal points
+                            Console.WriteLine($"You have gained {checklistGoalPoints}");
+
+                            return checklistGoalPoints;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (_completed == true)
+        {
+            if (this.GetType() == typeof(ChecklistGoal))
+            {
+                // Find the ChecklistGoal in the goalsList and return the checklist points
+                foreach (Goal goal in Goal.ReturnGoals())
+                {
+                    if (goal.GetType() == typeof(ChecklistGoal) && goal.GetGoalName() == this.  GetGoalName())
+                    {
+                        if (_currentCount == _targetCount)
+                        {
+                            int checklistGoalPoints = ((ChecklistGoal)goal)._pointsPerEvent;
                             if (IsCompleted() == true)
                             {
                                 checklistGoalPoints += _bonusPoints;
@@ -68,6 +91,7 @@ class ChecklistGoal : Goal
         Console.Write($"{GetGoalName()} ");
         Console.Write($"({GetGoalDescription()}) ");
         Console.Write($"Points: {GetGoalPoints()} ");
+        Console.Write($"Bonus: {GetBonusPoints()} ");
         Console.Write($"Completed: {GetCurrentCount()}/{GetTargetCount()} times ");
     }
 }

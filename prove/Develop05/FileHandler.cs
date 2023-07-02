@@ -4,7 +4,7 @@ using System.IO;
 
 class FileHandler
 {
-     private static string goalFileName; // Variable to store the filename
+    private static string goalFileName; // Variable to store the filename
 
     public static void SaveGoal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int? totalScore = null)
     {
@@ -24,7 +24,7 @@ class FileHandler
 
         try
         {
-            File.AppendAllText(goalFileName, line + Environment.NewLine);
+            File.WriteAllText(goalFileName, line + Environment.NewLine);
             Console.WriteLine("Goal saved successfully!");
         }
         catch (IOException e)
@@ -66,8 +66,8 @@ class FileHandler
                     string goalName = parts[4];
                     string goalDescription = parts[5];
                     int goalPoints = int.Parse(parts[6]);
-                    int targetCount = int.Parse(parts[7]);
-                    int bonusPoints = int.Parse(parts[8]);
+                    int bonusPoints = int.Parse(parts[7]);
+                    int targetCount = int.Parse(parts[8]);
                     int currentCount = int.Parse(parts[9]);
                     int totalScore = int.Parse(parts[10]);
 
