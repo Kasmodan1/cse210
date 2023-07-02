@@ -36,7 +36,7 @@ class FileHandler
             Console.WriteLine($"You don't have permission to access the file: {e.Message}");
         }
     }
-    
+        
     public static void LoadGoal(string filename)
     {
         try
@@ -71,7 +71,26 @@ class FileHandler
                     int currentCount = int.Parse(parts[9]);
                     int totalScore = int.Parse(parts[10]);
 
-                    Goal goalInstance = new Goal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore);
+                    Goal goalInstance;
+
+                    // Create child class instances based on goal type
+                    switch (goalType)
+                    {
+                        case 1:
+                            goalInstance = new SimpleGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, totalScore);
+                            break;
+                        case 2:
+                            goalInstance = new EternalGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, currentCount, totalScore);
+                            break;
+                        case 3:
+                            goalInstance = new ChecklistGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore);
+                            break;
+                        // Add cases for other goal types if applicable
+                        default:
+                            goalInstance = new Goal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore);
+                            break;
+                    }
+
                     goalInstance.Addgoals(goalInstance);
                 }
             }
@@ -86,5 +105,5 @@ class FileHandler
         {
             Console.WriteLine($"You don't have permission to access the file: {e.Message}");
         }
-    }   
+    }
 }

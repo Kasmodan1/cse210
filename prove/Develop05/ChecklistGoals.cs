@@ -7,8 +7,8 @@ class ChecklistGoal : Goal
     private int _pointsPerEvent;
     private int _bonusPoints;
 
-    public ChecklistGoal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int currentCount, int targetCount)
-    : base(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount)
+    public ChecklistGoal(DateTime goalStartDate, DateTime? goalEndDate,bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int totalScore)
+    : base(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore)
     {
         _targetCount = targetCount;
         _currentCount = currentCount;

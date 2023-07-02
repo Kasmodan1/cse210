@@ -5,8 +5,8 @@ class EternalGoal : Goal
     private int _eternalGoalPoints;
     private int _eternalCount;
 
-    public EternalGoal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int currentCount)
-    : base(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, currentCount)
+    public EternalGoal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int currentCount, int totalScore)
+    : base(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, currentCount, totalScore)
     {
         _eternalGoalPoints = goalPoints;
         _eternalCount = currentCount;
@@ -40,7 +40,7 @@ class EternalGoal : Goal
     
     }
 
-        public override void ListGoalDetails()
+    public override void ListGoalDetails()
     {
         string status = IsGoalComplete(); // Determine the status of the goal
 

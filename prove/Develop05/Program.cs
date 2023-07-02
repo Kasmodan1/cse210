@@ -75,9 +75,12 @@ class Program
                         Console.Write("What is the amount of points associated with this goal?: ");
                         int goalPoints = int.Parse(Console.ReadLine());
 
+                        bool goalCompleted = false;
+                        int totalScore = 0;
+
                         // Create the goal based on the user's input
                         DateTime actualGoalEndDate = goalEndDate ?? DateTime.MinValue;
-                        Goal goal = new SimpleGoal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints);
+                        Goal goal = new SimpleGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, totalScore);
 
                         goal.Addgoals(goal); // Add the new goal to the goal class list
                         Console.WriteLine("Goal added successfully!");
@@ -105,10 +108,12 @@ class Program
                         Console.Write("What is the amount of points associated with this goal?: ");
                         int goalPoints = int.Parse(Console.ReadLine());
 
-                        int goalCurrentCount = 0;
+                        int currentCount = 0;
+                        bool goalCompleted = false;
+                        int totalScore = 0;
     
                         // Create the goal based on the user's input
-                        Goal goal = new EternalGoal(goalStartDate, goalEndDate,  goalType, goalName, goalDescription, goalPoints, goalCurrentCount);
+                        Goal goal = new EternalGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, currentCount, totalScore);
     
                         goal.Addgoals(goal); // Add the new goal to the goal class list
                         Console.WriteLine("Goal added successfully!");
@@ -151,9 +156,11 @@ class Program
                         int bonusPoints = int.Parse(Console.ReadLine());
 
                         int currentCount = 0;
+                        bool goalCompleted = false;
+                        int totalScore = 0;
     
                         // Create the goal based on the user's input
-                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints, bonusPoints, currentCount, targetCount);
+                        Goal goal = new ChecklistGoal(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore);
     
 
                         goal.Addgoals(goal); // Add the new goal to the goal class list
@@ -193,7 +200,7 @@ class Program
 
                 case "4":
                     //Load goals
-                    Console.WriteLine("What is the name of the file to load?: ");
+                    Console.Write("What is the name of the file to load?: ");
                     string filename = Console.ReadLine();
                     FileHandler.LoadGoal(filename);
                     break;

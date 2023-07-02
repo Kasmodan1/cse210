@@ -19,44 +19,7 @@ class Goal
    
 
     
-    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
-    {
-        _goalstartdate = goalStartDate;
-        _goalenddate = goalEndDate;
-        _completed = false;
-        _type = goalType;
-        _name = goalName;
-        _description = goalDescription;
-        _goalpoints = goalPoints;
-    
-    }
-
-    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount)
-    {
-        _goalstartdate = goalStartDate;
-        _goalenddate = goalEndDate;
-        _completed = false;
-        _type = goalType;
-        _name = goalName;
-        _description = goalDescription;
-        _goalpoints = goalPoints;
-        _bonuspoints = bonusPoints;
-        _targetcount = targetCount;
-        _currentcount = currentCount;
-    }
-
-    public Goal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints, int goalCurrentCount)
-    {
-        _goalstartdate = goalStartDate;
-        _goalenddate = goalEndDate;
-        _type = goalType;
-        _name = goalName;
-        _description = goalDescription;
-        _goalpoints = goalPoints;
-        _currentcount = goalCurrentCount;
-    }
-
-    public Goal(DateTime goalStartDate, DateTime? goalEndDate,bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int totalScore)
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int totalScore)
     {
         _goalstartdate = goalStartDate;
         _goalenddate = goalEndDate;
@@ -65,12 +28,28 @@ class Goal
         _name = goalName;
         _description = goalDescription;
         _goalpoints = goalPoints;
-        _bonuspoints = bonusPoints;
-        _targetcount = targetCount;
-        _currentcount = currentCount;
         _totalScore = totalScore;
     }
 
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int totalScore)
+        : this(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, totalScore)
+    {
+        _bonuspoints = bonusPoints;
+        _targetcount = targetCount;
+        _currentcount = currentCount;
+    }
+
+    public Goal(DateTime goalStartDate, DateTime? goalEndDate,bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int currentCount, int totalScore)
+        : this(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, totalScore)
+    {
+        _currentcount = currentCount;
+    }
+
+    //public Goal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int totalScore)
+    //    : this(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, bonusPoints, targetCount, currentCount, totalScore)
+    //{
+    //    _totalScore = totalScore;
+    //}
 
 
     public void Addgoals(Goal goal)

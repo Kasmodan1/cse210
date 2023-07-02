@@ -5,8 +5,8 @@ class SimpleGoal : Goal
     private static List<SimpleGoal> _simpleGoals = new List<SimpleGoal>();
     private int _simpleGoalPoints;
 
-    public SimpleGoal(DateTime goalStartDate, DateTime? goalEndDate, int goalType, string goalName, string goalDescription, int goalPoints)
-    : base(goalStartDate, goalEndDate, goalType, goalName, goalDescription, goalPoints)
+    public SimpleGoal(DateTime goalStartDate, DateTime? goalEndDate,bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int totalScore)
+    : base(goalStartDate, goalEndDate, goalCompleted, goalType, goalName, goalDescription, goalPoints, totalScore)
     {
         _simpleGoalPoints = goalPoints;
         _simpleGoals.Add(this); // Add the current instance to the list of SimpleGoals
