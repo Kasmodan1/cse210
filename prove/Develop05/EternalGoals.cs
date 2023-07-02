@@ -24,6 +24,7 @@ class EternalGoal : Goal
                 {
                     int eternalGoalPoints = ((EternalGoal)goal)._eternalGoalPoints;
                     SetTotalScore(GetTotalScore() + eternalGoalPoints); // Update the totalScore by adding the eternalGoalPoints
+                    Console.WriteLine($"You have gained {eternalGoalPoints}");
                     return eternalGoalPoints;
                 }
             }

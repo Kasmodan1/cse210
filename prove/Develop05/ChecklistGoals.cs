@@ -20,6 +20,7 @@ class ChecklistGoal : Goal
     {
         // Record an event for the checklist goal
         _currentCount++;
+        SetCurrentCount(_currentCount);
         if (_currentCount >= _targetCount)
         {
             SetCompleted(true);
@@ -28,7 +29,7 @@ class ChecklistGoal : Goal
 
     public override int CalculatePoints()
     {
-        if (_completed)
+        if (_completed == false)
         {   
 
             if (this.GetType() == typeof(ChecklistGoal))
@@ -46,6 +47,8 @@ class ChecklistGoal : Goal
                                 checklistGoalPoints += _bonusPoints;
                             }
                             SetTotalScore(GetTotalScore() + checklistGoalPoints); // Update the totalScore  by adding the checklist goal points
+                            Console.WriteLine($"You have gained {checklistGoalPoints}");
+
                             return checklistGoalPoints;
                         }
                     }

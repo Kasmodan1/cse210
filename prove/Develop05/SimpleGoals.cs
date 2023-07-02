@@ -26,6 +26,7 @@ class SimpleGoal : Goal
                     {
                         int simpleGoalPoints = ((SimpleGoal)goal)._simpleGoalPoints;
                         SetTotalScore(GetTotalScore() + simpleGoalPoints); // Update the totalScore by adding the simpleGoalPoints
+                        Console.WriteLine($"You have gained {simpleGoalPoints}");
                         return simpleGoalPoints;
                     }
                 }
