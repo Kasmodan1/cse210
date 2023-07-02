@@ -4,15 +4,16 @@ using System.IO;
 
 class FileHandler
 {
-    private static string goalFileName; // Variable to store the filename
+    private static int _savegoalcounter = 0;
+    private static string _goalFileName; // Variable to store the filename
 
     public static void SaveGoal(DateTime goalStartDate, DateTime? goalEndDate, bool goalCompleted, int goalType, string goalName, string goalDescription, int goalPoints, int bonusPoints, int targetCount, int currentCount, int? totalScore = null)
     {
         // Check if the filename is already set, if not, ask the user for the filename
-        if (string.IsNullOrEmpty(goalFileName))
+        if (string.IsNullOrEmpty(_goalFileName))
         {
             Console.Write("What is the filename for the goal file?: ");
-            goalFileName = Console.ReadLine();
+            _goalFileName = Console.ReadLine();
         }
 
         string line = $"{goalStartDate},{goalEndDate},{goalCompleted},{goalType},{goalName},{goalDescription},{goalPoints},{bonusPoints},{targetCount},{currentCount}";
@@ -24,9 +25,19 @@ class FileHandler
 
         try
         {
-            File.WriteAllText(goalFileName, line + Environment.NewLine);
+            if (File.Exists(_goalFileName) && _savegoalcounter <= 0)
+            {
+                _savegoalcounter++;
+                // If the file doesn't exist, create it and write the line
+                File.WriteAllText(_goalFileName, line + Environment.NewLine);
+            }
+            else
+            {
+                // If the file exists, append the line to the existing content
+                File.AppendAllText(_goalFileName, line + Environment.NewLine);
+            }
             Console.WriteLine("Goal saved successfully!");
-        }
+        }    
         catch (IOException e)
         {
             Console.WriteLine($"An error occurred while saving the goal: {e.Message}");
