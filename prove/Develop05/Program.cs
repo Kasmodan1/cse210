@@ -2,6 +2,13 @@ using System;
 using System.Threading;
 using System.Collections.Generic;
 
+
+//Added Rank Class that is based on total Points. (gameification)
+//Added Start Dates so users would know when they started there goal.
+//Also added end Dates so the users would know when they needed to complete the goal by.(this was not enforced if they didn't. Was going to develope that but ran out of time)
+//Added Displays Rank info before total Points and gives progress toward next posable level.
+//Added error handling on menu selection and saving and loading incase there is an error.
+
 class Program
 {
     static void Main(string[] args)
