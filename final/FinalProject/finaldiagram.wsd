@@ -1,0 +1,84 @@
+@startuml
+
+Book <|-- FictionBook
+Book <|-- NonFictionBook
+FictionBook <|-- MysteryBook
+FictionBook <|-- ScienceFictionBook
+FictionBook <|-- FantasyBook
+NonFictionBook <|-- BiographyBook
+NonFictionBook <|-- SelfHelpBook
+LibraryMember "1" -- "0..*" Book
+Library "1" -- "0..*" Book
+Library "1" -- "0..*" LibraryMember
+
+class Library {
+  - books: List<Book>
+  - members: List<LibraryMember>
+  + addBook()
+  + removeBook()
+  + searchBookByTitle()
+  + searchBookByAuthor()
+  + addMember()
+  + removeMember()
+}
+
+class Book {
+  - title: string
+  - author: string
+  - ISBN: string
+  - genre: string
+  - availability: bool
+  # getters and setters
+  + displayBookDetails()
+}
+
+class FictionBook {
+  - targetAge: int
+  + displayBookDetails()
+}
+
+class NonFictionBook {
+  - topic: string
+  + displayBookDetails()
+}
+
+class MysteryBook {
+  - detective: string
+  - crime: string
+  + displayBookDetails()
+}
+
+class ScienceFictionBook {
+  - setting: string
+  - technology: string
+  + displayBookDetails()
+}
+
+class FantasyBook {
+  - magicalCreatures: string
+  - mythicalWorld: string
+  + displayBookDetails()
+}
+
+class BiographyBook {
+  - subject: string
+  + displayBookDetails()
+}
+
+class SelfHelpBook {
+  - topic: string
+  + displayBookDetails()
+}
+
+class LibraryMember {
+  - name: string
+  - libraryID: string
+  - borrowedBooks: List<Book>
+  + getters and setters
+  + borrowBook()
+  + returnBook()
+  + displayBorrowedBooks()
+}
+
+
+@enduml
