@@ -7,13 +7,15 @@ FictionBook <|-- ScienceFictionBook
 FictionBook <|-- FantasyBook
 NonFictionBook <|-- BiographyBook
 NonFictionBook <|-- SelfHelpBook
-LibraryMember "1" -- "0..*" Book
-Library "1" -- "0..*" Book
-Library "1" -- "0..*" LibraryMember
+LibraryMember "1" -- "many" Book :contains
+Library "1" -- "many" Book :contains
+Library "1" -- "many" LibraryMember :contains
 
 class Library {
   - books: List<Book>
   - members: List<LibraryMember>
+  - InitializeBooks()
+  - InitializeMembers()
   + addBook()
   + removeBook()
   + searchBookByTitle()
