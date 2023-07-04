@@ -10,6 +10,7 @@ NonFictionBook <|-- SelfHelpBook
 LibraryMember "1" -- "many" Book :contains
 Library "1" -- "many" Book :contains
 Library "1" -- "many" LibraryMember :contains
+Library -- FileManager
 
 class Library {
   - books: List<Book>
@@ -22,6 +23,31 @@ class Library {
   + searchBookByAuthor()
   + addMember()
   + removeMember()
+}
+
+class FileManager {
+  - bookDataFile: string
+  - memberDataFile : string
+  + SaveBooks()
+  + LoadBooks()
+  + SaveMembers()
+  + LoadMembers()
+  - ConvertBookToString()
+  - ConvertStringToBooks()
+  - ConvertMembersToString()
+  - ConvertStringToMemebers()
+
+
+}
+
+class LibraryMember {
+  - name: string
+  - libraryID: string
+  - borrowedBooks: List<Book>
+  + getters and setters
+  + borrowBook()
+  + returnBook()
+  + displayBorrowedBooks()
 }
 
 class Book {
@@ -70,16 +96,6 @@ class BiographyBook {
 class SelfHelpBook {
   - topic: string
   + displayBookDetails()
-}
-
-class LibraryMember {
-  - name: string
-  - libraryID: string
-  - borrowedBooks: List<Book>
-  + getters and setters
-  + borrowBook()
-  + returnBook()
-  + displayBorrowedBooks()
 }
 
 
