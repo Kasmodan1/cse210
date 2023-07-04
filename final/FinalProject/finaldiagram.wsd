@@ -45,7 +45,8 @@ class LibraryMember {
   - name: string
   - libraryID: string
   - borrowedBooks: List<Book>
-  + getters and setters
+  + getters
+  # setters
   + BorrowBook()
   + ReturnBook()
   + DisplayBorrowedBooks()
@@ -54,10 +55,11 @@ class LibraryMember {
 class Book {
   - title: string
   - author: string
-  - ISBN: string
+  - isbn: string
   - genre: string
   - availability: bool
-  # getters and setters
+  + getters
+  # setters
   + DisplayBookDetails()
 }
 
