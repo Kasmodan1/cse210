@@ -1,4 +1,4 @@
-@startuml
+@startuml Library System
 
 Book <|-- FictionBook
 Book <|-- NonFictionBook
@@ -36,8 +36,6 @@ class FileManager {
   - ConvertStringToBooks()
   - ConvertMembersToString()
   - ConvertStringToMemebers()
-
-
 }
 
 class LibraryMember {
