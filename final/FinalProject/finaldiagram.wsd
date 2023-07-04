@@ -15,14 +15,17 @@ Library -- FileManager
 class Library {
   - books: List<Book>
   - members: List<LibraryMember>
+  - fileManager
   - InitializeBooks()
   - InitializeMembers()
-  + addBook()
-  + removeBook()
-  + searchBookByTitle()
-  + searchBookByAuthor()
-  + addMember()
-  + removeMember()
+  - SaveData()
+  - LoadData()
+  + AddBook()
+  + RemoveBook()
+  + SearchBookByTitle()
+  + SearchBookByAuthor()
+  + AddMember()
+  + RemoveMember()
 }
 
 class FileManager {
@@ -43,9 +46,9 @@ class LibraryMember {
   - libraryID: string
   - borrowedBooks: List<Book>
   + getters and setters
-  + borrowBook()
-  + returnBook()
-  + displayBorrowedBooks()
+  + BorrowBook()
+  + ReturnBook()
+  + DisplayBorrowedBooks()
 }
 
 class Book {
@@ -55,45 +58,45 @@ class Book {
   - genre: string
   - availability: bool
   # getters and setters
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class FictionBook {
   - targetAge: int
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class NonFictionBook {
   - topic: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class MysteryBook {
   - detective: string
   - crime: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class ScienceFictionBook {
   - setting: string
   - technology: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class FantasyBook {
   - magicalCreatures: string
   - mythicalWorld: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class BiographyBook {
   - subject: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 class SelfHelpBook {
   - topic: string
-  + displayBookDetails()
+  + DisplayBookDetails()
 }
 
 
