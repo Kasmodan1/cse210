@@ -53,23 +53,23 @@ class LibraryMember {
 }
 
 class Book {
-  - title: string
-  - author: string
-  - isbn: string
-  - genre: string
-  - availability: bool
+  # title: string
+  # author: string
+  # isbn: string
+  # genre: string
+  # availability: bool
   + getters
   # setters
   # DisplayBookDetails()
 }
 
 class FictionBook {
-  - targetAge: int
+  # targetAge: int
   # DisplayBookDetails()
 }
 
 class NonFictionBook {
-  - topic: string
+  # theme: string
   # DisplayBookDetails()
 }
 

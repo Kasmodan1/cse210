@@ -82,7 +82,7 @@ class Library {
     addBook(new Book("The No. 1 Ladies' Detective Agency", "Alexander McCall Smith", "9781400034772", "Mystery"));
     addBook(new Book("The Secret History", "Donna Tartt", "9781400031702", "Mystery"));
     addBook(new Book("The Dry", "Jane Harper", "9781250105608", "Mystery"));
-    addBook(new Book("The Snowman", "Jo Nesbø", "9780385342995", "Mystery"));
+    addBook(new Book("The Snowman", "Jo Nesbo", "9780385342995", "Mystery"));
     
     // Science Fiction Books
     addBook(new Book("Dune", "Frank Herbert", "9780441172719", "Science Fiction"));

@@ -2,19 +2,28 @@ using System;
 
 public class Book
 {
-    private string _title;
-    private string _author;
-    private string _isbn;
-    private string _genre;
-    private bool _availability;
+    protected string _title;
+    protected string _author;
+    protected string _isbn;
+    protected string _genre;
+    protected bool _availability;
 
-    public Book(string title, string author, string isbn, string genre)
+    public Book(string title, string author, string isbn, string genre, bool available)
     {
         Title = title;
         Author = author;
         ISBN = isbn;
         Genre = genre;
-        Availability = true; // Assuming the book is initially available
+        Availability = available;
+    }
+
+        public Book(string title, string author, string isbn, string genre)
+    {
+        Title = title;
+        Author = author;
+        ISBN = isbn;
+        Genre = genre;
+        Availability = true;
     }
 
     public string Title
@@ -47,7 +56,7 @@ public class Book
         protected set { _availability = value; }
     }
 
-    protected virtual void DisplayBookDetails()
+    public virtual void DisplayBookDetails()
     {
         Console.WriteLine("Title: " + Title);
         Console.WriteLine("Author: " + Author);
