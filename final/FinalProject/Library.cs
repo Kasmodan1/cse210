@@ -2,15 +2,60 @@ using System;
 
 class Library {
 
-  private List<Book> books;
+  protected List<Book> _books;
+  protected List<LibraryMember> _members;
+  protected FileManager _fileManager;
 
   public Library() {
-    books = new List<Book>();
+    _books = new List<Book>();
+    _members = new List<LibraryMember>();
+    _fileManager = new FileManager();
     initializeBooks();
   }
 
   public void addBook(Book book) {
-    books.Add(book);
+    _books.Add(book);
+  }
+
+  public void RemoveBook()
+  {
+
+  }
+
+  public void AddMember()
+  {
+
+  } 
+
+  public void RemoveMember()
+  {
+
+  }
+
+  public void SearchByAuthor()
+  {
+
+  }
+
+  public void SearchBookByTitle()
+  {
+
+  }
+
+
+  public void LoadData()
+  {
+
+  }
+  
+  public void SaveData()
+  {
+
+  }
+
+  private void initializeMembers()
+  {
+  
   }
 
   private void initializeBooks()

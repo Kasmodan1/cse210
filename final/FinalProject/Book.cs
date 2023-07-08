@@ -47,7 +47,7 @@ public class Book
         protected set { _availability = value; }
     }
 
-    public void DisplayBookDetails()
+    protected virtual void DisplayBookDetails()
     {
         Console.WriteLine("Title: " + Title);
         Console.WriteLine("Author: " + Author);

@@ -60,17 +60,17 @@ class Book {
   - availability: bool
   + getters
   # setters
-  + DisplayBookDetails()
+  # DisplayBookDetails()
 }
 
 class FictionBook {
   - targetAge: int
-  + DisplayBookDetails()
+  # DisplayBookDetails()
 }
 
 class NonFictionBook {
   - topic: string
-  + DisplayBookDetails()
+  # DisplayBookDetails()
 }
 
 class MysteryBook {
