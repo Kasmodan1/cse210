@@ -65,12 +65,12 @@ class Book {
 
 class FictionBook {
   # targetAge: int
-  # DisplayBookDetails()
+  + DisplayBookDetails()
 }
 
 class NonFictionBook {
   # theme: string
-  # DisplayBookDetails()
+  + DisplayBookDetails()
 }
 
 class MysteryBook {
