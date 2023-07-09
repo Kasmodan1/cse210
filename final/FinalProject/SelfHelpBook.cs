@@ -4,15 +4,15 @@ class SelfHelpBook : NonFictionBook
 {
   private string topic;
 
-  public SelfHelpBook(string topic, string title, string author, string isbn, string genre, bool availability)
-  : base(topic, title, author, isbn, genre, availability)
+  public SelfHelpBook(string theme, string title, string author, string isbn, string genre, bool availability)
+  : base(theme, title, author, isbn, genre, availability)
     {
     
     }
 
   public string Topic
   {
-    get { return _topic; }
+    get { return topic; }
     private set {topic = value; }
   }
 

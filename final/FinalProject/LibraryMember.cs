@@ -1,36 +1,36 @@
 using System;
+using System.Collections.Generic;
 
 class LibraryMember {
 
-  private string _membername;
-  private string _libraryid;
-  private List<Book> _borrowedbooks;
+    private List<Book> _borrowedbooks;
+  
+    public string _memberfirstname { get; private set; }
+    public string _memberlastname { get; private set; }
+    public string  _libraryid { get; private set; }
 
-  public string MemberName
-  {
-    get { return _membername; }
-    protected set { _membername = value; }
-  }
 
-  public string libraryID
-  {
-    get { return _libraryid; }
-    private set {_libraryid = value; }
-  }
+    public LibraryMember(string memberFirstName, string memberLastName, string memberLibraryID)
+    {
+        _memberfirstname =memberFirstName;
+        _memberlastname = memberLastName;
+        _libraryid = memberLibraryID;
+        _borrowedbooks = new List<Book>();
+    }
 
-  public void BorrowBook()
-  {
+    public void BorrowBook(Book book)
+    {
+        // Implement the logic for borrowing a book
+    }
 
-  }
+    public void ReturnBook(Book book)
+    {
+        // Implement the logic for returning a book
+    }
 
-  public void ReturnBook()
-  {
-
-  }
-
-  public void DisplayBorrowedBooks()
-  {
-
-  }
+    public void DisplayBorrowedBooks()
+    {
+        // Implement the logic for displaying borrowed books
+    }
 
 }
