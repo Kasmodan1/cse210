@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 class LibraryMember {
 
-    private List<Book> _borrowedbooks;
-  
+    private static List<Book> _borrowedbooks;
     public string _memberfirstname { get; private set; }
     public string _memberlastname { get; private set; }
     public string  _libraryid { get; private set; }
@@ -28,9 +27,20 @@ class LibraryMember {
         // Implement the logic for returning a book
     }
 
-    public void DisplayBorrowedBooks()
+    public static void DisplayBorrowedBooks()
     {
+        if (_borrowedbooks.Count == 0)
+        {
+            Console.WriteLine("No books currently borrowed");
+            return;
+        }
         // Implement the logic for displaying borrowed books
+        Console.WriteLine("Books currently borrowed:");
+        foreach (Book book in _borrowedbooks) 
+        {
+            book.DisplayBookDetails();
+            Console.WriteLine("------------------------");
+        }
     }
 
 }

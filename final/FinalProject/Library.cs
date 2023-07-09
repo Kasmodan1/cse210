@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 class Library {
 
-    private List<Book> _books;
-    private List<LibraryMember> _members;
+    private static List<Book> _books;
+    private static List<LibraryMember> _members;
     private FileManager _fileManager;
 
     public Library() 
@@ -16,7 +16,7 @@ class Library {
         InitializeMembers();
     }
 
-    public void addBook(Book book) 
+    public static void addBook(Book book) 
     {
         _books.Add(book);
     }
@@ -47,7 +47,7 @@ class Library {
         Console.WriteLine("No books found by the author.");
     }
 
-    public void SearchBookByISBN(int isbn)
+    public void SearchBookByISBN(long isbn)
     {
         foreach (Book book in _books)
         {   
@@ -68,7 +68,7 @@ class Library {
         Console.WriteLine("No books found by that genre.");
     }
 
-    public void AddMember(LibraryMember member)
+    public static void AddMember(LibraryMember member)
     {
         _members.Add(member);
     } 

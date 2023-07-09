@@ -6,6 +6,9 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        Library library = new Library();
+
         
         bool exit = false;
 
@@ -32,18 +35,16 @@ class Program
 
                     // New Member creation
                     Console.WriteLine("First name?: ");
-                    string newmemberfirstname = Console.ReadLine();
+                    string newMemberFirstName = Console.ReadLine();
 
                     Console.WriteLine("Last name?: ");
-                    string newmemberlastname = Console.ReadLine();
+                    string newMemberLastName = Console.ReadLine();
 
-                    string newlibrarymemberid = "Enter Email Address this will be your ID ";
+                    string newLibraryMemberId = "Enter Email Address this will be your ID ";
 
-                    bool newmemberborrow = false;
+                    LibraryMember newMember = new LibraryMember(newMemberFirstName, newMemberLastName, newLibraryMemberId);
 
-                    Library member = new AddMember(newmemberfirstname, newmemberlastname, newlibrarymemberid, newmemberborrow);
-
-                    member.AddMember(member);
+                    Library.AddMember(newMember);
 
                     Console.Write("New user has been created");
                     Console.Clear();
@@ -51,62 +52,91 @@ class Program
                     break;
 
                 case "2":
-                    // create a while loop instead of if statments for case 2
-                    // Existing Member
-                    Console.WriteLine("Welcome to the Member search area.");
-                    Console.WriteLine(" ");
-                    Console.WriteLine("The types of searches are: ");
-                    Console.WriteLine("1. By Title ");
-                    Console.WriteLine("2. By Author: ");
-                    Console.WriteLine("3. By ISBN#: ");
-                    Console.WriteLine("4. By Genre: ");
-                    Console.WriteLine(" Other Member Options");
-                    Console.WriteLine("5. Display Borrowed Books: ");
-                    Console.WriteLine("6. Exit to main menu ");
-                    Console.WriteLine(" ");
-
-                    Console.Write("which type of search would you like to do?: ");
-                    int searchtype = int.Parse(Console.ReadLine());
-                    Console.Clear();
-                    
-                    if (searchtype == 1)
-                    // search book by title
+                    bool memberMenuExit = false;
+                    while (!memberMenuExit)
                     {
 
-                    }
+                        // create a while loop instead of if statements for case 2
+                        // Existing Member
+                        Console.WriteLine("Welcome to the Member search area.");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("The types of searches are: ");
+                        Console.WriteLine("1. By Title ");
+                        Console.WriteLine("2. By Author: ");
+                        Console.WriteLine("3. By ISBN#: ");
+                        Console.WriteLine("4. By Genre: ");
+                        Console.WriteLine(" Other Member Options");
+                        Console.WriteLine("5. Display Borrowed Books: ");
+                        Console.WriteLine("6. Check-out Books: ");
+                        Console.WriteLine("7. Check-in Books: ");
 
-                    else if (searchtype == 2)
-                    // search book by author
-                    {
-                      
-                    }
+                        Console.WriteLine("6. Exit to main menu ");
+                        Console.WriteLine(" ");
+                        Console.Write("Select a number choice from the menu: ");
+                        int memberMenuChoice = int.Parse(Console.ReadLine());
+                        Console.Clear();
 
-                    else if (searchtype == 3)
-                    // search book by isbn number
-                    {
-                        
-                    }
+                        switch (memberMenuChoice)
+                        {
+                            case 1:
+                                // search book by title
+                                Console.WriteLine("Enter the title of the book:");
+                                string searchTitle = Console.ReadLine();
 
-                    
-                    else if (searchtype == 4)
-                    // search book by genre
-                    {
-                        
-                    }
+                                library.SearchBookByTitle(searchTitle);
 
-                    else if (searchtype == 5)
-                    // Display currently borrowed books
-                    {
-                        
-                    }
+                                break;
 
-                    
-                    else if (searchtype == 6)
-                    // exit to Main Menu
-                    {
-                        
+                            case 2:
+                                // search book by author
+                                Console.WriteLine("Enter the Author of the book:");
+                                string searchAuthor = Console.ReadLine();
+
+                                library.SearchBookByAuthor(searchAuthor);
+                                break;
+
+                            case 3:
+                                // search book by isbn number
+                                Console.WriteLine("Enter the ISBN of the book:");
+                                long searchIsbn = long.Parse(Console.ReadLine());
+
+                                library.SearchBookByISBN(searchIsbn);
+                                break;
+
+                            case 4:
+                                // search book by genre
+                                Console.WriteLine("Enter the Genre of the book:");
+                                string searchGenre = Console.ReadLine();
+
+                                library.SearchBookByGenre(searchGenre);
+                                break;
+
+                            case 5:
+                                // Display currently borrowed books
+                                LibraryMember.DisplayBorrowedBooks();
+                                break;
+
+                            case 6:
+                                //Check-out Books
+                                LibraryMember.BorrowBook();
+                                break;
+
+                            case 7:
+                                //Check-in Books
+                                LibraryMember,ReturnBook();
+                                
+                                break;
+
+                            case 8:
+                                // exit to Main Menu
+                                memberMenuExit = true;
+                                break;
+
+                            default:
+                                Console.WriteLine("Please enter a valid choice.");
+                                break;   
+                        }
                     }
-                        
                     break;
 
                 case "3":
@@ -130,9 +160,6 @@ class Program
                     // search book by title
                     // search book by isbn number
                     // search book by genre
-                    // search by target age
-                    // search by theme
-
 
                     break;
 
