@@ -4,11 +4,11 @@ public class Book
 {
     protected string _title;
     protected string _author;
-    protected string _isbn;
+    protected long _isbn;
     protected string _genre;
     protected bool _availability;
 
-    public Book(string title, string author, string isbn, string genre, bool available)
+    public Book(string title, string author, long isbn, string genre, bool available)
     {
         Title = title;
         Author = author;
@@ -17,7 +17,7 @@ public class Book
         Availability = available;
     }
 
-        public Book(string title, string author, string isbn, string genre)
+        public Book(string title, string author, long isbn, string genre)
     {
         Title = title;
         Author = author;
@@ -38,7 +38,7 @@ public class Book
         protected set { _author = value; }
     }
 
-    public string ISBN
+    public long ISBN
     {
         get { return _isbn; }
         protected set { _isbn = value; }

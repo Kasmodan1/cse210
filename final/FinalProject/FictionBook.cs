@@ -5,7 +5,7 @@ class FictionBook : Book
 
   protected int _targetage;
 
-  public FictionBook(int targetage, string title, string author, string isbn, string genre, bool availability)
+  public FictionBook(int targetage, string title, string author, long isbn, string genre, bool availability)
   : base(title, author, isbn, genre, availability)
     {
     

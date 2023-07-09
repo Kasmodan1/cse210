@@ -4,7 +4,7 @@ class BiographyBook : NonFictionBook
 {
   private string _subject;
 
-  public BiographyBook(string topic, string title, string author, string isbn, string genre, bool availability)
+  public BiographyBook(string topic, string title, string author, long isbn, string genre, bool availability)
   : base(topic, title, author, isbn, genre, availability)
     {
     
