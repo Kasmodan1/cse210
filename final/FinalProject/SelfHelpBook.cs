@@ -2,22 +2,26 @@ using System;
 
 class SelfHelpBook : NonFictionBook
 {
-  private string topic;
+    private string topic;
 
-  public SelfHelpBook(string theme, string title, string author, long isbn, string genre, bool availability)
-  : base(theme, title, author, isbn, genre, availability)
+    public SelfHelpBook(string title, string author, long isbn, string genre) 
+    : base(title, author, isbn, genre)
     {
-    
+        Title = title;
+        Author = author;
+        ISBN = isbn;
+        Genre = genre;
+        Availability = true;
     }
 
-  public string Topic
-  {
-    get { return topic; }
-    private set {topic = value; }
-  }
+    public string Topic
+    {
+        get { return topic; }
+        private set {topic = value; }
+    }
 
-  public override void DisplayBookDetails()
-  {
+    public override void DisplayBookDetails()
+    {
 
-  }
+    }
 }

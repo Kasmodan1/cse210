@@ -97,87 +97,171 @@ class Library {
 
     private void InitializeBooks()
     {
-    // Fiction Books
-    addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 9780743273565, "Fiction"));
-    addBook(new Book("To Kill a Mockingbird", "Harper Lee", 9780061120084, "Fiction"));
-    addBook(new Book("Pride and Prejudice", "Jane Austen", 9780141439518, "Fiction"));
-    addBook(new Book("The Catcher in the Rye", "J.D. Salinger", 9780316769488, "Fiction"));
-    addBook(new Book("The Lord of the Rings", "J.R.R. Tolkien", 9780345339706, "Fiction"));
-    addBook(new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fiction"));
-    addBook(new Book("The Da Vinci Code", "Dan Brown", 9780307474278, "Fiction"));
-    addBook(new Book("Gone Girl", "Gillian Flynn", 9780307588371, "Fiction"));
-    addBook(new Book("The Kite Runner", "Khaled Hosseini", 9781594631931, "Fiction"));
-    addBook(new Book("The Girl on the Train", "Paula Hawkins", 9781594634024, "Fiction"));
+        // Fiction Books
 
-    // Mystery Books
-    addBook(new Book("The Girl with the Dragon Tattoo", "Stieg Larsson", 9780307454546, "Mystery"));
-    addBook(new Book("The Silent Patient", "Alex Michaelides", 9781250301697, "Mystery"));
-    addBook(new Book("Big Little Lies", "Liane Moriarty", 9780399587207, "Mystery"));
-    addBook(new Book("In the Woods", "Tana French", 9780143113492, "Mystery"));
-    addBook(new Book("The Cuckoo's Calling", "Robert Galbraith (J.K. Rowling)", 9780316206853, "Mystery"));
-    addBook(new Book("Gone", "Lisa Gardner", 9780553840832, "Mystery"));
-    addBook(new Book("The No. 1 Ladies' Detective Agency", "Alexander McCall Smith", 9781400034772, "Mystery"));
-    addBook(new Book("The Secret History", "Donna Tartt", 9781400031702, "Mystery"));
-    addBook(new Book("The Dry", "Jane Harper", 9781250105608, "Mystery"));
-    addBook(new Book("The Snowman", "Jo Nesbo", 9780385342995, "Mystery"));
+        // Create instances of Fiction books
+        FictionBook greatGatsby = new FictionBook("The Great Gatsby", "F. Scott Fitzgerald", 9780743273565, "Fiction");
+        FictionBook toKillAMockingbird = new FictionBook("To Kill a Mockingbird", "Harper Lee", 9780061120084, "Fiction");
+        FictionBook prideAndPrejudice = new FictionBook("Pride and Prejudice", "Jane Austen", 9780141439518, "Fiction");
+        FictionBook catcherInTheRye = new FictionBook("The Catcher in the Rye", "J.D. Salinger", 9780316769488, "Fiction");
+        FictionBook lordOfTheRings = new FictionBook("The Lord of the Rings", "J.R.R. Tolkien", 9780345339706, "Fiction");
+        FictionBook harryPotter = new FictionBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fiction");
+        FictionBook daVinciCode = new FictionBook("The Da Vinci Code", "Dan Brown", 9780307474278, "Fiction");
+        FictionBook goneGirl = new FictionBook("Gone Girl", "Gillian Flynn", 9780307588371, "Fiction");
+        FictionBook kiteRunner = new FictionBook("The Kite Runner", "Khaled Hosseini", 9781594631931, "Fiction");
+        FictionBook girlOnTheTrain = new FictionBook("The Girl on the Train", "Paula Hawkins", 9781594634024, "Fiction");
 
-    // Science Fiction Books
-    addBook(new Book("Dune", "Frank Herbert", 9780441172719, "Science Fiction"));
-    addBook(new Book("1984", "George Orwell", 9780451524935, "Science Fiction"));
-    addBook(new Book("Ender's Game", "Orson Scott Card", 9780765307695, "Science Fiction"));
-    addBook(new Book("The Hunger Games", "Suzanne Collins", 9780439023528, "Science Fiction"));
-    addBook(new Book("Brave New World", "Aldous Huxley", 9780060850524, "Science Fiction"));
-    addBook(new Book("Neuromancer", "William Gibson", 9780441569595, "Science Fiction"));
-    addBook(new Book("The War of the Worlds", "H.G. Wells", 9780141439976, "Science Fiction"));
-    addBook(new Book("Snow Crash", "Neal Stephenson", 9780553380958, "Science Fiction"));
-    addBook(new Book("Foundation", "Isaac Asimov", 9780553293357, "Science Fiction"));
-    addBook(new Book("Ready Player One", "Ernest Cline", 9780307887436, "Science Fiction"));
+        // Add the Fiction books to the library
+        Library.addBook(greatGatsby);
+        Library.addBook(toKillAMockingbird);
+        Library.addBook(prideAndPrejudice);
+        Library.addBook(catcherInTheRye);
+        Library.addBook(lordOfTheRings);
+        Library.addBook(harryPotter);
+        Library.addBook(daVinciCode);
+        Library.addBook(goneGirl);
+        Library.addBook(kiteRunner);
+        Library.addBook(girlOnTheTrain);
+    
 
-    // Non-Fiction Books
-    addBook(new Book("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 9780062316110, "Non-Fiction"));
-    addBook(new Book("Educated: A Memoir", "Tara Westover", 9780399590504, "Non-Fiction"));
-    addBook(new Book("Becoming", "Michelle Obama", 9781524763138, "Non-Fiction"));
-    addBook(new Book("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Non-Fiction"));
-    addBook(new Book("Quiet: The Power of Introverts in a World That Can't StopTalking", "Susan Cain", 9780307352156, "Non-Fiction"));
-    addBook(new Book("The Five Love Languages: The Secret to Love That Lasts", "Gary Chapman", 9780802412706, "Non-Fiction"));
-    addBook(new Book("Sapiens: A Graphic History: The Birth of Humankind", "Yuval Noah Harari and David Vandermeulen", 9780063051331, "Non-Fiction"));
-    addBook(new Book("Homo Deus: A Brief History of Tomorrow", "Yuval Noah Harari", 9780062464347, "Non-Fiction"));
-    addBook(new Book("Just Mercy: A Story of Justice and Redemption", "Bryan Stevenson", 9780812984965, "Non-Fiction"));
+        // Mystery Books
+        MysteryBook girlWithDragonTattoo = new MysteryBook("The Girl with the Dragon Tattoo", "Stieg Larsson", 9780307454546, "Mystery");
+        MysteryBook silentPatient = new MysteryBook("The Silent Patient", "Alex Michaelides", 9781250301697, "Mystery");
+        MysteryBook bigLittleLies = new MysteryBook("Big Little Lies", "Liane Moriarty", 9780399587207, "Mystery");
+        MysteryBook inTheWoods = new MysteryBook("In the Woods", "Tana French", 9780143113492, "Mystery");
+        MysteryBook cuckoosCalling = new MysteryBook("The Cuckoo's Calling", "Robert Galbraith (J.K. Rowling)", 9780316206853, "Mystery");
+        MysteryBook gone = new MysteryBook("Gone", "Lisa Gardner", 9780553840832, "Mystery");
+        MysteryBook ladiesDetectiveAgency = new MysteryBook("The No. 1 Ladies' Detective Agency", "Alexander McCall Smith", 9781400034772, "Mystery");
+        MysteryBook secretHistory = new MysteryBook("The Secret History", "Donna Tartt", 9781400031702, "Mystery");
+        MysteryBook dry = new MysteryBook("The Dry", "Jane Harper", 9781250105608, "Mystery");
+        MysteryBook snowman = new MysteryBook("The Snowman", "Jo Nesbo", 9780385342995, "Mystery");
 
-    // Biography Books
-    addBook(new Book("The Diary of a Young Girl", "Anne Frank", 9780553577129, "Biography"));
-    addBook(new Book("The Glass Castle: A Memoir", "Jeannette Walls", 9780743247542, "Biography"));
-    addBook(new Book("Unbroken: A World War II Story of Survival, Resilience, and Redemption", "Laura Hillenbrand", 9780812974492, "Biography"));
-    addBook(new Book("Steve Jobs", "Walter Isaacson", 9781451648539, "Biography"));
-    addBook(new Book("Born a Crime: Stories from a South African Childhood", "Trevor Noah", 9780399588174, "Biography"));
-    addBook(new Book("The Autobiography of Malcolm X", "Malcolm X and Alex Haley", 9780345350688, "Biography"));
-    addBook(new Book("Leonardo da Vinci", "Walter Isaacson", 9781501139154, "Biography"));
-    addBook(new Book("Educated: A Memoir", "Tara Westover", 9780399590504, "Biography"));
-    addBook(new Book("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Biography"));
-    addBook(new Book("Quiet Strength: The Principles, Practices, and Priorities of a Winning Life", "Tony Dungy", 9781414318011, "Biography"));
+        // Add the Mystery books to the library
+        Library.addBook(girlWithDragonTattoo);
+        Library.addBook(silentPatient);
+        Library.addBook(bigLittleLies);
+        Library.addBook(inTheWoods);
+        Library.addBook(cuckoosCalling);
+        Library.addBook(gone);
+        Library.addBook(ladiesDetectiveAgency);
+        Library.addBook(secretHistory);
+        Library.addBook(dry);
+        Library.addBook(snowman);
 
-    // Fantasy Books
-    addBook(new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fantasy"));
-    addBook(new Book("The Hobbit", "J.R.R. Tolkien", 9780547928227, "Fantasy"));
-    addBook(new Book("A Game of Thrones", "George R.R. Martin", 9780553381689, "Fantasy"));
-    addBook(new Book("The Name of the Wind", "Patrick Rothfuss", 9780756404741, "Fantasy"));
-    addBook(new Book("Mistborn: The Final Empire", "Brandon Sanderson", 9780765350381, "Fantasy"));
-    addBook(new Book("American Gods", "Neil Gaiman", 9780380789030, "Fantasy"));
-    addBook(new Book("The Way of Kings", "Brandon Sanderson", 9780765365279, "Fantasy"));
-    addBook(new Book("The Lies of Locke Lamora", "Scott Lynch", 9780553588941, "Fantasy"));
-    addBook(new Book("The Final Empire", "Michael J. Sullivan", 9780979621130, "Fantasy"));
-    addBook(new Book("The Magicians", "Lev Grossman", 9780452296299, "Fantasy"));
 
-    // Self-help Books
-    addBook(new Book("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 9780735211292, "Self-help"));
-    addBook(new Book("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle", 9781577314806, "Self-help"));
-    addBook(new Book("Think and Grow Rich", "Napoleon Hill", 9781585424337, "Self-help"));
-    addBook(new Book("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey", 9781982137274, "Self-help"));
-    addBook(new Book("The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life", "Mark Manson", 9780062457714, "Self-help"));
-    addBook(new Book("Man's Search for Meaning", "Viktor E. Frankl", 9780807014295, "Self-help"));
-    addBook(new Book("You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life", "Jen Sincero", 9780762447695, "Self-help"));
-    addBook(new Book("How to Win Friends and Influence People", "Dale Carnegie", 9780671027032, "Self-help"));
-    addBook(new Book("Mindset: The New Psychology of Success", "Carol S. Dweck", 9780345472328, "Self-help"));
-    addBook(new Book("The Four Agreements: A Practical Guide to Personal Freedom", "Don Miguel Ruiz", 9781878424310, "Self-help"));
+   
+        // Science Fiction Books
+        ScienceFictionBook dune = new ScienceFictionBook("Dune", "Frank Herbert", 9780441172719, "Science Fiction");
+        ScienceFictionBook nineteenEightyFour = new ScienceFictionBook("1984", "George Orwell", 9780451524935, "Science Fiction");
+        ScienceFictionBook endersGame = new ScienceFictionBook("Ender's Game", "Orson Scott Card", 9780765307695, "Science Fiction");
+        ScienceFictionBook hungerGames = new ScienceFictionBook("The Hunger Games", "Suzanne Collins", 9780439023528, "Science Fiction");
+        ScienceFictionBook braveNewWorld = new ScienceFictionBook("Brave New World", "Aldous Huxley", 9780060850524, "Science Fiction");
+        ScienceFictionBook neuromancer = new ScienceFictionBook("Neuromancer", "William Gibson", 9780441569595, "Science Fiction");
+        ScienceFictionBook warOfTheWorlds = new ScienceFictionBook("The War of the Worlds", "H.G. Wells", 9780141439976, "Science Fiction");
+        ScienceFictionBook snowCrash = new ScienceFictionBook("Snow Crash", "Neal Stephenson", 9780553380958, "Science Fiction");
+        ScienceFictionBook foundation = new ScienceFictionBook("Foundation", "Isaac Asimov", 9780553293357, "Science Fiction");
+        ScienceFictionBook readyPlayerOne = new ScienceFictionBook("Ready Player One", "Ernest Cline", 9780307887436, "Science Fiction");
+
+        Library.addBook(dune);
+        Library.addBook(nineteenEightyFour);
+        Library.addBook(endersGame);
+        Library.addBook(hungerGames);
+        Library.addBook(braveNewWorld);
+        Library.addBook(neuromancer);
+        Library.addBook(warOfTheWorlds);
+        Library.addBook(snowCrash);
+        Library.addBook(foundation);
+        Library.addBook(readyPlayerOne);
+
+        // Non-Fiction Books
+        NonFictionBook sapiens = new NonFictionBook("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 9780062316110, "Non-Fiction");
+        NonFictionBook educated = new NonFictionBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Non-Fiction");
+        NonFictionBook becoming = new NonFictionBook("Becoming", "Michelle Obama", 9781524763138, "Non-Fiction");
+        NonFictionBook immortalLife = new NonFictionBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Non-Fiction");
+        NonFictionBook quiet = new NonFictionBook("Quiet: The Power of Introverts in a World That Can't Stop Talking", "Susan Cain", 9780307352156, "Non-Fiction");
+        NonFictionBook fiveLoveLanguages = new NonFictionBook("The Five Love Languages: The Secret to Love That Lasts", "Gary Chapman", 9780802412706, "Non-Fiction");
+        NonFictionBook sapiensGraphic = new NonFictionBook("Sapiens: A Graphic History: The Birth of Humankind", "Yuval Noah Harari and David Vandermeulen", 9780063051331, "Non-Fiction");
+        NonFictionBook homoDeus = new NonFictionBook("Homo Deus: A Brief History of Tomorrow", "Yuval Noah Harari", 9780062464347, "Non-Fiction");
+        NonFictionBook justMercy = new NonFictionBook("Just Mercy: A Story of Justice and Redemption", "Bryan Stevenson", 9780812984965, "Non-Fiction");
+
+        Library.addBook(sapiens);
+        Library.addBook(educated);
+        Library.addBook(becoming);
+        Library.addBook(immortalLife);
+        Library.addBook(quiet);
+        Library.addBook(fiveLoveLanguages);
+        Library.addBook(sapiensGraphic);
+        Library.addBook(homoDeus);
+        Library.addBook(justMercy);
+        
+        // Biography Books
+        BiographyBook diaryOfYoungGirl = new BiographyBook("The Diary of a Young Girl", "Anne Frank", 9780553577129, "Biography");
+        BiographyBook glassCastle = new BiographyBook("The Glass Castle: A Memoir", "Jeannette Walls", 9780743247542, "Biography");
+        BiographyBook unbroken = new BiographyBook("Unbroken: A World War II Story of Survival, Resilience, and Redemption", "Laura Hillenbrand", 9780812974492, "Biography");
+        BiographyBook steveJobs = new BiographyBook("Steve Jobs", "Walter Isaacson", 9781451648539, "Biography");
+        BiographyBook bornACrime = new BiographyBook("Born a Crime: Stories from a South African Childhood", "Trevor Noah", 9780399588174, "Biography");
+        BiographyBook autobiographyMalcolmX = new BiographyBook("The Autobiography of Malcolm X", "Malcolm X and Alex Haley", 9780345350688, "Biography");
+        BiographyBook leonardoDaVinci = new BiographyBook("Leonardo da Vinci", "Walter Isaacson", 9781501139154, "Biography");
+        BiographyBook educated1 = new BiographyBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Biography");
+        BiographyBook immortalLife1 = new BiographyBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Biography");
+        BiographyBook quietStrength = new BiographyBook("Quiet Strength: The Principles, Practices, and Priorities of a Winning Life", "Tony Dungy", 9781414318011, "Biography");
+
+        Library.addBook(diaryOfYoungGirl);
+        Library.addBook(glassCastle);
+        Library.addBook(unbroken);
+        Library.addBook(steveJobs);
+        Library.addBook(bornACrime);
+        Library.addBook(autobiographyMalcolmX);
+        Library.addBook(leonardoDaVinci);
+        Library.addBook(educated1);
+        Library.addBook(immortalLife1);
+        Library.addBook(quietStrength);
+
+        // Fantasy Books
+        FantasyBook harryPotter1 = new FantasyBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fantasy");
+        FantasyBook theHobbit = new FantasyBook("The Hobbit", "J.R.R. Tolkien", 9780547928227, "Fantasy");
+        FantasyBook gameOfThrones = new FantasyBook("A Game of Thrones", "George R.R. Martin", 9780553381689, "Fantasy");
+        FantasyBook nameOfTheWind = new FantasyBook("The Name of the Wind", "Patrick Rothfuss", 9780756404741, "Fantasy");
+        FantasyBook mistborn = new FantasyBook("Mistborn: The Final Empire", "Brandon Sanderson", 9780765350381, "Fantasy");
+        FantasyBook americanGods = new FantasyBook("American Gods", "Neil Gaiman", 9780380789030, "Fantasy");
+        FantasyBook wayOfKings = new FantasyBook("The Way of Kings", "Brandon Sanderson", 9780765365279, "Fantasy");
+        FantasyBook liesOfLockeLamora = new FantasyBook("The Lies of Locke Lamora", "Scott Lynch", 9780553588941, "Fantasy");
+        FantasyBook finalEmpire = new FantasyBook("The Final Empire", "Michael J. Sullivan", 9780979621130, "Fantasy");
+        FantasyBook magicians = new FantasyBook("The Magicians", "Lev Grossman", 9780452296299, "Fantasy");
+
+        Library.addBook(harryPotter1);
+        Library.addBook(theHobbit);
+        Library.addBook(gameOfThrones);
+        Library.addBook(nameOfTheWind);
+        Library.addBook(mistborn);
+        Library.addBook(americanGods);
+        Library.addBook(wayOfKings);
+        Library.addBook(liesOfLockeLamora);
+        Library.addBook(finalEmpire);
+        Library.addBook(magicians);
+
+        // Self-help Books
+        SelfHelpBook atomicHabits = new SelfHelpBook("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 9780735211292, "Self-help");
+        SelfHelpBook powerOfNow = new SelfHelpBook("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle", 9781577314806, "Self-help");
+        SelfHelpBook thinkAndGrowRich = new SelfHelpBook("Think and Grow Rich", "Napoleon Hill", 9781585424337, "Self-help");
+        SelfHelpBook habitsOfEffectivePeople = new SelfHelpBook("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey", 9781982137274, "Self-help");
+        SelfHelpBook subtleArtOfNotGivingAFuck = new SelfHelpBook("The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life", "Mark Manson", 9780062457714, "Self-help");
+        SelfHelpBook mansSearchForMeaning = new SelfHelpBook("Man's Search for Meaning", "Viktor E. Frankl", 9780807014295, "Self-help");
+        SelfHelpBook youAreABadass = new SelfHelpBook("You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life", "Jen Sincero", 9780762447695, "Self-help");
+        SelfHelpBook howToWinFriends = new SelfHelpBook("How to Win Friends and Influence People", "Dale Carnegie", 9780671027032, "Self-help");
+        SelfHelpBook mindset = new SelfHelpBook("Mindset: The New Psychology of Success", "Carol S. Dweck", 9780345472328, "Self-help");
+        SelfHelpBook fourAgreements = new SelfHelpBook("The Four Agreements: A Practical Guide to Personal Freedom", "Don Miguel Ruiz", 9781878424310, "Self-help");
+
+        Library.addBook(atomicHabits);
+        Library.addBook(powerOfNow);
+        Library.addBook(thinkAndGrowRich);
+        Library.addBook(habitsOfEffectivePeople);
+        Library.addBook(subtleArtOfNotGivingAFuck);
+        Library.addBook(mansSearchForMeaning);
+        Library.addBook(youAreABadass);
+        Library.addBook(howToWinFriends);
+        Library.addBook(mindset);
+        Library.addBook(fourAgreements);
+
     }
 }

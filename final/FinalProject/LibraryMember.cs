@@ -19,12 +19,23 @@ class LibraryMember {
 
     public void BorrowBook(Book book)
     {
-        // Implement the logic for borrowing a book
+        if (book.Availability)
+        {
+            book.Borrow();
+            _borrowedbooks.Add(book);
+            Console.WriteLine("Book borrowed successfully.");
+        }
     }
 
     public void ReturnBook(Book book)
     {
-        // Implement the logic for returning a book
+        if (_borrowedbooks.Contains(book))
+        {
+            book.Return();
+            _borrowedbooks.Remove(book);
+            Console.WriteLine("Book returned successfully");
+        }
+        
     }
 
     public static void DisplayBorrowedBooks()

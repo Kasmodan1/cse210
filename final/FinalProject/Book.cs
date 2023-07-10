@@ -1,6 +1,6 @@
 using System;
 
-public class Book
+public abstract class Book
 {
     protected string _title;
     protected string _author;
@@ -8,13 +8,13 @@ public class Book
     protected string _genre;
     protected bool _availability;
 
-    public Book(string title, string author, long isbn, string genre, bool available)
+    public Book(string title, string author, long isbn, string genre, bool availability)
     {
         Title = title;
         Author = author;
         ISBN = isbn;
         Genre = genre;
-        Availability = available;
+        Availability = availability;
     }
 
         public Book(string title, string author, long isbn, string genre)
@@ -64,4 +64,7 @@ public class Book
         Console.WriteLine("Genre: " + Genre);
         Console.WriteLine("Availability: " + (Availability ? "Available" : "Not available"));
     }
+
+    public abstract void Borrow();
+    public abstract void Return();
 }
