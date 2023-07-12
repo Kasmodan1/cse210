@@ -5,9 +5,10 @@ class BiographyBook : NonFictionBook
     private string _subject;
 
     public BiographyBook(string title, string author, long isbn, string genre, bool availability, string theme)
-    : base(title, author, isbn, genre, availability)
+    : base(title, author, isbn, genre, availability, theme)
     {
-        
+        _theme = theme;
+        _subject = Subject;
     }
 
     public BiographyBook(string title, string author, long isbn, string genre)
