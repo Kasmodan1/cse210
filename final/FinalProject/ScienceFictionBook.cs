@@ -2,10 +2,14 @@ using System;
 
 class ScienceFictionBook : FictionBook
 {
+    private string _settings;
+    private string _technology;
+
     public ScienceFictionBook(string title, string author, long isbn, string genre, bool availability, int targetage)
     : base(title, author, isbn, genre, availability, targetage)
     {
-        
+        Availability = availability;
+        TargetAge = targetage;
     }
 
     public ScienceFictionBook(string title, string author, long isbn, string genre)
@@ -17,8 +21,6 @@ class ScienceFictionBook : FictionBook
         Genre = genre;
         Availability = true; 
     }
-
-        
 
 
     public override void DisplayBookDetails()
