@@ -8,7 +8,7 @@ class FictionBook : Book
     public FictionBook(string title, string author, long isbn, string genre, bool availability, int targetage)
     : base(title, author, isbn, genre, availability)
     {
-        _targetage = targetage;
+        TargetAge = targetage;
         
     }
 
@@ -22,6 +22,12 @@ class FictionBook : Book
         Availability = true;
     }
 
+    public int TargetAge
+    {
+        get { return _targetage; }
+        protected set {_targetage = value; }
+    }
+
     public override void DisplayBookDetails()
     {
         // Implement the logic to display the details of a fiction book
@@ -30,7 +36,7 @@ class FictionBook : Book
         Console.WriteLine($"ISBN: {ISBN}");
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
-        Console.WriteLine($"Target Age: {_targetage}");
+        Console.WriteLine($"Target Age: {TargetAge}");
     }
 
     public override void Borrow()
