@@ -8,6 +8,7 @@ class NonFictionBook : Book
     public NonFictionBook(string title, string author, long isbn, string genre, bool availability, string theme)
     : base(title, author, isbn, genre, availability)
     {
+        Availability = availability;
         Theme = theme;
     }
 
@@ -24,7 +25,7 @@ class NonFictionBook : Book
     public string Theme
     {
         get { return _theme; }
-        private set {_theme = value; }
+        protected set {_theme = value; }
     }
 
     public override void DisplayBookDetails()
@@ -35,19 +36,19 @@ class NonFictionBook : Book
         Console.WriteLine($"ISBN: {ISBN}");
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
-        Console.WriteLine($"Target Age: {_theme}");
+        Console.WriteLine($"The Theme: {Theme}");
     }
 
     public override void Borrow()
     {
         Availability = false;
-        Console.WriteLine($"Borrowing a Nonfiction book: {Title}");
+        Console.WriteLine($"Successfully Borrowed the Nonfiction book: {Title}");
     }
 
     public override void Return()
     {
         Availability = true;
-        Console.WriteLine($"Returning a Nonfiction book: {Title}");
+        Console.WriteLine($"Successfully Returned the Nonfiction book: {Title}");
     }
 
 }

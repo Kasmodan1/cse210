@@ -2,8 +2,8 @@ using System;
 
 class MysteryBook : FictionBook
 {
-    private bool _detective;
-    private bool _crime;
+    private string _detective;
+    private string _crime;
 
     public MysteryBook(string title, string author, long isbn, string genre, bool availability, int targetage)
     : base(title, author, isbn, genre, availability, targetage)
@@ -21,13 +21,13 @@ class MysteryBook : FictionBook
         Availability = true; 
     }
 
-    public bool Detective
+    public string Detective
     {
         get { return _detective; }
         private set {_detective = value; }
     }
 
-    public bool Crime
+    public string Crime
     {
         get { return _crime; }
         private set {_crime = value; }
@@ -41,15 +41,9 @@ class MysteryBook : FictionBook
         Console.WriteLine($"ISBN: {ISBN}");
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
-        Console.WriteLine($"The Target Age is: {TargetAge}");
-        if (Detective == true)
-        {
-            Console.WriteLine($"This is a detective style book.");
-        }
-        if (Crime == true)
-        {
-            Console.WriteLine($"This is a Crime style book.");
-        }
+        Console.WriteLine($"Detective: {Detective}");
+        Console.WriteLine($"Crime : {Crime}");
+        
     
     }
 
