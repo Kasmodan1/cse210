@@ -97,56 +97,92 @@ class Library {
 
     private void InitializeBooks()
     {
+
+
         // Fiction Books
+        FictionBook book1 = new FictionBook("To Kill a Mockingbird", "Harper Lee", 9780061120084, "Fiction", true, 14);
+        Library.addBook(book1);
 
-        // Create instances of Fiction books
-        FictionBook greatGatsby = new FictionBook("The Great Gatsby", "F. Scott Fitzgerald", 9780743273565, "Fiction");
-        FictionBook toKillAMockingbird = new FictionBook("To Kill a Mockingbird", "Harper Lee", 9780061120084, "Fiction");
-        FictionBook prideAndPrejudice = new FictionBook("Pride and Prejudice", "Jane Austen", 9780141439518, "Fiction");
-        FictionBook catcherInTheRye = new FictionBook("The Catcher in the Rye", "J.D. Salinger", 9780316769488, "Fiction");
-        FictionBook lordOfTheRings = new FictionBook("The Lord of the Rings", "J.R.R. Tolkien", 9780345339706, "Fiction");
-        FictionBook harryPotter = new FictionBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fiction");
-        FictionBook daVinciCode = new FictionBook("The Da Vinci Code", "Dan Brown", 9780307474278, "Fiction");
-        FictionBook goneGirl = new FictionBook("Gone Girl", "Gillian Flynn", 9780307588371, "Fiction");
-        FictionBook kiteRunner = new FictionBook("The Kite Runner", "Khaled Hosseini", 9781594631931, "Fiction");
-        FictionBook girlOnTheTrain = new FictionBook("The Girl on the Train", "Paula Hawkins", 9781594634024, "Fiction");
+        FictionBook book2 = new FictionBook("Pride and Prejudice", "Jane Austen", 9780141439518, "Fiction", true, 16);
+        Library.addBook(book2);
 
-        // Add the Fiction books to the library
-        Library.addBook(greatGatsby);
-        Library.addBook(toKillAMockingbird);
-        Library.addBook(prideAndPrejudice);
-        Library.addBook(catcherInTheRye);
-        Library.addBook(lordOfTheRings);
-        Library.addBook(harryPotter);
-        Library.addBook(daVinciCode);
-        Library.addBook(goneGirl);
-        Library.addBook(kiteRunner);
-        Library.addBook(girlOnTheTrain);
-    
+        FictionBook book3 = new FictionBook("The Catcher in the Rye", "J.D. Salinger", 9780316769488, "Fiction", true, 16);
+
+        Library.addBook(book3);
+        FictionBook book4 = new FictionBook("The Great Gatsby", "F. Scott Fitzgerald", 9780743273565, "Fiction", true, 18);
+
+        Library.addBook(book4);
+        FictionBook book5 = new FictionBook("To the Lighthouse", "Virginia Woolf", 9780156907392, "Fiction", true, 16);
+
+        Library.addBook(book5);
+        FictionBook book6 = new FictionBook("Brave New World", "Aldous Huxley", 9780060850524, "Fiction", true, 18);
+
+        Library.addBook(book6);
+        FictionBook book7 = new FictionBook("The Picture of Dorian Gray", "Oscar Wilde", 9780141439570, "Fiction", true, 18);
+
+        Library.addBook(book7);
+        FictionBook book8 = new FictionBook("One Hundred Years of Solitude", "Gabriel Garcia Marquez", 9780060883287, "Fiction", true, 18);
+
+        Library.addBook(book8);
+        FictionBook book9 = new FictionBook("The Alchemist", "Paulo Coelho", 9780062315007, "Fiction", true, 14);
+        Library.addBook(book9);
+
+        FictionBook book10 = new FictionBook("The Handmaid's Tale", "Margaret Atwood", 9780385490818, "Fiction", true, 16);
+        Library.addBook(book10);       
+
 
         // Mystery Books
-        MysteryBook girlWithDragonTattoo = new MysteryBook("The Girl with the Dragon Tattoo", "Stieg Larsson", 9780307454546, "Mystery");
-        MysteryBook silentPatient = new MysteryBook("The Silent Patient", "Alex Michaelides", 9781250301697, "Mystery");
-        MysteryBook bigLittleLies = new MysteryBook("Big Little Lies", "Liane Moriarty", 9780399587207, "Mystery");
-        MysteryBook inTheWoods = new MysteryBook("In the Woods", "Tana French", 9780143113492, "Mystery");
-        MysteryBook cuckoosCalling = new MysteryBook("The Cuckoo's Calling", "Robert Galbraith (J.K. Rowling)", 9780316206853, "Mystery");
-        MysteryBook gone = new MysteryBook("Gone", "Lisa Gardner", 9780553840832, "Mystery");
-        MysteryBook ladiesDetectiveAgency = new MysteryBook("The No. 1 Ladies' Detective Agency", "Alexander McCall Smith", 9781400034772, "Mystery");
-        MysteryBook secretHistory = new MysteryBook("The Secret History", "Donna Tartt", 9781400031702, "Mystery");
-        MysteryBook dry = new MysteryBook("The Dry", "Jane Harper", 9781250105608, "Mystery");
-        MysteryBook snowman = new MysteryBook("The Snowman", "Jo Nesbo", 9780385342995, "Mystery");
-
-        // Add the Mystery books to the library.
+        MysteryBook girlWithDragonTattoo = new MysteryBook("The Girl with the Dragon Tattoo", "Stieg Larsson", 9780307454546, "Mystery", true, 18);
+        girlWithDragonTattoo.SetDetective("Lisbeth Salander");
+        girlWithDragonTattoo.SetCrime("Murder mystery");
         Library.addBook(girlWithDragonTattoo);
+
+        MysteryBook silentPatient = new MysteryBook("The Silent Patient", "Alex Michaelides", 9781250301697, "Mystery", true, 16);
+        silentPatient.SetDetective("Theo Faber");
+        silentPatient.SetCrime("Psychological thriller");
         Library.addBook(silentPatient);
+
+        MysteryBook bigLittleLies = new MysteryBook("Big Little Lies", "Liane Moriarty", 9780399587207, "Mystery", true, 16);
+        bigLittleLies.SetDetective("Madeline Martha Mackenzie");
+        bigLittleLies.SetCrime("Domestic suspense");
         Library.addBook(bigLittleLies);
+
+        MysteryBook inTheWoods = new MysteryBook("In the Woods", "Tana French", 9780143113492, "Mystery", true, 18);
+        inTheWoods.SetDetective("Rob Ryan");
+        inTheWoods.SetCrime("Missing children");
         Library.addBook(inTheWoods);
+
+        MysteryBook cuckoosCalling = new MysteryBook("The Cuckoo's Calling", "Robert Galbraith (J.K. Rowling)", 9780316206853, "Mystery", true, 16);
+        cuckoosCalling.SetDetective("Cormoran Strike");
+        cuckoosCalling.SetCrime("Private investigator");
         Library.addBook(cuckoosCalling);
+
+        MysteryBook gone = new MysteryBook("Gone", "Lisa Gardner", 9780553840832, "Mystery", true, 16);
+        gone.SetDetective("D.D. Warren");
+        gone.SetCrime("Serial killer");
         Library.addBook(gone);
-        Library.addBook(ladiesDetectiveAgency);
+
+        MysteryBook no1LadiesDetectiveAgency = new MysteryBook("The No. 1 Ladies' Detective Agency", "Alexander McCall Smith", 9781400034772, "Mystery", true, 14);
+        no1LadiesDetectiveAgency.SetDetective("Precious Ramotswe");
+        no1LadiesDetectiveAgency.SetCrime("Botswana mysteries");
+        Library.addBook(no1LadiesDetectiveAgency);
+
+        MysteryBook secretHistory = new MysteryBook("The Secret History", "Donna Tartt", 9781400031702, "Mystery", true, 18);
+        secretHistory.SetDetective("No specific detective");
+        secretHistory.SetCrime("Campus murder");
         Library.addBook(secretHistory);
-        Library.addBook(dry);
+
+        MysteryBook theDry = new MysteryBook("The Dry", "Jane Harper", 9781250105608, "Mystery", true, 16);
+        theDry.SetDetective("Aaron Falk");
+        theDry.SetCrime("Small-town secrets");
+        Library.addBook(theDry);
+
+
+        MysteryBook snowman = new MysteryBook("The Snowman", "Jo Nesbo", 9780385342995, "Mystery", true, 18);
+        snowman.SetDetective("Harry Hole");
+        snowman.SetCrime("Serial killer");
         Library.addBook(snowman);
+
 
         // Add Science Fiction books to the library.
         ScienceFictionBook dune = new ScienceFictionBook("Dune", "Frank Herbert", 9780441172719, "Science Fiction", true, 14);
@@ -199,27 +235,36 @@ class Library {
         readyPlayerOne.SetScienceTechnology("Virtual reality gaming, immersive technology");
         Library.addBook(readyPlayerOne);
 
-        // Non-Fiction Books
-        NonFictionBook sapiens = new NonFictionBook("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 9780062316110, "Non-Fiction");
-        NonFictionBook educated = new NonFictionBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Non-Fiction");
-        NonFictionBook becoming = new NonFictionBook("Becoming", "Michelle Obama", 9781524763138, "Non-Fiction");
-        NonFictionBook immortalLife = new NonFictionBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Non-Fiction");
-        NonFictionBook quiet = new NonFictionBook("Quiet: The Power of Introverts in a World That Can't Stop Talking", "Susan Cain", 9780307352156, "Non-Fiction");
-        NonFictionBook fiveLoveLanguages = new NonFictionBook("The Five Love Languages: The Secret to Love That Lasts", "Gary Chapman", 9780802412706, "Non-Fiction");
-        NonFictionBook sapiensGraphic = new NonFictionBook("Sapiens: A Graphic History: The Birth of Humankind", "Yuval Noah Harari and David Vandermeulen", 9780063051331, "Non-Fiction");
-        NonFictionBook homoDeus = new NonFictionBook("Homo Deus: A Brief History of Tomorrow", "Yuval Noah Harari", 9780062464347, "Non-Fiction");
-        NonFictionBook justMercy = new NonFictionBook("Just Mercy: A Story of Justice and Redemption", "Bryan Stevenson", 9780812984965, "Non-Fiction");
 
+        // Non-Fiction Books
+        NonFictionBook sapiens = new NonFictionBook("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 9780062316110, "Non-Fiction", true, "Human history");
         Library.addBook(sapiens);
+
+        NonFictionBook educated = new NonFictionBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Non-Fiction", true, "Personal growth");
         Library.addBook(educated);
+
+        NonFictionBook becoming = new NonFictionBook("Becoming", "Michelle Obama", 9781524763138, "Non-Fiction", true, "Autobiography");
         Library.addBook(becoming);
+
+        NonFictionBook immortalLife = new NonFictionBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Non-Fiction", true, "Medical ethics");
         Library.addBook(immortalLife);
+
+        NonFictionBook quiet = new NonFictionBook("Quiet: The Power of Introverts in a World That Can't Stop Talking", "Susan Cain", 9780307352156, "Non-Fiction", true, "Introversion");
         Library.addBook(quiet);
+        
+        NonFictionBook fiveLoveLanguages = new NonFictionBook("The Five Love Languages: The Secret to Love That Lasts", "Gary Chapman", 9780802412706, "Non-Fiction", true, "Relationships");
         Library.addBook(fiveLoveLanguages);
+
+        NonFictionBook sapiensGraphic = new NonFictionBook("Sapiens: A Graphic History: The Birth of Humankind", "Yuval Noah Harari and David Vandermeulen", 9780063051331, "Non-Fiction", true, "Human history");
         Library.addBook(sapiensGraphic);
+
+        NonFictionBook homoDeus = new NonFictionBook("Homo Deus: A Brief History of Tomorrow", "Yuval Noah Harari", 9780062464347, "Non-Fiction", true, "Future studies");
         Library.addBook(homoDeus);
+
+        NonFictionBook justMercy = new NonFictionBook("Just Mercy: A Story of Justice and Redemption", "Bryan Stevenson", 9780812984965, "Non-Fiction", true, "Criminal justice");
         Library.addBook(justMercy);
         
+
         // Biography Books
         BiographyBook diaryOfYoungGirl = new BiographyBook("The Diary of a Young Girl", "Anne Frank", 9780553577129, "Biography");
         BiographyBook glassCastle = new BiographyBook("The Glass Castle: A Memoir", "Jeannette Walls", 9780743247542, "Biography");
@@ -242,6 +287,7 @@ class Library {
         Library.addBook(educated1);
         Library.addBook(immortalLife1);
         Library.addBook(quietStrength);
+
 
         // Fantasy Books
         FantasyBook harryPotter1 = new FantasyBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fantasy", true, 10);

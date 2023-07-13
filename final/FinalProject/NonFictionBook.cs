@@ -2,7 +2,6 @@ using System;
 
 class NonFictionBook : Book
 {
-
     protected string _theme;
 
     public NonFictionBook(string title, string author, long isbn, string genre, bool availability, string theme)

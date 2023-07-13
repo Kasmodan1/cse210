@@ -2,12 +2,16 @@ using System;
 
 class FictionBook : Book
 {
-
     protected int _targetage;
 
     public FictionBook(string title, string author, long isbn, string genre, bool availability, int targetage)
     : base(title, author, isbn, genre, availability)
     {
+        Title = title;
+        Author = author;
+        ISBN = isbn;
+        Genre = genre;
+        Availability =availability;
         TargetAge = targetage;
         
     }
