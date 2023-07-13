@@ -136,7 +136,7 @@ class Library {
         MysteryBook dry = new MysteryBook("The Dry", "Jane Harper", 9781250105608, "Mystery");
         MysteryBook snowman = new MysteryBook("The Snowman", "Jo Nesbo", 9780385342995, "Mystery");
 
-        // Add the Mystery books to the library
+        // Add the Mystery books to the library.
         Library.addBook(girlWithDragonTattoo);
         Library.addBook(silentPatient);
         Library.addBook(bigLittleLies);
@@ -148,29 +148,55 @@ class Library {
         Library.addBook(dry);
         Library.addBook(snowman);
 
-
-   
-        // Science Fiction Books
-        ScienceFictionBook dune = new ScienceFictionBook("Dune", "Frank Herbert", 9780441172719, "Science Fiction");
-        ScienceFictionBook nineteenEightyFour = new ScienceFictionBook("1984", "George Orwell", 9780451524935, "Science Fiction");
-        ScienceFictionBook endersGame = new ScienceFictionBook("Ender's Game", "Orson Scott Card", 9780765307695, "Science Fiction");
-        ScienceFictionBook hungerGames = new ScienceFictionBook("The Hunger Games", "Suzanne Collins", 9780439023528, "Science Fiction");
-        ScienceFictionBook braveNewWorld = new ScienceFictionBook("Brave New World", "Aldous Huxley", 9780060850524, "Science Fiction");
-        ScienceFictionBook neuromancer = new ScienceFictionBook("Neuromancer", "William Gibson", 9780441569595, "Science Fiction");
-        ScienceFictionBook warOfTheWorlds = new ScienceFictionBook("The War of the Worlds", "H.G. Wells", 9780141439976, "Science Fiction");
-        ScienceFictionBook snowCrash = new ScienceFictionBook("Snow Crash", "Neal Stephenson", 9780553380958, "Science Fiction");
-        ScienceFictionBook foundation = new ScienceFictionBook("Foundation", "Isaac Asimov", 9780553293357, "Science Fiction");
-        ScienceFictionBook readyPlayerOne = new ScienceFictionBook("Ready Player One", "Ernest Cline", 9780307887436, "Science Fiction");
-
+        // Add Science Fiction books to the library.
+        ScienceFictionBook dune = new ScienceFictionBook("Dune", "Frank Herbert", 9780441172719, "Science Fiction", true, 14);
+        dune.SetScienceSettings("Arrakis (Dune)");
+        dune.SetScienceTechnology("Advanced interstellar travel, prescience");
         Library.addBook(dune);
+
+        ScienceFictionBook nineteenEightyFour = new ScienceFictionBook("1984", "George Orwell", 9780451524935, "Science Fiction",true, 16);
+        nineteenEightyFour.SetScienceSettings("Dystopian society");
+        nineteenEightyFour.SetScienceTechnology("Surveillance technology");
         Library.addBook(nineteenEightyFour);
+
+        ScienceFictionBook endersGame = new ScienceFictionBook("Ender's Game", "Orson Scott Card", 9780765307695, "Science Fiction",true, 12);
+        endersGame.SetScienceSettings("Battles in space");
+        endersGame.SetScienceTechnology("Advanced military training");
         Library.addBook(endersGame);
+        
+        ScienceFictionBook hungerGames = new ScienceFictionBook("The Hunger Games", "Suzanne Collins", 9780439023528, "Science Fiction", true, 13);
+        hungerGames.SetScienceSettings("Dystopian society, survival games");
+        hungerGames.SetScienceTechnology("Advanced weaponry, genetic engineering");
         Library.addBook(hungerGames);
+
+        ScienceFictionBook braveNewWorld = new ScienceFictionBook("Brave New World", "Aldous Huxley", 9780060850524, "Science Fiction", true, 16);
+        braveNewWorld.SetScienceSettings("Dystopian society, genetic engineering");
+        braveNewWorld.SetScienceTechnology("Advanced reproductive technology, mind control");
         Library.addBook(braveNewWorld);
+
+        ScienceFictionBook neuromancer = new ScienceFictionBook("Neuromancer", "William Gibson", 9780441569595, "Science Fiction", true, 18);
+        neuromancer.SetScienceSettings("Cyberpunk, virtual reality");
+        neuromancer.SetScienceTechnology("Hacking, artificial intelligence");
         Library.addBook(neuromancer);
+
+        ScienceFictionBook warOfTheWorlds = new ScienceFictionBook("The War of the Worlds", "H.G. Wells", 9780141439976, "Science Fiction", true, 14);
+        warOfTheWorlds.SetScienceSettings("Martian invasion");
+        warOfTheWorlds.SetScienceTechnology("Alien technology");
         Library.addBook(warOfTheWorlds);
+
+        ScienceFictionBook snowCrash = new ScienceFictionBook("Snow Crash", "Neal Stephenson", 9780553380958, "Science Fiction", true, 17);
+        snowCrash.SetScienceSettings("Virtual reality, cyberpunk");
+        snowCrash.SetScienceTechnology("Linguistics, computer viruses");
         Library.addBook(snowCrash);
+
+        ScienceFictionBook foundation = new ScienceFictionBook("Foundation", "Isaac Asimov", 9780553293357, "Science Fiction", true, 15);
+        foundation.SetScienceSettings("Galactic empire, psychohistory");
+        foundation.SetScienceTechnology("Advanced science, space travel");
         Library.addBook(foundation);
+
+        ScienceFictionBook readyPlayerOne = new ScienceFictionBook("Ready Player One", "Ernest Cline", 9780307887436, "Science Fiction", true, 13);
+        readyPlayerOne.SetScienceSettings("Virtual reality, dystopian society");
+        readyPlayerOne.SetScienceTechnology("Virtual reality gaming, immersive technology");
         Library.addBook(readyPlayerOne);
 
         // Non-Fiction Books
