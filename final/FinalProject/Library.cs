@@ -218,77 +218,56 @@ class Library {
         Library.addBook(quietStrength);
 
         // Fantasy Books
-        FantasyBook harryPotter1 = new FantasyBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fantasy", true, 10)
-        {
-            MagicalCreatures = "Dragons, Hippogriffs, Phoenixes",
-            MythicalWorld = "Hogwarts School of Witchcraft and Wizardry"
-        };
-
-        FantasyBook theHobbit = new FantasyBook("The Hobbit", "J.R.R. Tolkien", 9780547928227, "Fantasy")
-        {
-            MagicalCreatures = "Dragons, Dwarves, Elves",
-            MythicalWorld = "Middle-earth"
-        };
-
-        FantasyBook gameOfThrones = new FantasyBook("A Game of Thrones", "George R.R. Martin", 9780553381689, "Fantasy")
-        {
-            MagicalCreatures = "Dragons, Direwolves",
-            MythicalWorld = "Westeros"
-        };
-
-        FantasyBook nameOfTheWind = new FantasyBook("The Name of the Wind", "Patrick Rothfuss", 9780756404741, "Fantasy")
-        {
-            MagicalCreatures = "Arcanists, Chandrian",
-            MythicalWorld = "The Four Corners of Civilization"
-        };
-
-        FantasyBook mistborn = new FantasyBook("Mistborn: The Final Empire", "Brandon Sanderson", 9780765350381, "Fantasy")
-        {
-            MagicalCreatures = "Allomancers, Mistwraiths",
-            MythicalWorld = "Scadrial"
-        };
-
-        FantasyBook americanGods = new FantasyBook("American Gods", "Neil Gaiman", 9780380789030, "Fantasy")
-        {
-            MagicalCreatures = "Old Gods, New Gods",
-            MythicalWorld = "Contemporary America"
-        };
-
-        FantasyBook wayOfKings = new FantasyBook("The Way of Kings", "Brandon Sanderson", 9780765365279, "Fantasy")
-        {
-            MagicalCreatures = "Highspren, Chasmfiends",
-            MythicalWorld = "Roshar"
-        };
-
-        FantasyBook liesOfLockeLamora = new FantasyBook("The Lies of Locke Lamora", "Scott Lynch", 9780553588941, "Fantasy")
-        {
-            MagicalCreatures = "Thieves, Gentlemen Bastards",
-            MythicalWorld = "Camorr"
-        };
-
-        FantasyBook finalEmpire = new FantasyBook("The Final Empire", "Michael J. Sullivan", 9780979621130, "Fantasy")
-        {
-            MagicalCreatures = "Mistborn, Inquisitors",
-            MythicalWorld = "The World of Elan"
-        };
-
-        FantasyBook magicians = new FantasyBook("The Magicians", "Lev Grossman", 9780452296299, "Fantasy")
-        {
-            MagicalCreatures = "Fillorians, Talking Animals",
-            MythicalWorld = "Brakebills College, Fillory"
-        };
-
+        FantasyBook harryPotter1 = new FantasyBook("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 9780590353427, "Fantasy", true, 10);
+        harryPotter1.SetMagicalCreatures("Dragons, Hippogriffs, Phoenixes");
+        harryPotter1.SetMythicalWorld("Hogwarts School of Witchcraft and Wizardry");
         Library.addBook(harryPotter1);
-        Library.addBook(theHobbit);
-        Library.addBook(gameOfThrones);
-        Library.addBook(nameOfTheWind);
-        Library.addBook(mistborn);
-        Library.addBook(americanGods);
-        Library.addBook(wayOfKings);
-        Library.addBook(liesOfLockeLamora);
-        Library.addBook(finalEmpire);
-        Library.addBook(magicians);
 
+        FantasyBook theHobbit = new FantasyBook("The Hobbit", "J.R.R. Tolkien", 9780547928227, "Fantasy", true, 12);
+        theHobbit.SetMagicalCreatures("Dragons, Dwarves, Elves");
+        theHobbit.SetMythicalWorld("Middle-earth");
+        Library.addBook(theHobbit);
+
+        FantasyBook gameOfThrones = new FantasyBook("A Game of Thrones", "George R.R. Martin", 9780553381689, "Fantasy", true, 18);
+        gameOfThrones.SetMagicalCreatures("Dragons, Direwolves");
+        gameOfThrones.SetMythicalWorld("Westeros");
+        Library.addBook(gameOfThrones);
+
+        FantasyBook nameOfTheWind = new FantasyBook("The Name of the Wind", "Patrick Rothfuss", 9780756404741, "Fantasy", true, 16);
+        nameOfTheWind.SetMagicalCreatures("Arcanists, Chandrian");
+        nameOfTheWind.SetMythicalWorld("The Four Corners of Civilization");
+        Library.addBook(nameOfTheWind);
+
+        FantasyBook mistborn = new FantasyBook("Mistborn: The Final Empire", "Brandon Sanderson", 9780765350381, "Fantasy", true, 14);
+        mistborn.SetMagicalCreatures("Allomancers, Mistwraiths");
+        mistborn.SetMythicalWorld("Scadrial");
+        Library.addBook(mistborn);
+
+        FantasyBook americanGods = new FantasyBook("American Gods", "Neil Gaiman", 9780380789030, "Fantasy", true, 18);
+        americanGods.SetMagicalCreatures("Old Gods, New Gods");
+        americanGods.SetMythicalWorld("Contemporary America");
+        Library.addBook(americanGods);
+
+        FantasyBook wayOfKings = new FantasyBook("The Way of Kings", "Brandon Sanderson", 9780765365279, "Fantasy", true, 16);
+        wayOfKings.SetMagicalCreatures("Highspren, Chasmfiends");
+        wayOfKings.SetMythicalWorld("Roshar");
+        Library.addBook(wayOfKings);
+
+        FantasyBook liesOfLockeLamora = new FantasyBook("The Lies of Locke Lamora", "Scott Lynch", 9780553588941, "Fantasy", true, 16);
+        liesOfLockeLamora.SetMagicalCreatures("Thieves, Gentlemen Bastards");
+        liesOfLockeLamora.SetMythicalWorld("Camorr");
+        Library.addBook(liesOfLockeLamora);
+
+        FantasyBook finalEmpire = new FantasyBook("The Final Empire", "Michael J. Sullivan", 9780979621130, "Fantasy", true, 14);
+        finalEmpire.SetMagicalCreatures("Mistborn, Inquisitors");
+        finalEmpire.SetMythicalWorld("The World of Elan");
+        Library.addBook(finalEmpire);
+
+        FantasyBook magicians = new FantasyBook("The Magicians", "Lev Grossman", 9780452296299, "Fantasy", true, 16);
+        magicians.SetMagicalCreatures("Fillorians, Talking Animals");
+        magicians.SetMythicalWorld("Brakebills College, Fillory");
+        Library.addBook(magicians);
+        
 
         // Self-help Books
         SelfHelpBook atomicHabits = new SelfHelpBook("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 9780735211292, "Self-help");
