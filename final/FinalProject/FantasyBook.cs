@@ -13,19 +13,15 @@ class FantasyBook : FictionBook
         MythicalWorld = mythicalWorld;
     }
 
-    public FantasyBook(string title, string author, long isbn, string genre)
-    : base(title, author, isbn, genre)
-    {
+    public FantasyBook(string title, string author, long isbn, string genre, bool availability, int targetage) 
+    : base(title, author, isbn, genre, availability, targetage)
+    {   
         Title = title;
         Author = author;
         ISBN = isbn;
         Genre = genre;
-        Availability = true; 
-    }
-
-    public FantasyBook(string title, string author, long isbn, string genre, bool availability, int targetage) : base(title, author, isbn, genre, availability, targetage)
-    {
-
+        Availability = availability;
+        TargetAge = targetage;
     }
 
     public string MagicalCreatures
@@ -51,6 +47,16 @@ class FantasyBook : FictionBook
         Console.WriteLine($"Target Age: {TargetAge}");
         Console.WriteLine($"Magical Creatures: {MagicalCreatures}");
         Console.WriteLine($"This book has {MythicalWorld}");
+    }
+
+    public void SetMagicalCreatures(string creatures)
+    {
+        MagicalCreatures = creatures;
+    }
+
+    public void SetMythicalWorld(string world)
+    {
+        MythicalWorld = world;
     }
 
     public override void Borrow()
