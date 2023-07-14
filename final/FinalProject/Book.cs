@@ -17,7 +17,7 @@ public abstract class Book
         Availability = availability;
     }
 
-        public Book(string title, string author, long isbn, string genre)
+    public Book(string title, string author, long isbn, string genre)
     {
         Title = title;
         Author = author;
@@ -63,6 +63,11 @@ public abstract class Book
         Console.WriteLine("ISBN: " + ISBN);
         Console.WriteLine("Genre: " + Genre);
         Console.WriteLine("Availability: " + (Availability ? "Available" : "Not available"));
+    }
+    
+    public void SetAvailability(bool available)
+    {
+        Availability = available;
     }
 
     public abstract void Borrow();

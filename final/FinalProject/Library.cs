@@ -26,31 +26,52 @@ class Library {
         _books.Remove(book);
     }
 
-    public void SearchBookByTitle(string title)
+    public List<Book> SearchBookByTitle(string title)
     {
-        foreach (Book book in _books) {
+        List<Book> matchingBooks = new List<Book>();
+
+        foreach (Book book in _books) 
+        {
             if (book.Title.IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0) 
             {
                 book.DisplayBookDetails();
-                return;
+                matchingBooks.Add(book);
             }
         }
-        Console.WriteLine("Book not found.");
+
+        if (matchingBooks.Count == 0)
+        {
+            Console.WriteLine("No books found with the specified title.");
+        }
+
+        return matchingBooks;
     }
 
-    public void SearchBookByAuthor(string author) {
-        foreach (Book book in _books) {
+    public List<Book> SearchBookByAuthor(string author) 
+    {
+        List<Book> matchingBooks = new List<Book>();
+
+        foreach (Book book in _books) 
+        {
             if (book.Author.IndexOf(author, StringComparison.OrdinalIgnoreCase) >= 0) 
             {
                 book.DisplayBookDetails();
-                return;
+                matchingBooks.Add(book);
             }
         }
-        Console.WriteLine("No books found by the author.");
+
+        if (matchingBooks.Count == 0)
+        {
+           Console.WriteLine("No books found by the author."); 
+        }
+
+        return matchingBooks;
     }
 
-    public void SearchBookByISBN(long isbn)
-    {
+    public List<Book> SearchBookByISBN(long isbn)
+    {   
+        List<Book> matchingBooks = new List<Book>();
+
         string searchISBN = isbn.ToString();
 
         foreach (Book book in _books)
@@ -58,20 +79,37 @@ class Library {
             if (book.ISBN.ToString().Contains(searchISBN)) 
             {
                 book.DisplayBookDetails();
-                return;
+                matchingBooks.Add(book);
             }
         }
-        Console.WriteLine("No books found by that ISBN number.");
+
+        if (matchingBooks.Count == 0)
+        {
+            Console.WriteLine("No books found by that ISBN number.");
+        }
+
+        return matchingBooks;
     }
 
-    public void SearchBookByGenre(string genre) {
-        foreach (Book book in _books) {
+    public List<Book> SearchBookByGenre(string genre) 
+    {
+        List<Book> matchingBooks = new List<Book>();
+
+        foreach (Book book in _books) 
+        {
             if (book.Genre.IndexOf(genre, StringComparison.OrdinalIgnoreCase) >= 0) 
             {
                 book.DisplayBookDetails();
+                matchingBooks.Add(book);
             }
         }
-        Console.WriteLine("No books found by that genre.");
+        
+        if (matchingBooks.Count == 0)
+        {
+            Console.WriteLine("No books found by that genre.");
+        }
+       
+        return matchingBooks;
     }
 
     public static void AddMember(LibraryMember member)
