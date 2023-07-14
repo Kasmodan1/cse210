@@ -97,8 +97,6 @@ class Library {
 
     private void InitializeBooks()
     {
-
-
         // Fiction Books
         FictionBook book1 = new FictionBook("To Kill a Mockingbird", "Harper Lee", 9780061120084, "Fiction", true, 14);
         Library.addBook(book1);
@@ -266,26 +264,43 @@ class Library {
         
 
         // Biography Books
-        BiographyBook diaryOfYoungGirl = new BiographyBook("The Diary of a Young Girl", "Anne Frank", 9780553577129, "Biography");
-        BiographyBook glassCastle = new BiographyBook("The Glass Castle: A Memoir", "Jeannette Walls", 9780743247542, "Biography");
-        BiographyBook unbroken = new BiographyBook("Unbroken: A World War II Story of Survival, Resilience, and Redemption", "Laura Hillenbrand", 9780812974492, "Biography");
-        BiographyBook steveJobs = new BiographyBook("Steve Jobs", "Walter Isaacson", 9781451648539, "Biography");
-        BiographyBook bornACrime = new BiographyBook("Born a Crime: Stories from a South African Childhood", "Trevor Noah", 9780399588174, "Biography");
-        BiographyBook autobiographyMalcolmX = new BiographyBook("The Autobiography of Malcolm X", "Malcolm X and Alex Haley", 9780345350688, "Biography");
-        BiographyBook leonardoDaVinci = new BiographyBook("Leonardo da Vinci", "Walter Isaacson", 9781501139154, "Biography");
-        BiographyBook educated1 = new BiographyBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Biography");
-        BiographyBook immortalLife1 = new BiographyBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Biography");
-        BiographyBook quietStrength = new BiographyBook("Quiet Strength: The Principles, Practices, and Priorities of a Winning Life", "Tony Dungy", 9781414318011, "Biography");
-
+        BiographyBook diaryOfYoungGirl = new BiographyBook("The Diary of a Young Girl", "Anne Frank", 9780553577129, "Biography", true, "World War II");
+        diaryOfYoungGirl.SetSubject("Anne Frank");
         Library.addBook(diaryOfYoungGirl);
+
+        BiographyBook glassCastle = new BiographyBook("The Glass Castle: A Memoir", "Jeannette Walls", 9780743247542, "Biography", true, "Family Dysfunction");
+        glassCastle.SetSubject("Jeannette Walls");
         Library.addBook(glassCastle);
+
+        BiographyBook unbroken = new BiographyBook("Unbroken: A World War II Story of Survival, Resilience, and Redemption", "Laura Hillenbrand", 9780812974492, "Biography", true, "World War II");
+        unbroken.SetSubject("Louis Zamperini");
         Library.addBook(unbroken);
+
+        BiographyBook steveJobs = new BiographyBook("Steve Jobs", "Walter Isaacson", 9781451648539, "Biography", true, "Entrepreneurship");
+        steveJobs.SetSubject("Steve Jobs");
         Library.addBook(steveJobs);
+
+        BiographyBook bornACrime = new BiographyBook("Born a Crime: Stories from a South African Childhood", "Trevor Noah", 9780399588174, "Biography", true, "Comedy");
+        bornACrime.SetSubject("Trevor Noah");
         Library.addBook(bornACrime);
+
+        BiographyBook autobiographyMalcolmX = new BiographyBook("The Autobiography of Malcolm X", "Malcolm X and Alex Haley", 9780345350688, "Biography", true, "Civil Rights Movement");
+        autobiographyMalcolmX.SetSubject("Malcolm X");
         Library.addBook(autobiographyMalcolmX);
+
+        BiographyBook leonardoDaVinci = new BiographyBook("Leonardo da Vinci", "Walter Isaacson", 9781501139154, "Biography", true, "Art");
+        leonardoDaVinci.SetSubject("Leonardo da Vinci");
         Library.addBook(leonardoDaVinci);
+
+        BiographyBook educated1 = new BiographyBook("Educated: A Memoir", "Tara Westover", 9780399590504, "Biography", true, "Education");
+        educated1.SetSubject("Tara Westover");
+
+        BiographyBook immortalLife1 = new BiographyBook("The Immortal Life of Henrietta Lacks", "Rebecca Skloot", 9781400052189, "Biography", true, "Medical Ethics");
+        immortalLife1.SetSubject("Henrietta Lacks");
         Library.addBook(educated1);
-        Library.addBook(immortalLife1);
+
+        BiographyBook quietStrength = new BiographyBook("Quiet Strength: The Principles, Practices, and Priorities of a Winning Life", "Tony Dungy", 9781414318011, "Biography", true, "Sports");
+        quietStrength.SetSubject("Tony Dungy");
         Library.addBook(quietStrength);
 
 
@@ -342,27 +357,44 @@ class Library {
         
 
         // Self-help Books
-        SelfHelpBook atomicHabits = new SelfHelpBook("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 9780735211292, "Self-help");
-        SelfHelpBook powerOfNow = new SelfHelpBook("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle", 9781577314806, "Self-help");
-        SelfHelpBook thinkAndGrowRich = new SelfHelpBook("Think and Grow Rich", "Napoleon Hill", 9781585424337, "Self-help");
-        SelfHelpBook habitsOfEffectivePeople = new SelfHelpBook("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey", 9781982137274, "Self-help");
-        SelfHelpBook subtleArtOfNotGivingAFuck = new SelfHelpBook("The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life", "Mark Manson", 9780062457714, "Self-help");
-        SelfHelpBook mansSearchForMeaning = new SelfHelpBook("Man's Search for Meaning", "Viktor E. Frankl", 9780807014295, "Self-help");
-        SelfHelpBook youAreABadass = new SelfHelpBook("You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life", "Jen Sincero", 9780762447695, "Self-help");
-        SelfHelpBook howToWinFriends = new SelfHelpBook("How to Win Friends and Influence People", "Dale Carnegie", 9780671027032, "Self-help");
-        SelfHelpBook mindset = new SelfHelpBook("Mindset: The New Psychology of Success", "Carol S. Dweck", 9780345472328, "Self-help");
-        SelfHelpBook fourAgreements = new SelfHelpBook("The Four Agreements: A Practical Guide to Personal Freedom", "Don Miguel Ruiz", 9781878424310, "Self-help");
-
+        SelfHelpBook atomicHabits = new SelfHelpBook("Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones", "James Clear", 9780735211292, "Self-help", true, "Personal Development");
+        atomicHabits.SetTopic("Habit Formation");
         Library.addBook(atomicHabits);
-        Library.addBook(powerOfNow);
-        Library.addBook(thinkAndGrowRich);
-        Library.addBook(habitsOfEffectivePeople);
-        Library.addBook(subtleArtOfNotGivingAFuck);
-        Library.addBook(mansSearchForMeaning);
-        Library.addBook(youAreABadass);
-        Library.addBook(howToWinFriends);
-        Library.addBook(mindset);
-        Library.addBook(fourAgreements);
 
+        SelfHelpBook powerOfNow = new SelfHelpBook("The Power of Now: A Guide to Spiritual Enlightenment", "Eckhart Tolle", 9781577314806, "Self-help", true, "Spirituality");
+        powerOfNow.SetTopic("Present-Moment Awareness");
+        Library.addBook(powerOfNow);
+
+        SelfHelpBook thinkAndGrowRich = new SelfHelpBook("Think and Grow Rich", "Napoleon Hill", 9781585424337, "Self-help", true, "Wealth Creation");
+        thinkAndGrowRich.SetTopic("Success Mindset");
+        Library.addBook(thinkAndGrowRich);
+
+        SelfHelpBook habitsOfEffectivePeople = new SelfHelpBook("The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change", "Stephen R. Covey", 9781982137274, "Self-help", true, "Personal Development");
+        habitsOfEffectivePeople.SetTopic("Productivity and Leadership");
+        Library.addBook(habitsOfEffectivePeople);
+
+        SelfHelpBook subtleArtOfNotGiving = new SelfHelpBook("The Subtle Art of Not Giving: A Counterintuitive Approach to Living a Good Life", "Mark Manson", 9780062457714, "Self-help", true, "Personal Growth");
+        subtleArtOfNotGiving.SetTopic("Positive Psychology");
+        Library.addBook(subtleArtOfNotGiving);
+
+        SelfHelpBook mansSearchForMeaning = new SelfHelpBook("Man's Search for Meaning", "Viktor E. Frankl", 9780807014295, "Self-help", true, "Existential Psychology");
+        mansSearchForMeaning.SetTopic("Finding Meaning in Life");
+        Library.addBook(mansSearchForMeaning);
+
+        SelfHelpBook youAreABadass = new SelfHelpBook("You Are a Badass: How to Stop Doubting Your Greatness and Start Living an Awesome Life", "Jen Sincero", 9780762447695, "Self-help", true, "Self-Empowerment");
+        youAreABadass.SetTopic("Self-Confidence");
+        Library.addBook(youAreABadass);
+
+        SelfHelpBook howToWinFriends = new SelfHelpBook("How to Win Friends and Influence People", "Dale Carnegie", 9780671027032, "Self-help", true, "Interpersonal Skills");
+        howToWinFriends.SetTopic("Effective Communication");
+        Library.addBook(howToWinFriends);
+
+        SelfHelpBook mindset = new SelfHelpBook("Mindset: The New Psychology of Success", "Carol S. Dweck", 9780345472328, "Self-help", true, "Personal Development");
+        mindset.SetTopic("Growth Mindset");
+        Library.addBook(mindset);
+
+        SelfHelpBook fourAgreements = new SelfHelpBook("The Four Agreements: A Practical Guide to Personal Freedom", "Don Miguel Ruiz", 9781878424310, "Self-help", true, "Spirituality");
+        fourAgreements.SetTopic("Toltec Wisdom");
+        Library.addBook(fourAgreements);
     }
 }

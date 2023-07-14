@@ -2,9 +2,9 @@ using System;
 
 class SelfHelpBook : NonFictionBook
 {
-    private string topic;
+    private string _topic;
 
-    public SelfHelpBook(string title, string author, long isbn, string genre, bool availability, string theme, string topic) 
+    public SelfHelpBook(string title, string author, long isbn, string genre, bool availability, string theme) 
     : base(title, author, isbn, genre, availability, theme)
     {
         Title = title;
@@ -13,26 +13,15 @@ class SelfHelpBook : NonFictionBook
         Genre = genre;
         Availability = availability;
         Theme = theme;
-        Topic = topic;
-    }
-
-    public SelfHelpBook(string title, string author, long isbn, string genre) 
-    : base(title, author, isbn, genre)
-    {
-        Title = title;
-        Author = author;
-        ISBN = isbn;
-        Genre = genre;
-        Availability = true;
     }
 
     public string Topic
     {
-        get { return topic; }
-        private set {topic = value; }
+        get { return _topic; }
+        private set {_topic = value; }
     }
 
-     public override void DisplayBookDetails()
+    public override void DisplayBookDetails()
     {
         // Implement the logic to display the details of a SelfHelp book
         Console.WriteLine($"Title: {Title}");
@@ -43,16 +32,20 @@ class SelfHelpBook : NonFictionBook
         Console.WriteLine($"The Theme: {Theme}");
         Console.WriteLine($"The Topic: {Topic}");
     }
-
+    
+    public void SetTopic(string topic)
+    {
+        Topic = topic;
+    }
     public override void Borrow()
     {
         Availability = false;
-        Console.WriteLine($"Successfully Borrowed the SelfHelp book: {Title}");
+        Console.WriteLine($"Successfully Borrowed the {Genre}: {Title}");
     }
 
     public override void Return()
     {
         Availability = true;
-        Console.WriteLine($"Successfully Returned the SelfHelp book: {Title}");
+        Console.WriteLine($"Successfully Returned the {Genre}: {Title}");
     }
 }

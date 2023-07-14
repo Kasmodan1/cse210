@@ -4,23 +4,15 @@ class BiographyBook : NonFictionBook
 {
     private string _subject;
 
-    public BiographyBook(string title, string author, long isbn, string genre, bool availability, string theme, string subject)
+    public BiographyBook(string title, string author, long isbn, string genre, bool availability, string theme)
     : base(title, author, isbn, genre, availability, theme)
-    {
-        Availability = availability;
-        Theme = theme;
-        Subject = subject;
-
-    }
-
-    public BiographyBook(string title, string author, long isbn, string genre)
-    : base(title, author, isbn, genre)
     {
         Title = title;
         Author = author;
         ISBN = isbn;
         Genre = genre;
-        Availability = true; 
+        Availability = availability;
+        Theme = theme;
     }
 
     public string Subject
@@ -41,15 +33,22 @@ class BiographyBook : NonFictionBook
         Console.WriteLine($"The Subject: {Subject}");
     }
 
+    public void SetSubject(string subject)
+    {
+        Subject = subject;
+    }
+
     public override void Borrow()
     {
         Availability = false;
-        Console.WriteLine($"Successfully Borrowed the Biography book: {Title}");
+        Console.WriteLine($"Successfully Borrowed the {Genre}: {Title}");
     }
 
     public override void Return()
     {
         Availability = true;
-        Console.WriteLine($"Successfully Returned the Biography book: {Title}");
+        Console.WriteLine($"Successfully Returned the {Genre}: {Title}");
     }
+
+
 }
