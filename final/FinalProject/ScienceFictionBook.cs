@@ -37,9 +37,9 @@ class ScienceFictionBook : FictionBook
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"Target Age: {TargetAge}");
-         Console.WriteLine($"Setting: {ScienceSettings}");
+        Console.WriteLine($"Setting: {ScienceSettings}");
         Console.WriteLine($"Technology: {ScienceTechnology}");
-        
+        Console.WriteLine($" ");
     }
 
     public void SetScienceSettings(string settings)

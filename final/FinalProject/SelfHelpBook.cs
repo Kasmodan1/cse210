@@ -31,6 +31,7 @@ class SelfHelpBook : NonFictionBook
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"The Theme: {Theme}");
         Console.WriteLine($"The Topic: {Topic}");
+        Console.WriteLine($" ");
     }
     
     public void SetTopic(string topic)

@@ -96,16 +96,16 @@ class Program
                         {
                             case 1:
                                 // search book by title
-                                Console.WriteLine("Enter the title of the book:");
+                                Console.Write("Enter the title of the book:");
                                 string searchTitle = Console.ReadLine();
-
+                                Console.Clear();
                                 library.SearchBookByTitle(searchTitle);
 
                                 break;
 
                             case 2:
                                 // search book by author
-                                Console.WriteLine("Enter the Author of the book:");
+                                Console.Write("Enter the Author of the book:");
                                 string searchAuthor = Console.ReadLine();
 
                                 library.SearchBookByAuthor(searchAuthor);
@@ -113,7 +113,7 @@ class Program
 
                             case 3:
                                 // search book by isbn number
-                                Console.WriteLine("Enter the ISBN of the book:");
+                                Console.Write("Enter the ISBN of the book:");
                                 long searchIsbn = long.Parse(Console.ReadLine());
 
                                 library.SearchBookByISBN(searchIsbn);
@@ -121,7 +121,7 @@ class Program
 
                             case 4:
                                 // search book by genre
-                                Console.WriteLine("Enter the Genre of the book:");
+                                Console.Write("Enter the Genre of the book:");
                                 string searchGenre = Console.ReadLine();
 
                                 library.SearchBookByGenre(searchGenre);
@@ -133,14 +133,93 @@ class Program
                                 break;
 
                             case 6:
-                                //Check-out Books
-                                //LibraryMember.BorrowBook();
+                                // Check-out Books
+                                Console.Write("Enter the title of the book to check out:");
+                                string checkoutTitle = Console.ReadLine();
+
+                                // Search for books with the specified title
+                                List<Book> matchingBooks = library.SearchBookByTitle(checkoutTitle);
+
+                                if (matchingBooks.Count > 0)
+                                {
+                                    // Display the matching books with numbered options
+                                    Console.WriteLine("Matching Books:");
+                                    for (int i = 0; i < matchingBooks.Count; i++)
+                                    {
+                                        Console.WriteLine($"{i + 1}. {matchingBooks[i].Title} {matchingBooks[i].Genre}");
+                                    }
+
+                                    Console.WriteLine("Enter the number corresponding to the book you want to check out:");
+                                    int selection;
+                                    if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks.Count)
+                                    {
+                                        // Get the selected book
+                                        Book checkoutBook = matchingBooks[selection - 1];
+
+                                        if (checkoutBook.Availability)
+                                        {
+                                            // Borrow the selected book for the logged-in member
+                                            activeMember.BorrowBook(checkoutBook);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("The selected book is not available for checkout.");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid selection.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No books found with the specified title.");
+                                }
                                 break;
 
-                            case 7:
-                                //Check-in Books
-                                //LibraryMember.ReturnBook();
-                                
+                           case 7:
+                                // Check-in Books
+                                Console.WriteLine("Enter the title of the book to check in:");
+                                string returnTitle = Console.ReadLine();
+
+                                // Search for books with the specified title
+                                List<Book> matchingBooks1 = library.SearchBookByTitle(returnTitle);
+
+                                if (matchingBooks1.Count > 0)
+                                {
+                                    // Display the matching books with numbered options
+                                    Console.WriteLine("Matching Books:");
+                                    for (int i = 0; i < matchingBooks1.Count; i++)
+                                    {
+                                        Console.WriteLine($"{i + 1}. {matchingBooks1[i].Title}");
+                                    }
+
+                                    Console.WriteLine("Enter the number corresponding to the book you want to check in:");
+                                    int selection;
+                                    if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks1.Count)
+                                    {
+                                        // Get the selected book
+                                        Book returnBook = matchingBooks1[selection - 1];
+
+                                        if (activeMember.HasBorrowedBook(returnBook))
+                                        {
+                                            // Return the selected book
+                                            activeMember.ReturnBook(returnBook);
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("You have not borrowed the selected book.");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid selection.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No books found with the specified title.");
+                                }
                                 break;
 
                             case 8:

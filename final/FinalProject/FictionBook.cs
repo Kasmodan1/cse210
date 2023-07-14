@@ -41,6 +41,7 @@ class FictionBook : Book
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"Target Age: {TargetAge}");
+        Console.WriteLine($" ");
     }
 
     public override void Borrow()

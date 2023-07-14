@@ -47,6 +47,7 @@ class FantasyBook : FictionBook
         Console.WriteLine($"Target Age: {TargetAge}");
         Console.WriteLine($"Magical Creatures: {MagicalCreatures}");
         Console.WriteLine($"This book has {MythicalWorld}");
+        Console.WriteLine($" ");
     }
 
     public void SetMagicalCreatures(string creatures)

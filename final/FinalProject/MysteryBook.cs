@@ -38,6 +38,7 @@ class MysteryBook : FictionBook
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"Detective: {Detective}");
         Console.WriteLine($"Crime : {Crime}");
+        Console.WriteLine($" ");
     }
 
     public void SetDetective(string detective)

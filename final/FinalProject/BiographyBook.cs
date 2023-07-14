@@ -31,6 +31,7 @@ class BiographyBook : NonFictionBook
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"The Theme: {Theme}");
         Console.WriteLine($"The Subject: {Subject}");
+        Console.WriteLine($" ");
     }
 
     public void SetSubject(string subject)

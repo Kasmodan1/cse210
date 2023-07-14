@@ -36,6 +36,7 @@ class NonFictionBook : Book
         Console.WriteLine($"Genre: {Genre}");
         Console.WriteLine($"Availability: {(Availability ? "Available" : "Not available")}");
         Console.WriteLine($"The Theme: {Theme}");
+        Console.WriteLine($" ");
     }
 
     public override void Borrow()
