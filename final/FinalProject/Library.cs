@@ -29,7 +29,8 @@ class Library {
     public void SearchBookByTitle(string title)
     {
         foreach (Book book in _books) {
-            if (book.Title == title) {
+            if (book.Title.IndexOf(title, StringComparison.OrdinalIgnoreCase) >= 0) 
+            {
                 book.DisplayBookDetails();
                 return;
             }
@@ -39,7 +40,8 @@ class Library {
 
     public void SearchBookByAuthor(string author) {
         foreach (Book book in _books) {
-            if (book.Author == author) {
+            if (book.Author.IndexOf(author, StringComparison.OrdinalIgnoreCase) >= 0) 
+            {
                 book.DisplayBookDetails();
                 return;
             }
@@ -49,9 +51,12 @@ class Library {
 
     public void SearchBookByISBN(long isbn)
     {
+        string searchISBN = isbn.ToString();
+
         foreach (Book book in _books)
         {   
-            if (book.ISBN == isbn) {
+            if (book.ISBN.ToString().Contains(searchISBN)) 
+            {
                 book.DisplayBookDetails();
                 return;
             }
@@ -61,7 +66,8 @@ class Library {
 
     public void SearchBookByGenre(string genre) {
         foreach (Book book in _books) {
-            if (book.Genre == genre) {
+            if (book.Genre.IndexOf(genre, StringComparison.OrdinalIgnoreCase) >= 0) 
+            {
                 book.DisplayBookDetails();
             }
         }
@@ -87,6 +93,18 @@ class Library {
      public void LoadData() {
         _books = _fileManager.LoadBooks();
         _members = _fileManager.LoadMembers();
+    }
+
+    public LibraryMember GetMemberByID(string memberId)
+    {
+        foreach (LibraryMember member in _members)
+        {
+            if (member._libraryid == memberId)
+            {
+                return member;
+            }
+        }
+        return null;
     }
 
     private void InitializeMembers()

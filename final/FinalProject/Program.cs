@@ -8,8 +8,8 @@ class Program
     {
 
         Library library = new Library();
+        LibraryMember activeMember = null;
 
-        
         bool exit = false;
 
         while (!exit)
@@ -34,20 +34,20 @@ class Program
                 case "1":
 
                     // New Member creation
-                    Console.WriteLine("First name?: ");
+                    Console.Write("First name: ");
                     string newMemberFirstName = Console.ReadLine();
 
-                    Console.WriteLine("Last name?: ");
+                    Console.Write("Last name: ");
                     string newMemberLastName = Console.ReadLine();
 
-                    string newLibraryMemberId = "Enter Email Address this will be your ID ";
+                    Console.Write("Enter Email Address (this will be your ID): ");
+                    string newLibraryMemberId = Console.ReadLine();
 
                     LibraryMember newMember = new LibraryMember(newMemberFirstName, newMemberLastName, newLibraryMemberId);
 
                     Library.AddMember(newMember);
 
                     Console.Write("New user has been created");
-                    Console.Clear();
                         
                     break;
 
@@ -55,8 +55,24 @@ class Program
                     bool memberMenuExit = false;
                     while (!memberMenuExit)
                     {
+                        if (activeMember == null)
+                        {
+                            Console.Write("Enter member ID (your Email): ");
+                            string memberId = Console.ReadLine();
 
-                        // create a while loop instead of if statements for case 2
+                            LibraryMember member = library.GetMemberByID(memberId);
+                            if (member != null)
+                            {
+                                Console.WriteLine($"Member found: {member._memberfirstname} {member._memberlastname}");
+                                activeMember = member;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Member not found.");
+                                break;
+                            }
+                        }
+                        
                         // Existing Member
                         Console.WriteLine("Welcome to the Member search area.");
                         Console.WriteLine(" ");
