@@ -245,6 +245,7 @@ class Program
                     while (!adminMenuExit)
                     {
                         Console.WriteLine("Library Admin Menu:");
+                        Console.WriteLine(" ");
                         Console.WriteLine("1. Manually Add a Book");
                         Console.WriteLine("2. Remove a Book");
                         Console.WriteLine("3. Add a Member");
@@ -299,18 +300,34 @@ class Program
 
                             case 9:
                                 // Code for "Search Book by Author" option
+                                Console.Write("Enter the Author of the book:");
+                                string searchAuthor = Console.ReadLine();
+
+                                library.SearchBookByAuthor(searchAuthor);
                                 break;
 
                             case 10:
                                 // Code for "Search Book by Title" option
+                                Console.Write("Enter the title of the book:");
+                                string searchTitle = Console.ReadLine();
+                                Console.Clear();
+                                library.SearchBookByTitle(searchTitle);
                                 break;
 
                             case 11:
                                 // Code for "Search Book by ISBN Number" option
+                                Console.Write("Enter the ISBN of the book:");
+                                long searchIsbn = long.Parse(Console.ReadLine());
+
+                                library.SearchBookByISBN(searchIsbn);
                                 break;
 
                             case 12:
                                 // Code for "Search Book by Genre" option
+                                Console.Write("Enter the Genre of the book:");
+                                string searchGenre = Console.ReadLine();
+
+                                library.SearchBookByGenre(searchGenre);
                                 break;
 
                             case 13:
