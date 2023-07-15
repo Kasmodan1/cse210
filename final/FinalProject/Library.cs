@@ -117,9 +117,18 @@ class Library {
         _members.Add(member);
     } 
 
-    public void RemoveMember(LibraryMember member)
+    public void RemoveMember(string memberId)
     {
-        _members.Remove(member);
+       LibraryMember memberToRemove = GetMemberByID(memberId);
+       if (memberToRemove != null)
+       {
+            _members.Remove(memberToRemove);
+            Console.WriteLine("The chosen Member has been removed successfully.");
+       }
+       else
+       {
+            Console.WriteLine("Member not found or unable to remove.");
+       }
     }
 
     public void SaveData()
