@@ -34,13 +34,13 @@ class Program
                 case "1":
 
                     // New Member creation
-                    Console.Write("First name: ");
+                    Console.Write("Enter your first name: ");
                     string newMemberFirstName = Console.ReadLine();
 
-                    Console.Write("Last name: ");
+                    Console.Write("Enter your last name: ");
                     string newMemberLastName = Console.ReadLine();
 
-                    Console.Write("Enter Email Address (this will be your ID): ");
+                    Console.Write("Enter your Email Address (this will be your ID): ");
                     string newLibraryMemberId = Console.ReadLine();
 
                     LibraryMember newMember = new LibraryMember(newMemberFirstName, newMemberLastName, newLibraryMemberId);
@@ -267,7 +267,8 @@ class Program
                         switch (adminMenuChoice)
                         {
                             case 1:
-                                // Code for "Manually Add a Book" option
+                                // Manually Add a Book
+                        
                                 break;
 
                             case 2:
@@ -275,11 +276,37 @@ class Program
                                 break;
 
                             case 3:
-                                // Code for "Add a Member" option
+                                // Add a Member
+                                Console.Write("Enter the first name of the member: ");
+                                string adminNewMemberFirstName = Console.ReadLine();
+
+                                Console.Write("Enter the last name of the member: ");
+                                string adminNewMemberLastName = Console.ReadLine();
+
+                                Console.Write("Enter the email address (ID) of the member: ");
+                                string newMemberId = Console.ReadLine();
+
+                                LibraryMember adminNewMember = new LibraryMember(adminNewMemberFirstName, adminNewMemberLastName, newMemberId);
+                                Library.AddMember(adminNewMember);
+
+                                Console.WriteLine("Member added successfully.");
                                 break;
 
                             case 4:
-                                // Code for "Remove a Member" option
+                                // Remove a Member
+                                Console.Write("Enter the member ID to remove: ");
+                                string memberIdToRemove = Console.ReadLine();
+
+                                // Remove the member from the library and check the result
+                                bool memberRemoved = library.RemoveMember(memberIdToRemove);
+                                if (memberRemoved)
+                                {
+                                    Console.WriteLine("Member removed successfully.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Member not found.");
+                                }
                                 break;
 
                             case 5:

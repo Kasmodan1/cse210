@@ -21,6 +21,132 @@ class Library {
         _books.Add(book);
     }
 
+    public static void ManualAddBook()
+    {
+        Console.WriteLine("Enter the book title:");
+        string title = Console.ReadLine();
+
+        Console.WriteLine("Enter the book author:");
+        string author = Console.ReadLine();
+
+        Console.WriteLine("Enter the book ISBN:");
+        long isbn = long.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the book availability (true/false):");
+        bool isAvailable = bool.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the genre number:");
+        Console.WriteLine("1. Fiction");
+        Console.WriteLine("2. Non-Fiction");
+        Console.WriteLine("3. Science Fiction");
+        Console.WriteLine("4. Mystery");
+        Console.WriteLine("5. Fantasy");
+        Console.WriteLine("6. Biography");
+        Console.WriteLine("7. Self-help");
+
+        int genreNumber = int.Parse(Console.ReadLine());
+        
+        switch (genreNumber)
+        {
+            case 1:
+
+                Console.Write("Enter the target age for this book: ");
+                int targetAge = Console.Read();
+                string fictionGenre = "Fiction";
+                FictionBook fiction = new FictionBook(title, author, isbn, fictionGenre, isAvailable, targetAge);
+                Library.addBook(fiction);
+
+                break;
+
+            case 2:
+
+                Console.Write("Enter the theme for this book: ");
+                string nonFictionTheme = Console.ReadLine();
+                string nonFictionGenre = "NonFiction";
+                NonFictionBook nonfiction = new NonFictionBook(title, author, isbn, nonFictionGenre, isAvailable, nonFictionTheme);
+                Library.addBook(nonfiction);
+                break;
+
+            case 3:
+
+                Console.Write("Enter the target age for this book: ");
+                int targetAge1 = Console.Read();
+                Console.Write("Enter the science settings used in this book: ");
+                string scienceSettings = Console.ReadLine();
+                Console.Write("Enter the science technology used in this book: ");
+                string scienceTechnology = Console.ReadLine();
+                string scienceGenre = "Science Fiction";
+                ScienceFictionBook scienceFiction = new ScienceFictionBook(title, author, isbn, scienceGenre, isAvailable, targetAge1);
+                scienceFiction.SetScienceSettings(scienceSettings);
+                scienceFiction.SetScienceTechnology(scienceTechnology);
+                Library.addBook(scienceFiction);
+
+                break;
+
+            case 4:
+
+                Console.Write("Enter the target age for this book: ");
+                int targetAge2 = Console.Read();
+                Console.Write("Enter the Detective used in this book: ");
+                string mysteryDetective = Console.ReadLine();
+                Console.Write("Enter the Crime types used in this book: ");
+                string mysteryCrime = Console.ReadLine();
+                string mysteryGenre = "Mystery";
+                MysteryBook mystery = new MysteryBook(title, author, isbn, mysteryGenre, isAvailable, targetAge2);
+                mystery.SetDetective(mysteryDetective);
+                mystery.SetCrime(mysteryCrime);
+                Library.addBook(mystery);
+
+                break;
+
+            case 5:
+
+                Console.Write("Enter the target age for this book: ");
+                int targetAge3 = Console.Read();
+                Console.Write("Enter the fantasy creatures used in this book: ");
+                string fantasyCreatures = Console.ReadLine();
+                Console.Write("Enter the fantasy world used in this book: ");
+                string fantasyWorld = Console.ReadLine();
+                string fantasyGenre = "Fantasy";
+                FantasyBook fantasy = new FantasyBook(title, author, isbn, fantasyGenre, isAvailable, targetAge3);
+                fantasy.SetMagicalCreatures(fantasyCreatures);
+                fantasy.SetMythicalWorld(fantasyWorld);
+                Library.addBook(fantasy);
+
+                break;
+
+            case 6:
+
+                Console.Write("Enter the theme for this book: ");
+                string biographyTheme = Console.ReadLine();
+                Console.Write("Enter the Subject for this book: ");
+                string biographySubject = Console.ReadLine();
+                string biographygenre = "Biography";
+
+                BiographyBook biography = new BiographyBook(title, author, isbn, biographygenre, isAvailable, biographyTheme);
+                biography.SetSubject(biographySubject);
+                Library.addBook(biography);
+                break;
+
+            case 7:
+
+                Console.Write("Enter the theme for this book: ");
+                string selfHelpTheme = Console.ReadLine();
+                Console.Write("Enter the Topic for this book: ");
+                string selfHelpTopic = Console.ReadLine();
+                string selfHelpgenre = "Self-help";
+
+                SelfHelpBook selfHelp = new SelfHelpBook(title, author, isbn, selfHelpgenre, isAvailable, selfHelpTheme);
+                selfHelp.SetTopic(selfHelpTopic);
+                Library.addBook(selfHelp);
+                break;
+
+            default:
+                Console.WriteLine("Invalid genre number. Book will be added as a general Book.");
+                break;
+        }
+    }
+
     public void RemoveBook(Book book)
     {
         _books.Remove(book);
