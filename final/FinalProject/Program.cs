@@ -241,21 +241,88 @@ class Program
                     break;
 
                 case "4":
+                    bool adminMenuExit = false;
+                    while (!adminMenuExit)
+                    {
+                        Console.WriteLine("Library Admin Menu:");
+                        Console.WriteLine("1. Manually Add a Book");
+                        Console.WriteLine("2. Remove a Book");
+                        Console.WriteLine("3. Add a Member");
+                        Console.WriteLine("4. Remove a Member");
+                        Console.WriteLine("5. Save or Load Member list");
+                        Console.WriteLine("6. Save or Load Book List");
+                        Console.WriteLine("7. Display Checked Out Books");
+                        Console.WriteLine("8. Check-in Borrowed Books");
+                        Console.WriteLine("9. Search Book by Author");
+                        Console.WriteLine("10. Search Book by Title");
+                        Console.WriteLine("11. Search Book by ISBN Number");
+                        Console.WriteLine("12. Search Book by Genre");
+                        Console.WriteLine("13. Exit to Main Menu");
+                        Console.WriteLine();
+                        Console.Write("Select a number choice from the menu: ");
+                        int adminMenuChoice = int.Parse(Console.ReadLine());
+                        Console.Clear();
 
-                    //Display the Library Admin menu.
-                    // Manually Add a Book
-                    // Remove a Book
-                    // Add a Member
-                    // Remove a Member
-                    // Save or Load Member list use FileManager class
-                    // Save or Load Book List use FileManager class
-                    // Display checked out Books
-                    // Check back in borrowed book by members
-                    // search book by author
-                    // search book by title
-                    // search book by isbn number
-                    // search book by genre
+                        switch (adminMenuChoice)
+                        {
+                            case 1:
+                                // Code for "Manually Add a Book" option
+                                break;
 
+                            case 2:
+                                // Code for "Remove a Book" option
+                                break;
+
+                            case 3:
+                                // Code for "Add a Member" option
+                                break;
+
+                            case 4:
+                                // Code for "Remove a Member" option
+                                break;
+
+                            case 5:
+                                // Code for "Save or Load Member list" option
+                                break;
+
+                            case 6:
+                                // Code for "Save or Load Book List" option
+                                break;
+
+                            case 7:
+                                // Code for "Display Checked Out Books" option
+                                break;
+
+                            case 8:
+                                // Code for "Check-in Borrowed Books" option
+                                break;
+
+                            case 9:
+                                // Code for "Search Book by Author" option
+                                break;
+
+                            case 10:
+                                // Code for "Search Book by Title" option
+                                break;
+
+                            case 11:
+                                // Code for "Search Book by ISBN Number" option
+                                break;
+
+                            case 12:
+                                // Code for "Search Book by Genre" option
+                                break;
+
+                            case 13:
+                                // exit to Main Menu
+                                adminMenuExit = true;
+                                break;
+
+                            default:
+                                Console.WriteLine("Please enter a valid choice.");
+                                break;
+                        }
+                    }
                     break;
 
                 default:
