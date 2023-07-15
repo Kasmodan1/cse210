@@ -291,12 +291,62 @@ class Program
                                 break;
 
                             case 7:
-                                // Code for "Display Checked Out Books" option
+                                // Display Checked Out Books for all Users
+                                Console.WriteLine("Checked Out Books:");
+                                bool noCheckedOutBooks = true;
+
+                                foreach (LibraryMember member in Library.GetMembers())
+                                {
+                                    List<Book> borrowedBooks = member.GetBorrowedBooks();
+                                    if (borrowedBooks.Count > 0)
+                                    {
+                                        Console.WriteLine($"Member: {member._memberfirstname} {member._memberlastname}");
+                                        Console.WriteLine("Borrowed Books:");
+                                        foreach (Book book in borrowedBooks)
+                                        {
+                                            book.DisplayBookDetails();
+                                            Console.WriteLine("------------------------");
+                                        }
+                                        Console.WriteLine();
+                                        noCheckedOutBooks = false;
+                                    }
+                                }
+
+                                if (noCheckedOutBooks)
+                                {
+                                    Console.WriteLine("No books currently checked out by any member.");
+                                }
+
                                 break;
 
                             case 8:
-                                // Code for "Check-in Borrowed Books" option
+                                // Check-in Borrowed Books for all Users
+                                Console.WriteLine("Enter the title of the book to check in:");
+                                string returnTitle = Console.ReadLine();
+                                bool bookReturned = false;
+
+                                foreach (LibraryMember member in Library.GetMembers())
+                                {
+                                    List<Book> borrowedBooks = member.GetBorrowedBooks();
+                                    foreach (Book book in borrowedBooks)
+                                    {
+                                        if (book.Title.Equals(returnTitle, StringComparison.OrdinalIgnoreCase))
+                                        {
+                                            member.ReturnBook(book);
+                                            bookReturned = true;
+                                            Console.WriteLine($"Book '{book.Title}' returned by {member._memberfirstname} {member._memberlastname}");
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (!bookReturned)
+                                {
+                                    Console.WriteLine("Book not found or not checked out by any member.");
+                                }
+
                                 break;
+
 
                             case 9:
                                 // Code for "Search Book by Author" option
