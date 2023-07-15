@@ -145,6 +145,11 @@ class Library {
         return null;
     }
 
+    public static List<LibraryMember> GetMembers()
+    {
+        return _members;
+    }
+
     private void InitializeMembers()
     {
         AddMember(new LibraryMember("John", "Doe", "John.Doe@email.com"));

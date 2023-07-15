@@ -43,6 +43,11 @@ class LibraryMember {
         return _borrowedbooks.Contains(book);
     }
 
+    public List<Book> GetBorrowedBooks()
+    {
+        return _borrowedbooks;
+    }
+
     public static void DisplayBorrowedBooks()
     {
         if (_borrowedbooks.Count == 0)
