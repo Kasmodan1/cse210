@@ -268,11 +268,46 @@ class Program
                         {
                             case 1:
                                 // Manually Add a Book
-                        
+                                Library.ManualAddBook();
                                 break;
 
                             case 2:
                                 // Code for "Remove a Book" option
+                                Console.WriteLine("Enter the title of the book to remove:");
+                                string removeTitle = Console.ReadLine();
+
+                                // Search for books with the specified title
+                                List<Book> matchingBooks2 = library.SearchBookByTitle(removeTitle);
+
+                                if (matchingBooks2.Count > 0)
+                                {
+                                    // Display the matching books with numbered options
+                                    Console.WriteLine("Matching Books: ");
+                                    for (int i = 0; i < matchingBooks2.Count; i++)
+                                    {
+                                        Console.WriteLine($"{i + 1}. {matchingBooks2[i].Title},{matchingBooks2[i].Author},{matchingBooks2[i].Genre}");
+                                    }
+
+                                    Console.WriteLine("Enter the number corresponding to the book you want to remove:");
+                                    int selection;
+                                    if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks2.Count)
+                                    {
+                                        // Get the selected book
+                                        Book removeBook = matchingBooks2[selection - 1];
+
+                                        // Remove the book from the library
+                                        library.RemoveBook(removeBook);
+                                        Console.WriteLine("Book removed successfully.");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid selection.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No books found with the specified title.");
+                                }
                                 break;
 
                             case 3:
