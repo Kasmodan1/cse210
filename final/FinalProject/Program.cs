@@ -9,6 +9,7 @@ class Program
 
         Library library = new Library();
         LibraryMember activeMember = null;
+        FileManager fileManager = new FileManager();
 
         bool exit = false;
 
@@ -149,7 +150,7 @@ class Program
                                         Console.WriteLine($"{i + 1}. {matchingBooks[i].Title} {matchingBooks[i].Genre}");
                                     }
 
-                                    Console.WriteLine("Enter the number corresponding to the book you want to check out:");
+                                    Console.Write("Enter the number corresponding to the book you want to check out:");
                                     int selection;
                                     if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks.Count)
                                     {
@@ -179,7 +180,7 @@ class Program
 
                            case 7:
                                 // Check-in Books
-                                Console.WriteLine("Enter the title of the book to check in:");
+                                Console.Write("Enter the title of the book to check in:");
                                 string returnTitle = Console.ReadLine();
 
                                 // Search for books with the specified title
@@ -194,7 +195,7 @@ class Program
                                         Console.WriteLine($"{i + 1}. {matchingBooks1[i].Title}");
                                     }
 
-                                    Console.WriteLine("Enter the number corresponding to the book you want to check in:");
+                                    Console.Write("Enter the number corresponding to the book you want to check in:");
                                     int selection;
                                     if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks1.Count)
                                     {
@@ -273,7 +274,7 @@ class Program
 
                             case 2:
                                 // Code for "Remove a Book" option
-                                Console.WriteLine("Enter the title of the book to remove:");
+                                Console.Write("Enter the title of the book to remove:");
                                 string removeTitle = Console.ReadLine();
 
                                 // Search for books with the specified title
@@ -288,7 +289,7 @@ class Program
                                         Console.WriteLine($"{i + 1}. {matchingBooks2[i].Title},{matchingBooks2[i].Author},{matchingBooks2[i].Genre}");
                                     }
 
-                                    Console.WriteLine("Enter the number corresponding to the book you want to remove:");
+                                    Console.Write("Enter the number corresponding to the book you want to remove:");
                                     int selection;
                                     if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks2.Count)
                                     {
@@ -345,11 +346,66 @@ class Program
                                 break;
 
                             case 5:
-                                // Code for "Save or Load Member list" option
+                                // Save or Load Member list
+                                Console.WriteLine("Menu Options:");
+                                Console.WriteLine("1. Save Member list");
+                                Console.WriteLine("2. Load Member list");
+                                Console.Write("Select a number choice from the menu: ");
+                                string fileMemberMenuChoice = Console.ReadLine();
+                                Console.Clear();
+
+                                switch (fileMemberMenuChoice)
+                                {
+                                    case "1":
+                                        // Save Member list
+                                        library.SaveMember();
+                                        Console.WriteLine("Member list saved successfully.");
+                                        break;
+
+                                    case "2":
+                                        // Load Member list
+                                        library.LoadMember();
+                                        Console.WriteLine("Member list loaded successfully.");
+                                        break;
+
+                                    default:
+                                        Console.WriteLine("Please enter a valid choice.");
+                                        break;
+                                }
+
                                 break;
+
+                
+
 
                             case 6:
                                 // Code for "Save or Load Book List" option
+                                Console.WriteLine("Menu Options:");
+                                Console.WriteLine("1. Save Book list");
+                                Console.WriteLine("2. Load Book list");
+                                Console.Write("Select a number choice from the menu: ");
+                                string fileBookMenuChoice = Console.ReadLine();
+                                Console.Clear();
+
+                                switch (fileBookMenuChoice)
+                                {
+                                    case "1":
+                                        // Save Book list
+                                        library.SaveBook();
+                                        Console.WriteLine("Book list saved successfully.");
+                                        break;
+
+                                    case "2":
+                                        // Load Book list
+                                        library.LoadBook();
+                                        Console.WriteLine("Book list loaded successfully.");
+                                        break;
+
+                                    default:
+                                        Console.WriteLine("Please enter a valid choice.");
+                                        break;
+                                }
+
                                 break;
 
                             case 7:
@@ -382,24 +438,57 @@ class Program
                                 break;
 
                             case 8:
-                                // Check-in Borrowed Books for all Users
-                                Console.WriteLine("Enter the title of the book to check in:");
+                                Console.Write("Enter the title of the book to check in (partial search):");
                                 string returnTitle = Console.ReadLine();
                                 bool bookReturned = false;
+
+                                List<Book> matchingBooks = new List<Book>();
 
                                 foreach (LibraryMember member in Library.GetMembers())
                                 {
                                     List<Book> borrowedBooks = member.GetBorrowedBooks();
                                     foreach (Book book in borrowedBooks)
                                     {
-                                        if (book.Title.Equals(returnTitle, StringComparison.OrdinalIgnoreCase))
+                                        if (book.Title.Contains(returnTitle, StringComparison.OrdinalIgnoreCase))
                                         {
-                                            member.ReturnBook(book);
-                                            bookReturned = true;
-                                            Console.WriteLine($"Book '{book.Title}' returned by {member._memberfirstname} {member._memberlastname}");
-                                            break;
+                                            matchingBooks.Add(book);
                                         }
                                     }
+                                }
+
+                                if (matchingBooks.Count > 0)
+                                {
+                                    Console.WriteLine("Matching Books:");
+                                    for (int i = 0; i < matchingBooks.Count; i++)
+                                    {
+                                        Console.WriteLine($"{i + 1}. {matchingBooks[i].Title}");
+                                    }
+
+                                    Console.Write("Enter the number corresponding to the book you want to check in:");
+                                    int selection;
+                                    if (int.TryParse(Console.ReadLine(), out selection) && selection >= 1 && selection <= matchingBooks.Count)
+                                    {
+                                        Book returnBook = matchingBooks[selection - 1];
+
+                                        foreach (LibraryMember member in Library.GetMembers())
+                                        {
+                                            if (member.HasBorrowedBook(returnBook))
+                                            {
+                                                member.ReturnBook(returnBook);
+                                                bookReturned = true;
+                                                Console.WriteLine($"Book '{returnBook.Title}' returned by {member._memberfirstname} {member._memberlastname}");
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid selection.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No books found with the specified title.");
                                 }
 
                                 if (!bookReturned)
@@ -408,7 +497,6 @@ class Program
                                 }
 
                                 break;
-
 
                             case 9:
                                 // Code for "Search Book by Author" option

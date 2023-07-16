@@ -23,19 +23,19 @@ class Library {
 
     public static void ManualAddBook()
     {
-        Console.WriteLine("Enter the book title:");
+        Console.Write("Enter the book title:");
         string title = Console.ReadLine();
 
-        Console.WriteLine("Enter the book author:");
+        Console.Write("Enter the book author:");
         string author = Console.ReadLine();
 
-        Console.WriteLine("Enter the book ISBN:");
+        Console.Write("Enter the book ISBN:");
         long isbn = long.Parse(Console.ReadLine());
 
-        Console.WriteLine("Enter the book availability (true/false):");
+        Console.Write("Enter the book availability (true/false):");
         bool isAvailable = bool.Parse(Console.ReadLine());
 
-        Console.WriteLine("Enter the genre number:");
+        
         Console.WriteLine("1. Fiction");
         Console.WriteLine("2. Non-Fiction");
         Console.WriteLine("3. Science Fiction");
@@ -43,6 +43,7 @@ class Library {
         Console.WriteLine("5. Fantasy");
         Console.WriteLine("6. Biography");
         Console.WriteLine("7. Self-help");
+        Console.Write("Enter the genre number:");
 
         int genreNumber = int.Parse(Console.ReadLine());
         
@@ -259,14 +260,24 @@ class Library {
        }
     }
 
-    public void SaveData()
+    public void SaveMember()
     {
-        _fileManager.SaveBooks(_books);
         _fileManager.SaveMembers(_members);
     }
 
-     public void LoadData() {
+    public void SaveBook()
+    {
+        _fileManager.SaveBooks(_books);
+    }
+
+
+    public void LoadBook() 
+    {
         _books = _fileManager.LoadBooks();
+    }
+
+    public void LoadMember() 
+    {
         _members = _fileManager.LoadMembers();
     }
 
