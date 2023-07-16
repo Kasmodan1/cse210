@@ -11,7 +11,7 @@ class FileManager {
   	{
         if (string.IsNullOrEmpty(_bookdatafile))
         {
-            Console.Write("What is the filename for the goal file?: ");
+            Console.Write("What is the filename for the book file?: ");
             _bookdatafile = Console.ReadLine();
         }
 
@@ -61,7 +61,7 @@ class FileManager {
   	{
         if (string.IsNullOrEmpty(_memberdatafile))
         {
-            Console.Write("What is the filename for the goal file?: ");
+            Console.Write("What is the filename for the member file?: ");
             _memberdatafile = Console.ReadLine();
         }
 

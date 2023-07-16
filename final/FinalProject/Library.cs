@@ -297,6 +297,19 @@ class Library {
     {
         return _members;
     }
+            
+    public static LibraryMember GetMemberByBook(Book book)
+    {
+        foreach (LibraryMember member in _members)
+        {
+            if (member.HasBorrowedBook(book))
+            {
+                return member;
+            }
+        }
+
+        return null; // Book not found in any member's borrowed books
+    }
 
     private void InitializeMembers()
     {
@@ -606,4 +619,5 @@ class Library {
         fourAgreements.SetTopic("Toltec Wisdom");
         Library.addBook(fourAgreements);
     }
+
 }

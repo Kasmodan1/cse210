@@ -87,7 +87,7 @@ class Program
                         Console.WriteLine("6. Check-out Books: ");
                         Console.WriteLine("7. Check-in Books: ");
 
-                        Console.WriteLine("6. Exit to main menu ");
+                        Console.WriteLine("8. Exit to main menu ");
                         Console.WriteLine(" ");
                         Console.Write("Select a number choice from the menu: ");
                         int memberMenuChoice = int.Parse(Console.ReadLine());
@@ -375,9 +375,6 @@ class Program
 
                                 break;
 
-                
-
-
                             case 6:
                                 // Code for "Save or Load Book List" option
                                 Console.WriteLine("Menu Options:");
@@ -451,7 +448,11 @@ class Program
                                     {
                                         if (book.Title.Contains(returnTitle, StringComparison.OrdinalIgnoreCase))
                                         {
-                                            matchingBooks.Add(book);
+                                            // Check if the book is already in the matchingBooks list
+                                            if (!matchingBooks.Contains(book))
+                                            {
+                                                matchingBooks.Add(book);
+                                            }
                                         }
                                     }
                                 }
@@ -461,7 +462,9 @@ class Program
                                     Console.WriteLine("Matching Books:");
                                     for (int i = 0; i < matchingBooks.Count; i++)
                                     {
-                                        Console.WriteLine($"{i + 1}. {matchingBooks[i].Title}");
+                                        Book book = matchingBooks[i];
+                                        LibraryMember member = Library.GetMemberByBook(book);
+                                        Console.WriteLine($"{i + 1}. {book.Title},{book.Author}, {book.Genre} (Borrowed by {member._memberfirstname} {member._memberlastname})");
                                     }
 
                                     Console.Write("Enter the number corresponding to the book you want to check in:");
@@ -480,6 +483,11 @@ class Program
                                                 break;
                                             }
                                         }
+
+                                        if (!bookReturned)
+                                        {
+                                            Console.WriteLine($"The selected book '{returnBook.Title}' is not checked out by any member.");
+                                        }
                                     }
                                     else
                                     {
@@ -490,13 +498,8 @@ class Program
                                 {
                                     Console.WriteLine("No books found with the specified title.");
                                 }
-
-                                if (!bookReturned)
-                                {
-                                    Console.WriteLine("Book not found or not checked out by any member.");
-                                }
-
                                 break;
+
 
                             case 9:
                                 // Code for "Search Book by Author" option
